@@ -14,11 +14,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.frontend');
 });
+
+Route::get('/courses', function () {
+    return view('front.pages.courses');
+})->name('courses');
+
+Route::get('/contact', function () {
+    return view('front.pages.contact');
+})->name('contact');
+
+Route::get('/events', function () {
+    return view('front.pages.events');
+})->name('events');
+
+Route::get('/news', function () {
+    return view('front.pages.news');
+})->name('news');
+
+Route::get('/professors', function () {
+    return view('front.pages.professors');
+})->name('professors');
+
+Route::resource('back/banners', BannerController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/back', function () {
+    return view('back.backend');
+});
 
 require __DIR__.'/auth.php';
