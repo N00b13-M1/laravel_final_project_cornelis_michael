@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +42,12 @@ Route::get('/professors', function () {
 })->name('professors');
 
 Route::resource('back/banners', BannerController::class);
+Route::resource('back/services', ServiceController::class);
+Route::resource('back/courses', CourseController::class);
+// Route::resource('back/testimonials', Tes::class);
+Route::resource('back/professors', ProfessorController::class);
+Route::resource('back/professors', Event::class);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -47,5 +56,7 @@ Route::get('/dashboard', function () {
 Route::get('/back', function () {
     return view('back.backend');
 });
+
+
 
 require __DIR__.'/auth.php';

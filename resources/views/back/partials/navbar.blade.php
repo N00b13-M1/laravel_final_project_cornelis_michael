@@ -105,9 +105,13 @@
             </div>
             <div class="header-info hidden-sm hidden-xs">
                 <ul>
-                    <li><i class="fa fa-phone"></i>Helpdesk +49 233 322 333</li>
+                    <li>
+                        <i class="fa fa-phone">
+                            </i>Helpdesk +49 233 322 333
+                    </li>
+
                     {{-- <li><i class="fa fa-envelope-o"></i>your@website.com</li>
-                    <li class="language">
+                    <l class="language">
                     <p><a href="#" id="example-show" class="showLink" onclick="showHide('example');return false;"><i class="fa fa-globe"></i>English<i class="fa fa-angle-down"></i></a></p>
                     <div id="example" class="more">
                         <p><a href="#" id="example-hide" class="hideLink"
@@ -120,7 +124,6 @@
                             </ul>
                         </form>
                     </div> --}}
-                    </li>
                     <li>
                         <a href="{{ route('dashboard') }}">Log out</a>
                     </li>
@@ -134,8 +137,8 @@
                             <li><a href="homepage-2.html">Homepage 2</a></li>
                         </ul> --}}
                     </li>
-                    <li><a href="">Banner</a></li>
-                    <li><a href="">Banner</a></li>
+                    <li><a href="{{ route('banners') }}" class="">Banner</a></li>
+                    <li><a href="{{ route('services') }}" class="">Services</a></li>
                     <li><a href="{{ route('courses') }}" class="">Courses</a>
                         {{-- <ul class="sub-menu">
                             <li><a href="courses-grid.html">Courses Grids</a></li>
@@ -143,6 +146,8 @@
                             <li><a href="single-course.html">Single Course</a></li>
                         </ul> --}}
                     </li>
+                    {{-- <li><a href="{{ route('testimonials') }}" class="">Testimonials</a></li> --}}
+                    <li><a href="{{ route('teachers') }}" class="">Teachers</a></li>
                     <li><a href="{{ route('events') }}" class="">Events</a>
                         {{-- <li><a href="#" class="has-submenu">Events</a> --}}
                         {{-- <ul class="sub-menu">

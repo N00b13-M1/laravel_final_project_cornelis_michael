@@ -39,7 +39,7 @@
     <script src="{{ asset('assets/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
 
 	<script type="text/javascript" src="{{ asset('assets/js/plugins.js') }}"></script>
-	{{-- <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script> --}}
+	<script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
 </html>
 
