@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('back'
+        
     }
 
     /**
@@ -83,3 +83,4 @@ class CourseController extends Controller
         //
     }
 }
+

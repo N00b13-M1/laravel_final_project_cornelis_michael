@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('molengeek'),
             'profile_pic' => '',
-            'user_id'=> 1,
+            'role_id'=> 1,
             'created_at' => now(),
         ]);
         DB::table('users')->insert([
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             'email' => 'professor@gmail.com',
             'password' => Hash::make('molengeek'),
             'profile_pic' => '',
-            'user_id'=> 2,
+            'role_id'=> 2,
             'created_at' => now(),
         ]);
         DB::table('users')->insert([
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'email' => 'editor@gmail.com',
             'password' => Hash::make('molengeek'),
             'profile_pic' => '',
-            'user_id'=> 3,
+            'role_id'=> 3,
             'created_at' => now(),
         ]);
         DB::table('users')->insert([
@@ -45,7 +45,7 @@ class UserSeeder extends Seeder
             'email' => 'member@gmail.com',
             'password' => Hash::make('molengeek'),
             'profile_pic' => '',
-            'user_id'=> 4,
+            'role_id'=> 4,
             'created_at' => now(),
         ]);
     }
