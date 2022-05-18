@@ -32,15 +32,15 @@
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('banners.index') }}"></a>Return</button>
 
         </form>
-        <div>
+        <td>
             <button type="submit" class="btn btn-warning bg-warning m-2"><a href="{{ route('banners.edit', $banner) }}">Edit</a></button>
-        </div>
-        <div>
+        </td>
+        <td>
             <form action="{{ route("banners.destroy", $banner) }}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class=" m-2">Delete</button>
+            <button class="btn btn-danger bg-danger m-2" type="submit">Delete</button>
             </form>
-        </div>
+        </td>
     </div>
 @endsection

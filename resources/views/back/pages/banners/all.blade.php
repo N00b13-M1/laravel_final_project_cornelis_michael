@@ -2,7 +2,7 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center text-4xl py-5">Banner</h1>
+        <h1 class="text-center fs-1 py-5">Banner</h1>
         {{-- Alert Testimonial Added --}}
         @if (session()->has('success'))
             <div class="alert alert-success w-50 mx-auto m-3">
@@ -11,7 +11,7 @@
         @endif
         {{-- Alert Testimonial Updated --}}
         @if (session()->has('update'))
-            <div class="alert alert-warning w-50 mx-auto m-3>
+            <div class="alert alert-warning w-50 mx-auto m-3">
                 <p class="text-warning">{{ session()->get('update') }}</p>
             </div>
         @endif
@@ -22,7 +22,6 @@
             </div>
         @endif
         <table class="table table-dark ms-5">
-            <a href="{{ route("banners.create") }}" class="ms-5 btn btn-success d-block justify-content-center w-100">Create</a>
             <thead>
                 <tr>
                     @foreach ($banner_titles as $item)
@@ -50,6 +49,9 @@
                     </tr>
                 @endforeach
             </tbody>
+            <div class='text-center'>
+                <a href="{{ route("banners.create") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
+            </div>
         </table>
     </div>
 @endsection

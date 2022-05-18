@@ -58,7 +58,7 @@ class BannerController extends Controller
         $banner->url_text = $request->url_text;
 
         $banner->save();
-        return redirect()->route('banners.index')->with("update", "Successfully Added");
+        return redirect()->route('banners.index')->with("success", "Successfully Added");
 
     }
 
@@ -94,7 +94,7 @@ class BannerController extends Controller
     public function update(Request $request, Banner $banner)
     {
         $validated = $request->validate([
-			'bg' => 'required',
+            'bg' => 'required',
 			'title' => 'required',
 			'dropbox' => 'required',
 			'description' => 'required',

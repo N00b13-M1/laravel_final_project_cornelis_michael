@@ -3,6 +3,15 @@
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
         <h1 class="text-center text-4xl py-5">Create Banner</h1>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <form action="{{ route("banners.store") }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -31,7 +40,5 @@
             </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>
-        <a href="{{ route('banners.store') }}"><button class="btn btn-primary">Home</button>
-        </a>
     </div>
 @endsection

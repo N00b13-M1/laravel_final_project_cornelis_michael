@@ -42,6 +42,11 @@
                 <input type="text" class="form-control" id="url" name="url"
                     value="{{ old('url') ? old('url') : $banner->url }}">
             </div>
+            <div class="mb-3">
+                <label for="url_text" class="form-label">URL Text</label>
+                <input type="text" class="form-control" id="url_text" name="url_text"
+                    value="{{ old('url_text') ? old('url_text') : $banner->url_text }}">
+            </div>
             <button type="submit" class="btn btn-primary m-2">Save</button>
         </form>
     </div>
