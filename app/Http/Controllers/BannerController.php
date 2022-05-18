@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class BannerController extends Controller
 {
@@ -14,7 +15,11 @@ class BannerController extends Controller
      */
     public function index()
     {
-        //
+        $banners = Banner::all();
+        $banner_titles = Schema::getColumnListing('banners');
+        $banner_titles = array_slice($banner_titles, 0, 7);
+        // dd($banner_titles);
+        return view('back.pages.banners.all', compact('banners','banner_titles'));
     }
 
     /**
@@ -24,7 +29,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.pages.banners.create');
     }
 
     /**
@@ -35,7 +40,26 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+			'bg' => 'required',
+			'title' => 'required',
+			'dropbox' => 'required',
+			'description' => 'required',
+            'url' => 'required',
+            'url_text' => 'required'
+		]);
+
+        $banner = New Banner;
+        $banner->bg = $request->bg;
+        $banner->title = $request->title;
+        $banner->dropbox = $request->dropbox;
+        $banner->description = $request->description;
+        $banner->url = $request->url;
+        $banner->url_text = $request->url_text;
+
+        $banner->save();
+        return redirect()->route('banners.index')->with("update", "Successfully Added");
+
     }
 
     /**
@@ -46,7 +70,7 @@ class BannerController extends Controller
      */
     public function show(Banner $banner)
     {
-        //
+        return view('back.pages.banners.show', compact('banner'));
     }
 
     /**
@@ -57,7 +81,7 @@ class BannerController extends Controller
      */
     public function edit(Banner $banner)
     {
-        //
+        return view('back.pages.banners.edit', compact('banner'));
     }
 
     /**
@@ -69,7 +93,24 @@ class BannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
-        //
+        $validated = $request->validate([
+			'bg' => 'required',
+			'title' => 'required',
+			'dropbox' => 'required',
+			'description' => 'required',
+            'url' => 'required',
+            'url_text' => 'required'
+		]);
+
+        $banner->bg = $request->bg;
+        $banner->title = $request->title;
+        $banner->dropbox = $request->dropbox;
+        $banner->description = $request->description;
+        $banner->url = $request->url;
+        $banner->url_text = $request->url_text;
+
+        $banner->save();
+        return redirect()->route('banners.index')->with("update", "Successfully Updated");
     }
 
     /**
@@ -80,6 +121,7 @@ class BannerController extends Controller
      */
     public function destroy(Banner $banner)
     {
-        //
+        $banner->delete();
+        return redirect()->route('banners.index', compact('banner'))->with("delete", "Successfully Deleted");
     }
 }
