@@ -1,3 +1,4 @@
+
 {{-- <aside class="w-64" aria-label="Sidebar">
     <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
         <ul class="space-y-2">
@@ -93,7 +94,7 @@
         </ul>
     </div>
 </aside> --}}
-
+{{--
 <header class="site-header">
     <div id="main-header" class="main-header header-sticky">
         <div class="inner-header container clearfix">
@@ -129,7 +130,7 @@
                     </li>
                 </ul>
             </div>
-            <nav class="main-navigation text-left hidden-xs hidden-sm">
+            <nav class="main-navigation text-center hidden-xs hidden-sm">
                 <ul>
                     <li><a href="/" class="">Profile</a>
                         {{-- <ul class="sub-menu">
@@ -137,9 +138,9 @@
                             <li><a href="homepage-2.html">Homepage 2</a></li>
                         </ul> --}}
                     </li>
-                    <li><a href="{{ route('banners') }}" class="">Banner</a></li>
-                    <li><a href="{{ route('services') }}" class="">Services</a></li>
-                    <li><a href="{{ route('courses') }}" class="">Courses</a>
+                    <li><a href="{{ route('banners.index') }}" class="">Banner</a></li>
+                    <li><a href="" class="">Services</a></li>
+                    <li><a href="" class="">Courses</a>
                         {{-- <ul class="sub-menu">
                             <li><a href="courses-grid.html">Courses Grids</a></li>
                             <li><a href="courses-list.html">Courses List</a></li>
@@ -147,8 +148,8 @@
                         </ul> --}}
                     </li>
                     {{-- <li><a href="{{ route('testimonials') }}" class="">Testimonials</a></li> --}}
-                    <li><a href="{{ route('teachers') }}" class="">Teachers</a></li>
-                    <li><a href="{{ route('events') }}" class="">Events</a>
+                    <li><a href="" class="">Teachers</a></li>
+                    <li><a href="" class="">Events</a>
                         {{-- <li><a href="#" class="has-submenu">Events</a> --}}
                         {{-- <ul class="sub-menu">
                             <li><a href="classic-events.html">Classic Events</a></li>
@@ -165,17 +166,18 @@
                             <li><a href="gallery-3.html">Gallery 3 Columns</a></li>
                         </ul>
                     </li> --}}
-                    <li><a href="{{ route('news') }}" class="">News</a>
+                    <li><a href="" class="">News</a>
                         {{-- <ul class="sub-menu">
                             <li><a href="classic-news.html">Classic News</a></li>
                             <li><a href="grid-news.html">Grid News</a></li>
                             <li><a href="single-post.html">Single Post</a></li>
                         </ul> --}}
                     </li>
-                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                    <li><a href="">Contact</a>
+                    </li>
 
                 </ul>
             </nav>
         </div>
     </div>
-</header>
+</header> --}}

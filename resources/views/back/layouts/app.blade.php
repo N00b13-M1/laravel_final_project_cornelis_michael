@@ -29,7 +29,7 @@
 	<![endif]-->
 
 </head>
-<body class='max-h-screen'>
+<body class=''>
     @yield('content')
     <script src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('assets/js/jquery-1.11.1.min.js') }}"></script>

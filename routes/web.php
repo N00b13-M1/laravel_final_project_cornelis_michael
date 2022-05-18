@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -46,7 +47,7 @@ Route::resource('back/services', ServiceController::class);
 Route::resource('back/courses', CourseController::class);
 // Route::resource('back/testimonials', Tes::class);
 Route::resource('back/professors', ProfessorController::class);
-Route::resource('back/professors', Event::class);
+Route::resource('back/events', EventController::class);
 
 
 Route::get('/dashboard', function () {

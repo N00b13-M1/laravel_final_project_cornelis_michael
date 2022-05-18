@@ -47,11 +47,11 @@
 
             <!-- Profile picture -->
             <div class="mt-4">
-                <x-label for="picture" :value="__('Select Profile picture')" />
+                <x-label for="profile_pic" :value="__('Select Profile picture')" />
 
-                <x-input id="picture" class="block mt-1 w-full"
+                <x-input id="profile_pic" class="block mt-1 w-full"
                                 type="file"
-                                name="picture" required />
+                                name="profile_pic" required />
             </div>
 
             <div class="flex items-center justify-end mt-4">

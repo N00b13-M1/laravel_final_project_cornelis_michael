@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('profile_pic');
+            $table->foreignId('role_id')->constrained('roles', "id");
             $table->timestamps();
         });
     }
