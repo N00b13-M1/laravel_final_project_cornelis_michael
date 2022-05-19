@@ -25,7 +25,8 @@ class CourseSeeder extends Seeder
             'price' => '19.99',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
         DB::table('courses')->insert([
             'title' => 'Electrical &amp; Electronic <br>Engingering',
@@ -37,7 +38,8 @@ class CourseSeeder extends Seeder
             'price' => '49.99',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
         DB::table('courses')->insert([
             'title' => 'How to become<br>a Powerful Speaker',
@@ -49,7 +51,8 @@ class CourseSeeder extends Seeder
             'price' => '19.99',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
 
         ]);
         DB::table('courses')->insert([
@@ -62,7 +65,8 @@ class CourseSeeder extends Seeder
             'price' =>'Free',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
         DB::table('courses')->insert([
             'title' => 'Fashion buying<br>and Product Management',
@@ -74,7 +78,8 @@ class CourseSeeder extends Seeder
             'price' =>'29.99',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
         DB::table('courses')->insert([
             'title' => 'Fashion buying<br>and Product Management',
@@ -86,7 +91,8 @@ class CourseSeeder extends Seeder
             'price' =>'29.99',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
         DB::table('courses')->insert([
             'title' => 'How to become<br>a Powerful Speaker',
@@ -98,7 +104,8 @@ class CourseSeeder extends Seeder
             'price' =>'Free',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
         DB::table('courses')->insert([
             'title' => 'What can you do<br>With a Business Degree?',
@@ -110,7 +117,8 @@ class CourseSeeder extends Seeder
             'price' =>'Free',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
         DB::table('courses')->insert([
             'title' => 'Fashion buying<br>and Product Management',
@@ -122,7 +130,8 @@ class CourseSeeder extends Seeder
             'price' =>'29.99',
             'url' => 'single-course.html',
             'text' => '',
-            'url2' => 'single-course.html'
+            'url2' => 'single-course.html',
+            'created_at' => now(),
         ]);
 
     }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\News_post;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,9 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             BannerSeeder::class,
+            ServiceSeeder::class,
+            CourseSeeder::class,
+            NewsPostSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 
