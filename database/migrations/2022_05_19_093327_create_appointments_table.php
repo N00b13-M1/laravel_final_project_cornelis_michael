@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,17 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('bg-img');
-            $table->integer('stars');
-            $table->integer('like');
-            $table->string('where');
-            $table->string('when');
-            $table->string('circle_txt');
-            $table->string('url');
-            $table->string('event_name');
-            $table->string('event_desc');
             $table->timestamps();
         });
     }
@@ -36,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('appointments');
     }
 };
-
-

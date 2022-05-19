@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             CourseSeeder::class,
             NewsPostSeeder::class,
-            ProfessorSeeder::class
+            ProfessorSeeder::class,
+            MapLocationSeeder::class,
+            EventSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 
