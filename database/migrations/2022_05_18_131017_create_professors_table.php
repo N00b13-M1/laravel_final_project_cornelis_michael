@@ -15,6 +15,19 @@ return new class extends Migration
     {
         Schema::create('professors', function (Blueprint $table) {
             $table->id();
+            $table->string('professor_photo');
+            $table->string('professor_name');
+            $table->string('professor_title');
+            $table->text('text1');
+            $table->string('textstrong');
+            $table->text('text2');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('skype_id');
+            $table->string('facebook_id');
+            $table->string('twitter_id');
+            $table->string('drible_id');
+            $table->string('linkedin_id');
             $table->timestamps();
         });
     }
@@ -29,3 +42,4 @@ return new class extends Migration
         Schema::dropIfExists('professors');
     }
 };
+

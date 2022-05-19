@@ -43,7 +43,7 @@
                     </div>
                     <div class="down-content">
                         <a href="single-teacher.html"><h4>John Rosado</h4></a>
-                        <span>Emglish Teacher</span>
+                        <span>English Teacher</span>
                         <p>Ugh chambray lumbersexual food  artisan meditation sartorial well post-ironic wes</p>
                     </div>
                 </div>
