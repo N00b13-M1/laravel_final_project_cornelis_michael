@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('front.frontend');
-});
+})->name('home');
 
 Route::get('/courses', function () {
     return view('front.pages.courses');
@@ -41,6 +41,7 @@ Route::get('/news', function () {
 Route::get('/professors', function () {
     return view('front.pages.professors');
 })->name('professors');
+
 
 Route::resource('back/banners', BannerController::class);
 Route::resource('back/services', ServiceController::class);

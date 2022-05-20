@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class CourseController extends Controller
 {
@@ -14,7 +15,11 @@ class CourseController extends Controller
      */
     public function index()
     {
-        
+        $courses = Course::all();
+        $course_titles = Schema::getColumnListing('courses');
+        $course_titles = array_slice($course_titles, 0, 11);
+
+        return view('back.pages.courses.all', compact('courses','course_titles'));
     }
 
     /**
@@ -24,7 +29,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.pages.courses.create');
     }
 
     /**
@@ -35,7 +40,32 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+			'title' => 'required',
+			'desc' => 'required',
+			'bg' => 'required',
+			'teacher_pic' => 'required',
+            'teacher_name' => 'required',
+            'price_class' => 'required',
+            'price' => 'required',
+            'url' => 'required',
+            'url2' => 'required'
+		]);
+
+        $course = New Course;
+        $course->title = $request->title;
+        $course->desc = $request->desc;
+        $course->bg = $request->bg;
+        $course->teacher_pic = $request->teacher_pic;
+        $course->teacher_name = $request->teacher_name;
+        $course->price_class = $request->price_class;
+        $course->price = $request->price;
+        $course->url = $request->url;
+        $course->text = $request->text;
+        $course->url2 = $request->url;
+
+        $course->save();
+        return redirect()->route('banners.index')->with("success", "Successfully Added");
     }
 
     /**
@@ -46,7 +76,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return view('back.pages.courses.show', compact('course'));
     }
 
     /**
@@ -57,7 +87,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view('back.pages.courses.edit', compact('course'));
     }
 
     /**
@@ -80,7 +110,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect()->route('course.index', compact('course'))->with("delete", "Successfully Deleted");
     }
 }
-

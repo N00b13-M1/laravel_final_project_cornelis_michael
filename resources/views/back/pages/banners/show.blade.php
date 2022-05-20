@@ -2,8 +2,8 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center text-4xl py-5">Detailed Banner</h1>
-        <form action="{{ route('banners.index') }}'method="get">
+        <h1 class="text-center fs-1 py-5">Detailed Banner</h1>
+        <form action="{{ route('banners.index') }}" method="get">
             <div class="mb-3">
                 <label for="bg" class="form-label">Background Image</label>
                 <img src="{{ asset('/assets/images/' . $banner->bg ) }}"

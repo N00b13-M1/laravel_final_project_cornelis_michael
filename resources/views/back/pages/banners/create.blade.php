@@ -2,7 +2,7 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center text-4xl py-5">Create Banner</h1>
+        <h1 class="text-center fs-1 py-5">Create Banner</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -16,7 +16,7 @@
             @csrf
             <div class="mb-3">
                 <label for="bg" class="form-label">Background Image</label>
-                <input type="file" class="form-control" id="title" name="bg" value="{{ old('bg') }}">
+                <input type="file" class="form-control" id="bg" name="bg" value="{{ old('bg') }}">
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
