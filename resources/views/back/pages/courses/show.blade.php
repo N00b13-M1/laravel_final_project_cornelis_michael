@@ -24,7 +24,7 @@
             </div>
             <div class="mb-3">
                 <label for="teacher_name" class="form-label">Teacher Name</label>
-                <input type="text" class="form-control" id="teacher_pic" name="teacher_pic" value="{{ $course->teacher_pic }}" readonly>
+                <input type="text" class="form-control" id="teacher_name" name="teacher_name" value="{{ $course->teacher_name }}" readonly>
             </div>
             <div class="mb-3">
                 <label for="price_class" class="form-label">Price Class</label>

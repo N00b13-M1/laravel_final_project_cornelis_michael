@@ -65,7 +65,7 @@ class CourseController extends Controller
         $course->url2 = $request->url;
 
         $course->save();
-        return redirect()->route('banners.index')->with("success", "Successfully Added");
+        return redirect()->route('courses.index')->with("success", "Successfully Added");
     }
 
     /**
@@ -99,7 +99,31 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $validated = $request->validate([
+			'title' => 'required',
+			'desc' => 'required',
+			'bg' => 'required',
+			'teacher_pic' => 'required',
+            'teacher_name' => 'required',
+            'price_class' => 'required',
+            'price' => 'required',
+            'url' => 'required',
+            'url2' => 'required'
+		]);
+
+        $course->title = $request->title;
+        $course->desc = $request->desc;
+        $course->bg = $request->bg;
+        $course->teacher_pic = $request->teacher_pic;
+        $course->teacher_name = $request->teacher_name;
+        $course->price_class = $request->price_class;
+        $course->price = $request->price;
+        $course->url = $request->url;
+        $course->text = $request->text;
+        $course->url2 = $request->url;
+
+        $course->save();
+        return redirect()->route('courses.index')->with("update", "Successfully Updated");
     }
 
     /**
@@ -111,6 +135,6 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         $course->delete();
-        return redirect()->route('course.index', compact('course'))->with("delete", "Successfully Deleted");
+        return redirect()->route('courses.index', compact('course'))->with("delete", "Successfully Deleted");
     }
 }

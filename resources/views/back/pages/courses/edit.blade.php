@@ -12,42 +12,56 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('banners.update', $banner) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('courses.update', $course) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="mb-3">
-                <label for="bg" class="form-label">Background Image</label>
-                <img src="{{ asset('/assets/images/' . $banner->bg ) }}"
-                            style="width: 400px" alt="" class="m-2 d-block">
-                <input type="file" class="form-control" id="bg" name="bg"
-                    value="{{ old('bg') ? old('bg') : $banner->bg }}">
-            </div>
-            <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title"
-                    value="{{ old('title') ? old('title') : $banner->title }}">
+                <input type="text" class="form-control" id="title" name="title" value="{{ old('title') ? old('title') : $course->title }}">
             </div>
             <div class="mb-3">
-                <label for="dropbox" class="form-label">Dropbox</label>
-                <input type="text" class="form-control" id="dropbox" name="dropbox"
-                    value="{{ old('dropbox') ? old('dropbox') : $banner->dropbox }}">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" id="desc" name="desc" value="{{ old('desc') ? old('desc') : $course->desc }}">
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" id="description" name="description"
-                    value="{{ old('description') ? old('description') : $banner->description }}">
+                <label for="bg" class="form-label">Background Image</label>
+                <img src="{{ asset('/assets/images/' . $course->bg ) }}"
+                            style="width: 200px" alt="" class="m-2 d-block">
+                <input type="file" class="form-control" id="bg" name="bg"
+                            value="{{ old('bg') ? old('bg') : $course->bg }}">
+            </div>
+            <div class="mb-3">
+                <label for="teacher_pic" class="form-label">Teacher Picture</label>
+                <img src="{{ asset('/assets/images/' . $course->teacher_pic ) }}"
+                            style="width: 200px" alt="" class="m-2 d-block">
+                <input type="file" class="form-control" id="teacher_pic" name="teacher_pic"
+                            value="{{ old('teacher_pic') ? old('teacher_pic') : $course->teacher_pic }}">
+            </div>
+            <div class="mb-3">
+                <label for="teacher_name" class="form-label">Teacher Name</label>
+                <input type="text" class="form-control" id="teacher_name" name="teacher_name" value="{{ old('teacher_name') ? old('teacher_name') : $course->teacher_name }}">
+            </div>
+            <div class="mb-3">
+                <label for="price_class" class="form-label">Price Class</label>
+                <input type="text" class="form-control" id="price_class" name="price_class" value="{{ old('price_class') ? old('price_class') : $course->price_class }}">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" name="price" value="{{ old('price') ? old('price') : $course->price }}">
             </div>
             <div class="mb-3">
                 <label for="url" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url" name="url"
-                    value="{{ old('url') ? old('url') : $banner->url }}">
+                <input type="text" class="form-control" id="url" name="url" value="{{ old('url') ? old('url') : $course->url }}">
             </div>
             <div class="mb-3">
-                <label for="url_text" class="form-label">URL Text</label>
-                <input type="text" class="form-control" id="url_text" name="url_text"
-                    value="{{ old('url_text') ? old('url_text') : $banner->url_text }}">
+                <label for="text" class="form-label">Text</label>
+                <input type="text" class="form-control" id="text" name="text" value="{{ old('text') ? old('text') : $course->url }}">
             </div>
-            <button type="submit" class="btn btn-primary m-2">Save</button>
+            <div class="mb-3">
+                <label for="url2" class="form-label">URL 2</label>
+                <input type="text" class="form-control" id="url2" name="url2" value="{{ old('url2') ? old('url2') : $course->url2 }}">
+            </div>
+            <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
     </div>
 @endsection
