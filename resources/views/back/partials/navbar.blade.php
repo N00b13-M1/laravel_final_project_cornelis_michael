@@ -40,11 +40,11 @@
             <span class="tooltip">Courses</span>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('professors.index') }}">
                 <i class='bx bxs-server'></i>
-                <span class="links_name">Teachers</span>
+                <span class="links_name">Professors</span>
             </a>
-            <span class="tooltip">Teachers</span>
+            <span class="tooltip">Professors</span>
         </li>
         <li>
             <a href="#">

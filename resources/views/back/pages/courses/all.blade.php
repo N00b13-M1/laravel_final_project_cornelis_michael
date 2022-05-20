@@ -2,7 +2,7 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center fs-1 py-5">Course</h1>
+        <h1 class="text-center fs-1 py-5">Courses</h1>
         {{-- Alert Testimonial Added --}}
         @if (session()->has('success'))
             <div class="alert alert-success w-50 mx-auto m-3">
