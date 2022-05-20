@@ -57,7 +57,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/back', function () {
     return view('back.backend');
-});
+})->name('backend');
 
 
 

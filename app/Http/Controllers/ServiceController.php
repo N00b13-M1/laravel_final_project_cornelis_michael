@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class ServiceController extends Controller
 {
@@ -14,7 +15,12 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        $service_titles = Schema::getColumnListing('services');
+        $service_titles = array_slice($service_titles, 0,4);
+        // dd($service_titles);
+
+        return view('back.pages.services.all', compact('services', 'service_titles'));
     }
 
     /**
@@ -24,7 +30,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.pages.services.create');
     }
 
     /**
@@ -35,7 +41,20 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+			'logo' => 'required',
+			'title' => 'required',
+			'description' => 'required',
+		]);
+
+        $service = New Service;
+        $service->logo = $request->logo;
+        $service->title = $request->title;
+        $service->description = $request->description;
+
+        $service->save();
+        return redirect()->route('services.index')->with("success", "Successfully Added");
+
     }
 
     /**
@@ -46,7 +65,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('back.pages.services.show', compact('service'));
     }
 
     /**
@@ -57,7 +76,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('back.pages.services.edit', compact('service'));
     }
 
     /**
@@ -69,7 +88,19 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $validated = $request->validate([
+			'logo' => 'required',
+			'title' => 'required',
+			'description' => 'required',
+		]);
+
+        $service->logo = $request->logo;
+        $service->title = $request->title;
+        $service->description = $request->description;
+
+        $service->save();
+        return redirect()->route('services.index')->with("update", "Successfully Updated");
+
     }
 
     /**
@@ -80,6 +111,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->route('services.index', compact('service'))->with("delete", "Successfully Deleted");
     }
 }

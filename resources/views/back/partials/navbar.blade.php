@@ -5,7 +5,7 @@
     </div>
     <ul class="nav-list">
         <li>
-            <a href='back/backend'>
+            <a href='{{ route('backend') }}'>
                 <i class='bx bxs-server'></i>
                 <span class="links_name">Backend</span>
             </a>
@@ -26,7 +26,7 @@
             <span class="tooltip">Banner</span>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('services.index') }}">
                 <i class='bx bx-pie-chart-alt-2'></i>
                 <span class="links_name">Services</span>
             </a>
