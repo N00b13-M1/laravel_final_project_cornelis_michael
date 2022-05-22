@@ -5,14 +5,14 @@
     </div>
     <ul class="nav-list">
         <li>
-            <a href='{{ route('backend') }}'>
+            <a href='{{ route('home') }}'>
                 <i class='bx bxs-server'></i>
-                <span class="links_name">Backend</span>
+                <span class="links_name">Home</span>
             </a>
-            <span class="tooltip">Backend</span>
+            <span class="tooltip">Home</span>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('profiles.index') }}">
                 <i class='bx bx-user'></i>
                 <span class="links_name">Profile</span>
             </a>

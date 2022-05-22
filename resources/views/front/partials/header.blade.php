@@ -25,9 +25,20 @@
                         </form>
                     </div>
                     </li>
-                    <li>
-                        <a href="{{ route('dashboard') }}">Log in | Register</a>
-                    </li>
+                    @if (Auth::check())
+                        <a href="{{ route('backend') }}">{{ Auth::user()->name }} logged in </a>
+                    @else
+                    <ul>
+                        <li>
+                            <a href="{{ route('login') }}">Login</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ route('register') }}">Register</a>
+                        </li>
+                    </ul>
+                    @endif
                 </ul>
             </div>
             <nav class="main-navigation text-left hidden-xs hidden-sm">

@@ -5,6 +5,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,7 +47,7 @@ Route::get('/professors', function () {
 Route::resource('back/banners', BannerController::class);
 Route::resource('back/services', ServiceController::class);
 Route::resource('back/courses', CourseController::class);
-// Route::resource('back/testimonials', Tes::class);
+Route::resource('back/profiles', UserController::class);
 Route::resource('back/professors', ProfessorController::class);
 Route::resource('back/events', EventController::class);
 
@@ -54,6 +55,10 @@ Route::resource('back/events', EventController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// Route::get('/register', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 Route::get('/back', function () {
     return view('back.backend');
