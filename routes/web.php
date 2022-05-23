@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailSubscriptionController;
 use App\Http\Controllers\NewsletterController;
 use App\Models\Banner;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $banners = Banner::all();
-    return view('front.frontend',compact('banners'));
+    $services = Service::all();
+    return view('front.frontend',compact('banners', 'services'));
 })->name('home');
 
 Route::get('/courses', function () {

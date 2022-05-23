@@ -11,7 +11,17 @@
                             taxidermy<br>McSweeney's, flexitarian actually iPhone mlkshk brunch.</p>
                     </div>
                     <div class="row">
+                        @foreach ($services as $item)
                         <div class="col-md-6 col-sm-6">
+                            <div class="service-item">
+                                <i class="{{ $item->logo }}"></i>
+                                <h4>{{ $item->title }}</h4>
+                                <div class="line-dec"></div>
+                                <p>{{ $item->description }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        {{-- <div class="col-md-6 col-sm-6">
                             <div class="service-item">
                                 <i class="fa fa-graduation-cap"></i>
                                 <h4>Graduated Steps</h4>
@@ -42,7 +52,7 @@
                                 <div class="line-dec"></div>
                                 <p>Photo booth Banksy YOLO mixtape post-ironic they sold out all.</p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-md-4">
