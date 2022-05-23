@@ -8,7 +8,29 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($teachers as $item)
             <div class="col-md-3 col-sm-6">
+                <div class="teacher-item">
+                    <div class="thumb-holder">
+                        <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->professor_photo) }}" alt=""></a>
+                        <div class="hover-content">
+                            <ul>
+                                <li><a href="{{ $item->facebook_id }}"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{ $item->twitter_id }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ $item->dribble_id }}"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="{{ $item->linkedin_id }}"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="down-content">
+                        <a href="{{ $item->url }}"><h4>{{ $item->professor_name }}</h4></a>
+                        <span>{{ $item->professor_title }}</span>
+                        <p>{{ $item->text1 }}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            {{-- <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
                         <a href="single-teacher.html"><img src="{{ asset('assets/images/teacher-12.jpg') }}" alt=""></a>
@@ -87,7 +109,7 @@
                         <p>Ugh chambray lumbersexual food  artisan meditation sartorial well post-ironic wes</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

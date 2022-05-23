@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('professor_photo');
             $table->string('professor_name');
             $table->string('professor_title');
+            $table->string('url');
             $table->text('text1');
             $table->string('textstrong');
             $table->text('text2');
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->string('skype_id');
             $table->string('facebook_id');
             $table->string('twitter_id');
-            $table->string('drible_id');
+            $table->string('dribble_id');
             $table->string('linkedin_id');
             $table->timestamps();
         });

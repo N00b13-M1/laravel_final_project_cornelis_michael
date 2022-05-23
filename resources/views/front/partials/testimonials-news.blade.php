@@ -46,26 +46,6 @@
                                 <p>{!! (Str::words($news[$i]->text1, '12')) !!}</p>
                             </div>
                         @endfor
-                        {{-- <div class="news-item">
-                            <a href="single-post.html"><img src="{{ asset('assets/images/news-classic-5-175x130.jpg') }}" alt=""></a>
-                            <ul>
-                                <li>7 Oct 2015</li>
-                                <li>By Admin</li>
-                                <li>2 Comments</li>
-                            </ul>
-                            <a href="single-post.html"><h4>New University Finder: Compare</h4></a>
-                            <p>Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic.</p>
-                        </div>
-                        <div class="news-item">
-                            <a href="single-post.html"><img src="{{ asset('assets/images/news-classic-6-175x130.jpg') }}" alt=""></a>
-                            <ul>
-                                <li>7 Oct 2015</li>
-                                <li>By Admin</li>
-                                <li>2 Comments</li>
-                            </ul>
-                            <a href="single-post.html"><h4>How Do Students Use Rankings?</h4></a>
-                            <p>Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic.</p>
-                        </div> --}}
                     </div>
                 </div>
             </div>
