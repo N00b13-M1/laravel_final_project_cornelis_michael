@@ -35,7 +35,31 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($courses as $item)
             <div class="col-md-4">
+                <div class="item course-item">
+                    <a href="{{ $item->url }}"><img src="{{ asset('assets/images'. $item->bg) }}" alt=""></a>
+                    <div class="down-content">
+                        <img src="{{ asset('assets/images/' . $item->teacher_pic) }}" alt="">
+                        <h6>{{ $item->teacher_name }}</h6>
+                        <div class="{{  $item->price_tag }}">
+                            <span>${{ $item->price }}</span>
+                            <div class="base"></div>
+                        </div>
+                        <a href="single-course.html">
+                            <h4>{!! item->teacher_pic !!}</h4>
+                        </a>
+                        <p>{{ item->text !!}}
+                        </p>
+                        <div class="text-button">
+                            <a href="{{  $item->url }}">view more<i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+            {{-- <div class="col-md-4">
                 <div class="item course-item">
                     <a href="single-course.html"><img src="{{ asset('assets/images/course-1.jpg') }}" alt=""></a>
                     <div class="down-content">
@@ -221,8 +245,9 @@
                         <div class="text-button">
                             <a href="single-course.html">view more<i class="fa fa-arrow-right"></i></a>
                         </div>
+                    </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="row">
