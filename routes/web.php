@@ -36,8 +36,10 @@ Route::get('/', function () {
     return view('front.frontend',compact('banners', 'services', 'courses', 'news', 'teachers'));
 })->name('home');
 
+
 Route::get('/courses', function () {
-    return view('front.pages.courses');
+    $courses = Course::all();
+    return view('front.pages.courses', compact('courses'));
 })->name('courses');
 
 Route::get('/contact', function () {

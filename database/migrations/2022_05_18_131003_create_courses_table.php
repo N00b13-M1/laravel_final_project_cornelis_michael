@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('price');
             $table->string('url');
             $table->string('text');
-            $table->string('url2');
             $table->timestamps();
         });
     }

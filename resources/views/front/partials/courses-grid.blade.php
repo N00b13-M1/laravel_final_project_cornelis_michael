@@ -38,19 +38,18 @@
             @foreach ($courses as $item)
             <div class="col-md-4">
                 <div class="item course-item">
-                    <a href="{{ $item->url }}"><img src="{{ asset('assets/images'. $item->bg) }}" alt=""></a>
+                    <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
                     <div class="down-content">
                         <img src="{{ asset('assets/images/' . $item->teacher_pic) }}" alt="">
                         <h6>{{ $item->teacher_name }}</h6>
-                        <div class="{{  $item->price_tag }}">
+                        <div class="{{  $item->price_class }}">
                             <span>${{ $item->price }}</span>
                             <div class="base"></div>
                         </div>
-                        <a href="single-course.html">
-                            <h4>{!! item->teacher_pic !!}</h4>
+                        <a href="{{  $item->url }}">
+                            <h4>{!! $item->title !!}</h4>
                         </a>
-                        <p>{{ item->text !!}}
-                        </p>
+                        <p>{{ $item->desc }}</p>
                         <div class="text-button">
                             <a href="{{  $item->url }}">view more<i class="fa fa-arrow-right"></i></a>
                         </div>

@@ -9,23 +9,25 @@
         </div>
         <div class="row">
             <div id="owl-courses">
+                @foreach ( $courses as $item )
                 <div class="item course-item">
-                    <a href="single-course.html"><img src="{{ asset('assets/images/course-1.jpg') }}" alt=""></a>
+                    <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
                     <div class="down-content">
-                        <img src="{{ asset('assets/images/teacher-12.jpg') }}" alt="">
-                        <h6>Ernest Byrd</h6>
-                        <div class="price-red">
-                            <span>$19.99</span>
+                        <img src="{{ asset('assets/images/' . $item->teacher_pic) }}" alt="">
+                        <h6>{{  $item->teacher_name }}</h6>
+                        <div class="{{ $item->price_class }}">
+                            <span>${{ $item->price }}</span>
                             <div class="base"></div>
                         </div>
-                        <a href="single-course.html"><h4>How to become<br>a Powerful Speaker</h4></a>
-                        <p>Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.</p>
+                        <a href="{{ $item->url }}"><h4>{!! $item->title !!}</h4></a>
+                        <p>{{ $item->desc }}</p>
                         <div class="text-button">
-                            <a href="single-course.html">view more<i class="fa fa-arrow-right"></i></a>
+                            <a href="{{ $item->url }}">view more<i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="item course-item">
+                @endforeach
+                {{-- <div class="item course-item">
                     <a href="single-course.html"><img src="{{ asset('assets/images/course-2.jpg') }} " alt=""></a>
                     <div class="down-content">
                         <img src="{{ asset('assets/images/teacher-2.jpg') }}" alt="">
@@ -152,7 +154,7 @@
                             <a href="single-course.html">view more<i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
