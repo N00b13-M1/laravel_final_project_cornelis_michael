@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MailSubscriptionController;
+use App\Http\Controllers\NewsletterController;
+use App\Models\Banner;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +24,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('front.frontend');
+    $banners = Banner::all();
+    return view('front.frontend',compact('banners'));
 })->name('home');
 
 Route::get('/courses', function () {
@@ -51,14 +56,13 @@ Route::resource('back/profiles', UserController::class);
 Route::resource('back/professors', ProfessorController::class);
 Route::resource('back/events', EventController::class);
 
+Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
+Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-// Route::get('/register', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
 
 Route::get('/back', function () {
     return view('back.backend');
@@ -67,3 +71,4 @@ Route::get('/back', function () {
 
 
 require __DIR__.'/auth.php';
+

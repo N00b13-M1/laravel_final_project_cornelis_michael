@@ -52,10 +52,13 @@
                         <h2>Newsletters</h2>
                         <div class="line-dec"></div>
                         <p>Subsrcibe to our newsletter for latest updates about our site for universe.</p>
-                        <input type="text" class="email" name="s" placeholder="Email Address..." value="">
-                        <div class="accent-button">
-                            <a href="#">Subscribe</a>
-                        </div>
+
+
+                        <form action="" method="post">
+                            @csrf
+                            <input type="text" class="email" name="emailsubscription" placeholder="Email Address..." value="">
+                            <button type="submit" class="bg-danger">Subscribe</button>
+                        </form>
                     </div>
                 </div>
             </div>

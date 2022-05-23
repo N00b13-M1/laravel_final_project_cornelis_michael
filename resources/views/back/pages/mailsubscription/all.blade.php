@@ -2,7 +2,7 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center fs-1 py-5">Profiles</h1>
+        <h1 class="text-center fs-1 py-5">Mailing List</h1>
         {{-- Alert Testimonial Added --}}
         @if (session()->has('success'))
             <div class="alert alert-success w-50 mx-auto m-3">
@@ -24,37 +24,41 @@
         <table class="table table-dark ms-5">
             <thead>
                 <tr>
-                    {{-- {{ dd($user_profiles) }} --}}
-
-                    {{-- @foreach ($user_profiles as $item) --}}
-                    <th scope="col">{{ $user_profiles[0]}}</th>
-                    <th scope="col">{{ $user_profiles[1]}}</th>
-                    <th scope="col">{{ $user_profiles[2]}}</th>
-                    <th scope="col">{{ $user_profiles[4]}}</th>
-                    <th scope="col">{{ $user_profiles[6]}}</th>
+                    {{-- @foreach ($professor_titles as $item)
+                        <th scope="col">{{ $item }}</th>
+                    @endforeach --}}
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
 
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                {{-- @foreach ($professors as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <th scope="row">{{ $item->name }}</th>
-                        <th scope="row">{{ $item->email}}</th>
-                        <th scope="row">{{ $item->password }}</th>
-                        <th scope="row">{{ $item->profile_pic }}</th>
+                        <td>{{ $item->professor_photo }}</td>
+                        <td>{{ $item->professor_name }}</td>
+                        <td>{{ $item->professor_title }}</td>
+                        <td>{{ $item->text1 }}</td>
+                        <td>{{ $item->textstrong }}</td>
+                        <td>{{ $item->text2 }}</td>
+                        <td>{{ $item->phone }}</td>
+                        <td>{{ $item->email }}</td>
+                        <td>{{ $item->skype_id }}</td>
+                        <td>{{ $item->facebook_id }}</td>
+                        <td>{{ $item->twitter_id }}</td>
+                        <td>{{ $item->drible_id }}</td>
+                        <td>{{ $item->linkedin_id }}</td>
                         <td>
-                            <a href="{{ route('profiles.show', $item) }}"><button class="btn btn-primary">Show</button>
+                            <a href="{{ route('professors.show', $item) }}"><button class="btn btn-primary">Show</button>
                             </a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
             <div class='text-center'>
-                <a href="{{ route("profiles.create") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
-            </div>
+                <a href="{{ route("professors.create") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
+            </div> --}}
         </table>
     </div>
 @endsection

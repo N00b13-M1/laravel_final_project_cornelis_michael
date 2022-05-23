@@ -67,6 +67,13 @@
             </a>
             <span class="tooltip">Contact</span>
         </li>
+        <li>
+            <a href="">
+                <i class='bx bx-cog'></i>
+                <span class="links_name">Mailing list</span>
+            </a>
+            <span class="tooltip">Mailing list</span>
+        </li>
         <li class="profile">
             <div class="profile-details">
                 <!--<img src="profile.jpg" alt="profileImg">-->
