@@ -6181,3 +6181,8 @@ button.close {
     display: none !important;
   }
 }
+
+.news {
+    width: 50%;
+}
+

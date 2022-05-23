@@ -11,6 +11,7 @@ use App\Http\Controllers\MailSubscriptionController;
 use App\Http\Controllers\NewsletterController;
 use App\Models\Banner;
 use App\Models\Course;
+use App\Models\News_post;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,8 @@ Route::get('/', function () {
     $banners = Banner::all();
     $services = Service::all();
     $courses = Course::all();
-    return view('front.frontend',compact('banners', 'services', 'courses'));
+    $news = News_post::all();
+    return view('front.frontend',compact('banners', 'services', 'courses', 'news'));
 })->name('home');
 
 Route::get('/courses', function () {

@@ -16,6 +16,8 @@ class NewsPostSeeder extends Seeder
     public function run()
     {
         DB::table('news_posts')->insert([
+            "url" => "single-post.html",
+            "img" => "news-classic-5.jpg",
             "created_when" => "7 Oct 2015",
             "posted_by" => 'Admin',
             "number_of_comments" => 2,
@@ -30,6 +32,8 @@ class NewsPostSeeder extends Seeder
             "created_at" => now(),
         ]);
         DB::table('news_posts')->insert([
+            "url" => "single-post.html",
+            "img" => "news-classic-6.jpg",
             "created_when" => "7 Oct 2015",
             "posted_by" => 'Admin',
             "number_of_comments" => 2,
@@ -44,6 +48,8 @@ class NewsPostSeeder extends Seeder
             "created_at" => now(),
         ]);
         DB::table('news_posts')->insert([
+            "url" => "single-post.html",
+            "img" => "news-classic-3.jpg",
             "created_when" => "7 Oct 2015",
             "posted_by" => 'Admin',
             "number_of_comments" => 2,
@@ -58,6 +64,8 @@ class NewsPostSeeder extends Seeder
             "created_at" => now(),
         ]);
         DB::table('news_posts')->insert([
+            "url" => "single-post.html",
+            "img" => "news-classic-4.jpg",
             "created_when" => "7 Oct 2015",
             "posted_by" => 'Admin',
             "number_of_comments" => 2,
