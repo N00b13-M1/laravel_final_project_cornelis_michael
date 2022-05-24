@@ -2,7 +2,7 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center text-4xl py-5">Detailed Course</h1>
+        <h1 class="text-center fs-1 py-5">Detailed Course</h1>
         <form action="{{ route('courses.index') }}" method="get">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -61,3 +61,4 @@
         </td>
     </div>
 @endsection
+

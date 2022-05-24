@@ -30,7 +30,7 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class='p-0 m-0'>
+<body class='p-0 m-0 ms-5'>
     @yield('content')
     <script src="{{ asset('js/app.js') }}"></script>
     <script>

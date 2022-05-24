@@ -2,7 +2,7 @@
     <div id="main-header" class="main-header header-sticky">
         <div class="inner-header container clearfix">
             <div class="logo">
-                <a href="index.html"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                <a href="{{ route('home') }}"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
             </div>
             <div class="header-right-toggle pull-right hidden-md hidden-lg">
                 <a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
@@ -64,14 +64,13 @@
                             <li><a href="single-event.html">Single Event</a></li>
                         </ul> --}}
                     </li>
-                    <li><a href="#" class="has-submenu">Pages</a>
-                        <ul class="sub-menu">
+                    <li><a href="{{ route('professors') }}">Teachers</a></li>
+                        {{-- <ul class="sub-menu"> --}}
                             {{-- <li><a href="about.html">About Us</a></li> --}}
-                            <li><a href="{{ route('professors') }}">Our Teachers</a></li>
                             {{-- <li><a href="single-teacher.html">Single Teacher</a></li> --}}
                             {{-- <li><a href="gallery-4.html">Gallery 4 Columns</a></li>
                             <li><a href="gallery-3.html">Gallery 3 Columns</a></li> --}}
-                        </ul>
+                        {{-- </ul> --}}
                     </li>
                     <li><a href="{{ route('news') }}" class="">News</a>
                         {{-- <ul class="sub-menu">
