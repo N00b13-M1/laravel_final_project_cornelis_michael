@@ -17,6 +17,7 @@
                 <div class="footer-widget">
                     <div class="featured-links">
                         <h2>Featured Links</h2>
+
                         <div class="line-dec"></div>
                         <ul>
                             <li><a href="#">Graduation</a></li>
@@ -38,8 +39,11 @@
                     <div class="university-address">
                         <h2>University Address</h2>
                         <div class="line-dec"></div>
+                        {{-- @php
+                            $contact = \App\Models\Contact::all();
+                        @endphp --}}
                         <ul>
-                            <li><i class="fa fa-home"></i>1107 Wood Street Saginaw, MI New York 48607</li>
+                            <li><i class="fa fa-home"></i>{{ $contact[0]->address }}</li>
                             <li><i class="fa fa-phone"></i>+12 (34) 214 280 2000</li>
                             <li><i class="fa fa-envelope-o"></i>support@educa.com</li>
                         </ul>

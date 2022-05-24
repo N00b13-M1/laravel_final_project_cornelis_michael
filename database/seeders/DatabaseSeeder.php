@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             ProfessorSeeder::class,
             MapLocationSeeder::class,
             EventSeeder::class,
+            ContactSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();

@@ -16,7 +16,7 @@
                                 <option>Latest</option>
                             </select>
                         </div>
-                        <div class="input-select">
+                        {{-- <div class="input-select">
                             <select name="sorted" id="sorted">
                                 <option value="-1">Sorted by</option>
                                 <option>Price</option>
@@ -29,7 +29,7 @@
                                 <li><a href="#"><i class="fa fa-list"></i></a></li>
                                 <li><a href="#"><i class="fa fa-th-large"></i></a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

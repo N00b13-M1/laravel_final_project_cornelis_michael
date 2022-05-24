@@ -61,7 +61,7 @@
             <span class="tooltip">News</span>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('contacts.index') }}">
                 <i class='bx bx-cog'></i>
                 <span class="links_name">Contact</span>
             </a>

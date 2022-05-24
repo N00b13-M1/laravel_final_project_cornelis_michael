@@ -6,7 +6,8 @@
                     <div class="contact-item">
                         <i class="fa fa-map-marker"></i>
                         <h4>Address Info</h4>
-                        <p>Bloomfield Way Stockton, Springs ME 04981</p>
+                        <p>{{ $contact[0]->address }}</p>
+
                     </div>
                     <div class="contact-item">
                         <i class="fa fa-envelope-o"></i>

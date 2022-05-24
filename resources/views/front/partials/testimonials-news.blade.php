@@ -34,7 +34,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        @for ($i=0 ; $i < 2 ; $i++)
+                        @for ($i=$news->count()-1; $i > $news->count()-3 ; $i--)
                             <div class="news-item">
                                 <a href="{{ $news[$i]->url }}"><img class="news" src="{{ asset('assets/images/' . $news[$i]->img) }}" alt=""></a>
                                 <ul>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\EventController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailSubscriptionController;
 use App\Http\Controllers\NewsletterController;
 use App\Models\Banner;
+use App\Models\Contact;
 use App\Models\Course;
 use App\Models\News_post;
 use App\Models\Professor;
@@ -38,25 +40,35 @@ Route::get('/', function () {
 
 
 Route::get('/courses', function () {
+    $banners = Banner::all();
     $courses = Course::all();
-    return view('front.pages.courses', compact('courses'));
+    $contact = Contact::all();
+    return view('front.pages.courses', compact('courses', 'banners', 'contact'));
 })->name('courses');
 
 Route::get('/contact', function () {
-    return view('front.pages.contact');
+    $banners = Banner::all(); //Not needed if you include @php
+    $contact = Contact::all();
+    return view('front.pages.contact', compact('banners', 'contact'));
+
 })->name('contact');
 
 Route::get('/events', function () {
-    return view('front.pages.events');
+    $banners = Banner::all();
+    return view('front.pages.events', compact('banners'));
 })->name('events');
 
 Route::get('/news', function () {
-    return view('front.pages.news');
+    $banners = Banner::all();
+    return view('front.pages.news', compact('banners'));
 })->name('news');
 
 Route::get('/professors', function () {
-    return view('front.pages.professors');
+    $banners = Banner::all();
+    return view('front.pages.professors', compact('banners'));
 })->name('professors');
+
+
 
 
 Route::resource('back/banners', BannerController::class);
@@ -65,6 +77,7 @@ Route::resource('back/courses', CourseController::class);
 Route::resource('back/profiles', UserController::class);
 Route::resource('back/professors', ProfessorController::class);
 Route::resource('back/events', EventController::class);
+Route::resource('back/contacts', ContactController::class);
 
 Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
 Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);

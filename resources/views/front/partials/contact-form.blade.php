@@ -7,7 +7,12 @@
                         <h4>Location Map</h4>
                     </div>
                     <div class="content-map">
-                        <div id="map"></div>
+                        <iframe
+                        src="{{ url("https://maps.google.com/maps?q=". $contact[0]->address ."&t=&z=18&ie=UTF8&iwloc=&output=embed") }}"
+                        width="100%" height="420px" frameborder="0"
+                        style="border:0; border-radius: 15px; position: relative; z-index: 2;"
+                        allowfullscreen="">
+                    </iframe>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,24 @@
 			<div class="sidebar-menu-inner">
                 @include('front.partials.header')
                 @include('front.partials.search')
-                @include('front.partials.page-heading')
+                <div class="page-heading news-heading" style="background-image: url('assets/images/news-heading-bg.jpg');">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+                                {{-- {{ dd($banners) }} --}}
+								<h1>{{ $banners[6]->title }}</h1>
+								<span>{{ $banners[6]->description }}</span>
+								<div class="page-list">
+									<ul>
+										<li class="active"><a href="index.html">Home</a></li>
+										<li><i class="fa fa-angle-right"></i></li>
+										<li><a href="{{ $banners[6]->url }}">{{ $banners[6]->url_text }}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
                 @include('front.partials.classic-news')
                 @include('front.partials.call-to-action')
                 @include('front.partials.footer')

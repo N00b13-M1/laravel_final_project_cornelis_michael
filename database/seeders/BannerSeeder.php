@@ -57,7 +57,7 @@ class BannerSeeder extends Seeder
             'title' => 'EVENTS',
             'dropbox' => '',
             'description' => 'Salvia next level crucifix pickled heirloom synth',
-            'url'=> 'grid-news.html',
+            'url'=> 'events-grid.html',
             'url_text' => 'News',
             'created_at' =>now(),
         ]);
