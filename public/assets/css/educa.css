@@ -12,7 +12,7 @@
 	Typography
 	Elements [Forms, buttons etc..]
 	Other Plugins
-	
+
 [/Table of contents]
 -------------------------------------------------------------------*/
 .primary-font,
@@ -3689,7 +3689,7 @@ section.single-teacher .single-teacher-item .description ul li:last-child {
 .section-heading img {
   padding: 15px 0px 20px 0px;
 }
-.teachers-heading {
+/* .teachers-heading {
   background-image: url(http://placehold.it/1700x380) !important;
 }
 .events-heading {
@@ -3710,7 +3710,7 @@ section.single-teacher .single-teacher-item .description ul li:last-child {
   background-repeat: no-repeat;
   width: 100%;
   padding: 100px 0px 0px 0px;
-}
+} */
 .page-heading h1 {
   font-size: 40px;
   color: #ffffff;
@@ -4422,7 +4422,7 @@ section.testimonials-page #owl-testimonials .owl-buttons .owl-prev:hover:after {
   transition: all 0.5s;
   cursor: pointer;
 }
-/* 
+/*
  * 	Core Owl Carousel CSS File
  *	v1.3.3
  */
@@ -4738,7 +4738,7 @@ section.testimonials-page #owl-testimonials .owl-buttons .owl-prev:hover:after {
  * http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Contributing author: Tyler Smith (@mbmufffin)
- * 
+ *
  */
 /* ====================================================================================================================
  * FONT-FACE

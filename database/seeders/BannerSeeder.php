@@ -35,15 +35,6 @@ class BannerSeeder extends Seeder
             'created_at' =>now(),
         ]);
         DB::table('banners')->insert([
-            'bg' => 'slidebg-2.jpg',
-            'title' => 'Next year more intresting!<br>Check next',
-            'dropbox' => 'Features',
-            'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod<br>ornare. Nam congue nisi purus, sed luctus risus.',
-            'url'=> '#',
-            'url_text' => 'Buy now',
-            'created_at' =>now(),
-        ]);
-        DB::table('banners')->insert([
             'bg' => 'page-heading-bg.jpg',
             'title' => 'ALL COURSES',
             'dropbox' => '',

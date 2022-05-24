@@ -1,5 +1,8 @@
 @extends('front.layouts.app')
     @section('content')
+    @php
+	$contact = \App\Models\Contact::all();
+    @endphp
     <div class="sidebar-menu-container" id="sidebar-menu-container">
 
 		<div class="sidebar-menu-push">
@@ -9,17 +12,17 @@
 			<div class="sidebar-menu-inner">
                 @include('front.partials.header')
                 @include('front.partials.search')
-    <div class="page-heading news-heading" style="background-image: {{ asset('assets/images/news-heading-bg.jpg');}}">
+                <div class="page-heading news-heading" style="background-image: url('assets/images/{{ $banners[6]->bg }}');;background-size: cover; background-repeat: no-repeat; width: 100%; padding: 100px 0px 0px 0px;"">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
-								<h1>{{ $banners[7]->title }}</h1>
-								<span>{{ $banners[7]->description }}</span>
+								<h1>{{ $banners[6]->title }}</h1>
+								<span>{{ $banners[6]->description }}</span>
 								<div class="page-list">
 									<ul>
 										<li class="active"><a href="index.html">Home</a></li>
 										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="{{ $banners[7]->url }}">{{ $banners[7]->url_text }}</a></li>
+										<li><a href="{{ $banners[6]->url }}">{{ $banners[6]->url_text }}</a></li>
 									</ul>
 								</div>
 							</div>

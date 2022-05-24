@@ -1,5 +1,8 @@
 @extends('front.layouts.app')
     @section('content')
+    @php
+	$contact = \App\Models\Contact::all();
+    @endphp
     <div class="sidebar-menu-container" id="sidebar-menu-container">
 
 		<div class="sidebar-menu-push">
