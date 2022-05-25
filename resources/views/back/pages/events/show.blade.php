@@ -5,6 +5,7 @@
         <h1 class="text-center fs-1 py-5">Detailed Event</h1>
         <form action="{{ route('events.index') }}" method="get">
             <div class="mb-3">
+                {{ dd($event) }}
                 <label for="img" class="form-label">Event Image</label>
                 <img src="{{ asset('assets/images/' . $event->img) }}">
             </div>

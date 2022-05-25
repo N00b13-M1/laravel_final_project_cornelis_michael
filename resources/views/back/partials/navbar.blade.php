@@ -54,8 +54,8 @@
             <span class="tooltip">Events</span>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bx-cog'></i>
+            <a href="{{ route('news.index') }}">
+                <i class='bx bx-news'></i>
                 <span class="links_name">News</span>
             </a>
             <span class="tooltip">News</span>
@@ -69,7 +69,7 @@
         </li>
         <li>
             <a href="">
-                <i class='bx bx-cog'></i>
+                <i class='bx bx-mail-send'></i>
                 <span class="links_name">Mailing list</span>
             </a>
             <span class="tooltip">Mailing list</span>

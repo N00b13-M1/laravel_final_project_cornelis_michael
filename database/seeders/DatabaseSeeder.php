@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\News_post;
+use App\Models\Newspost;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             ServiceSeeder::class,
             CourseSeeder::class,
-            NewsPostSeeder::class,
+            NewsSeeder::class,
             ProfessorSeeder::class,
             MapLocationSeeder::class,
             EventSeeder::class,

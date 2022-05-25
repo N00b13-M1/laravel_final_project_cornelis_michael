@@ -150,7 +150,7 @@ class ProfessorController extends Controller
     public function destroy(Professor $professor)
     {
         $professor->delete();
-        return redirect()->route('professors.index', compact('professor'))->with("delete", "Successfully Deleted");
+        return redirect()->route('professors.index')->with("delete", "Successfully Deleted");
     }
 }
 

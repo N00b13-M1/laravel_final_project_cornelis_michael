@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class NewsPostSeeder extends Seeder
+class NewsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class NewsPostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('news_posts')->insert([
+        DB::table('news')->insert([
             "url" => "single-post.html",
             "img" => "news-classic-5.jpg",
             "created_when" => "7 Oct 2015",
@@ -31,7 +31,7 @@ class NewsPostSeeder extends Seeder
             "text2" => "Authentic bespoke you probably haven't heard of them, Odd Future Pinterest jean shorts ugh Banksy kitsch shabby chic flannel PBR keffiyeh scenester. Migas cornhole cronut sriracha banh mi Pinterest Helvetica. Pickled taxidermy pop-up fashion axe, kale chips skateboard Blue Bottle. Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap cronut raw denim. Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast. Banjo tofu dreamcatcher 90's letterpress vinyl meggings, health goth readymade McSweeney's raw denim.",
             "created_at" => now(),
         ]);
-        DB::table('news_posts')->insert([
+        DB::table('news')->insert([
             "url" => "single-post.html",
             "img" => "news-classic-6.jpg",
             "created_when" => "7 Oct 2015",
@@ -47,7 +47,7 @@ class NewsPostSeeder extends Seeder
             "text2" => "Authentic bespoke you probably haven't heard of them, Odd Future Pinterest jean shorts ugh Banksy kitsch shabby chic flannel PBR keffiyeh scenester. Migas cornhole cronut sriracha banh mi Pinterest Helvetica. Pickled taxidermy pop-up fashion axe, kale chips skateboard Blue Bottle. Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap cronut raw denim. Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast. Banjo tofu dreamcatcher 90's letterpress vinyl meggings, health goth readymade McSweeney's raw denim.",
             "created_at" => now(),
         ]);
-        DB::table('news_posts')->insert([
+        DB::table('news')->insert([
             "url" => "single-post.html",
             "img" => "news-classic-3.jpg",
             "created_when" => "7 Oct 2015",
@@ -63,7 +63,7 @@ class NewsPostSeeder extends Seeder
             "text2" => "Authentic bespoke you probably haven't heard of them, Odd Future Pinterest jean shorts ugh Banksy kitsch shabby chic flannel PBR keffiyeh scenester. Migas cornhole cronut sriracha banh mi Pinterest Helvetica. Pickled taxidermy pop-up fashion axe, kale chips skateboard Blue Bottle. Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap cronut raw denim. Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast. Banjo tofu dreamcatcher 90's letterpress vinyl meggings, health goth readymade McSweeney's raw denim.",
             "created_at" => now(),
         ]);
-        DB::table('news_posts')->insert([
+        DB::table('news')->insert([
             "url" => "single-post.html",
             "img" => "news-classic-4.jpg",
             "created_when" => "7 Oct 2015",

@@ -9,12 +9,14 @@ use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailSubscriptionController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsletterController;
 use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Event;
-use App\Models\News_post;
+use App\Models\News;
+use App\Models\Newspost;
 use App\Models\Professor;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +36,7 @@ Route::get('/', function () {
     $banners = Banner::all();
     $services = Service::all();
     $courses = Course::all();
-    $news = News_post::all();
+    $news = News::all();
     $teachers = Professor::all();
     return view('front.frontend',compact('banners', 'services', 'courses', 'news', 'teachers'));
 })->name('home');
@@ -61,7 +63,8 @@ Route::get('/events', function () {
 
 Route::get('/news', function () {
     $banners = Banner::all();
-    return view('front.pages.news', compact('banners'));
+    $news = News::all();
+    return view('front.pages.news', compact('banners', 'news'));
 })->name('news');
 
 Route::get('/professors', function () {
@@ -78,6 +81,7 @@ Route::resource('back/profiles', UserController::class);
 Route::resource('back/professors', ProfessorController::class);
 Route::resource('back/events', EventController::class);
 Route::resource('back/contacts', ContactController::class);
+Route::resource('back/news', NewsController::class);
 
 Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
 Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
@@ -90,6 +94,7 @@ Route::get('/dashboard', function () {
 Route::get('/back', function () {
     return view('back.backend');
 })->name('backend');
+
 
 
 

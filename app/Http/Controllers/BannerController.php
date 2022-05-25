@@ -122,6 +122,6 @@ class BannerController extends Controller
     public function destroy(Banner $banner)
     {
         $banner->delete();
-        return redirect()->route('banners.index', compact('banner'))->with("delete", "Successfully Deleted");
+        return redirect()->route('banners.index')->with("delete", "Successfully Deleted");
     }
 }

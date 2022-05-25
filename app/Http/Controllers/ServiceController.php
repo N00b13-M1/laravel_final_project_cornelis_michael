@@ -65,6 +65,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
+        dd($service);
         return view('back.pages.services.show', compact('service'));
     }
 
@@ -112,6 +113,6 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->route('services.index', compact('service'))->with("delete", "Successfully Deleted");
+        return redirect()->route('services.index')->with("delete", "Successfully Deleted");
     }
 }

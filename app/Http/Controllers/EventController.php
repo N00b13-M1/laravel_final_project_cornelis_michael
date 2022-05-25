@@ -98,17 +98,17 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        // $validated = $request->validate([
-		// 	'img' => 'required',
-		// 	'stars' => 'required',
-		// 	'likes' => 'required',
-		// 	'where' => 'required',
-        //     'when' => 'required',
-        //     'circle_txt' => 'required',
-        //     >link' => 'required',
-        //     'event_name' => 'required',
-        //     'event_desc' => 'required'
-		// ]);
+        $validated = $request->validate([
+			'img' => 'required',
+			'stars' => 'required',
+			'likes' => 'required',
+			'where' => 'required',
+            'when' => 'required',
+            'circle_txt' => 'required',
+            'link' => 'required',
+            'event_name' => 'required',
+            'event_desc' => 'required'
+		]);
 
         $event->img = $request->img;
         $event->stars = $request->stars;
