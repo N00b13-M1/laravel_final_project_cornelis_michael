@@ -122,6 +122,7 @@ class ProfessorController extends Controller
             'linkedin_id' => 'required',
 		]);
 
+
         $professor->professor_photo = $request->professor_photo;
         $professor->professor_name = $request->professor_name;
         $professor->professor_title = $request->professor_title;
@@ -152,3 +153,4 @@ class ProfessorController extends Controller
         return redirect()->route('professors.index', compact('professor'))->with("delete", "Successfully Deleted");
     }
 }
+

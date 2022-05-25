@@ -1,7 +1,25 @@
 <section class="teachers-page">
     <div class="container">
         <div class="row">
+            @foreach ( $professors as $item )
             <div class="col-md-3">
+                <div class="teacher-item">
+                    <img src="{{ asset('assets/images/' . $item->professor_photo) }}" alt="">
+                    <div class="down-content">
+                        <a href="{{ $item->url }}"><h4>{{ $item->professor_name }}</h4></a>
+                        <span>{{ $item->professor_title }}</span>
+                        <p>{{ $item->text1 }}</p>
+                        <ul>
+                            <li><a href="{{ $item->facebook_id }}"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="{{ $item->twitter_id }}"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{{ $item->dribble_id }}"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="{{ $item->linkedin_id }}"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            {{-- <div class="col-md-3">
                 <div class="teacher-item">
                     <img src="{{ asset('assets/images/teacher-1.jpg') }}" alt="">
                     <div class="down-content">
@@ -192,7 +210,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="row">
             <div class="col-md-12">

@@ -66,10 +66,9 @@ Route::get('/news', function () {
 
 Route::get('/professors', function () {
     $banners = Banner::all();
-    return view('front.pages.professors', compact('banners'));
+    $professors = Professor::all();
+    return view('front.pages.professors', compact('banners', 'professors'));
 })->name('professors');
-
-
 
 
 Route::resource('back/banners', BannerController::class);
