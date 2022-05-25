@@ -47,7 +47,7 @@
             <span class="tooltip">Professors</span>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('events.index') }}">
                 <i class='bx bx-heart'></i>
                 <span class="links_name">Events</span>
             </a>

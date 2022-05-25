@@ -12,7 +12,7 @@
 			<div class="sidebar-menu-inner">
                 @include('front.partials.header')
                 @include('front.partials.search')
-                <div class="page-heading news-heading" style="background-image: url('assets/images/{{ $banners[2]->bg }}');;background-size: cover; background-repeat: no-repeat; width: 100%; padding: 100px 0px 0px 0px;"">
+                <div class="page-heading news-heading" style="background-image: url('assets/images/{{ $banners[2]->bg }}');;background-size: cover; background-repeat: no-repeat; width: 100%; padding: 100px 0px 0px 0px;">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">

@@ -16,13 +16,13 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('bg-img');
+            $table->string('img');
             $table->integer('stars');
-            $table->integer('like');
+            $table->integer('likes');
             $table->string('where');
             $table->string('when');
             $table->string('circle_txt');
-            $table->string('url');
+            $table->string('link');
             $table->string('event_name');
             $table->string('event_desc');
             $table->timestamps();

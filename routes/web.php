@@ -13,6 +13,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\Course;
+use App\Models\Event;
 use App\Models\News_post;
 use App\Models\Professor;
 use App\Models\Service;
@@ -50,12 +51,12 @@ Route::get('/contact', function () {
     $banners = Banner::all(); //Not needed if you include @php
     $contact = Contact::all();
     return view('front.pages.contact', compact('banners', 'contact'));
-
 })->name('contact');
 
 Route::get('/events', function () {
     $banners = Banner::all();
-    return view('front.pages.events', compact('banners'));
+    $events = Event::all();
+    return view('front.pages.events', compact('banners', 'events'));
 })->name('events');
 
 Route::get('/news', function () {

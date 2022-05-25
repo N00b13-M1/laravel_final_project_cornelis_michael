@@ -35,7 +35,39 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($events as $item)
             <div class="col-md-4">
+                <div class="event-item">
+                    <div class="thumb-holder">
+                        <img src="{{ asset('assets/images/' . $item->img ) }}" alt="">
+                        <div class="hover-content">
+                            <ul>
+                                @for ($i=$item->stars ;$i >0 ; $i--)
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+
+                                @endfor
+                                <li><a href="#">{{ $item->stars }} stars</a></li>
+                                <li><a href="#"><i class="fa fa-thumbs-up"></i>{{ $item->likes }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="down-content">
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i>{!! $item->where !!}</li>
+                            <li><i class="fa fa-clock-o"></i>{!! $item->when !!}</li>
+                        </ul>
+                        <div class="date">
+                            <p>{!! $item->circle_txt !!}</p>
+                        </div>
+                        <a href="{{ $item->link }}">
+                            <h4>{!!  $item->event_name !!}</h4>
+                        </a>
+                        <p>{{ $item->event_desc }}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            {{-- <div class="col-md-4">
                 <div class="event-item">
                     <div class="thumb-holder">
                         <img src="{{ asset('assets/images/events-1.jpg') }}" alt="">
@@ -322,7 +354,7 @@
                             tattooed.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="row">
             <div class="col-md-12">
