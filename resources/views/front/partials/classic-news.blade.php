@@ -3,7 +3,31 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="classic-posts">
+
+                    {{-- {{ dd($news) }} --}}
+                    @foreach ($news as $item )
                     <div class="classic-item">
+                        <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>
+                        <ul>
+                            <li>Posted: <em>{{ $item->created_when }}</em></li>
+                            <li>By: <em>{{ $item->posted_by }}</em></li>
+                            <li>Comments: <em>{{ $item->number_of_comments }}</em></li>
+                        </ul>
+                        <a href="{{ $item->url }}">
+                            <h4>{{ $item->title }}</h4>
+                        </a>
+                        <p>{{ $item->text1 }}</p>
+                        <div class="buttons">
+                            <div class="accent-button">
+                                <a href="{{ $item->url }}">Continue Reading</a>
+                            </div>
+                            <div class="second-button">
+                                <a href="#">Share <i class="fa fa-share-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    {{-- <div class="classic-item">
                         <a href="single-post.html"><img src="{{ asset('assets/images/news-classic-6.jpg') }}" alt=""></a>
                         <ul>
                             <li>Posted: <em>7 Oct 2015</em></li>
@@ -122,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-md-4">

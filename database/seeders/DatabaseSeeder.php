@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             CourseSeeder::class,
             NewsSeeder::class,
             ProfessorSeeder::class,
-            MapLocationSeeder::class,
+            AddressSeeder::class,
             EventSeeder::class,
             ContactSeeder::class,
 

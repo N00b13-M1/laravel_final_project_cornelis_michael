@@ -16,7 +16,6 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Event;
 use App\Models\News;
-use App\Models\Newspost;
 use App\Models\Professor;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
