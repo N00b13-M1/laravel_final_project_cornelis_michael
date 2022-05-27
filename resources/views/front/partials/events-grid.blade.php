@@ -67,6 +67,7 @@
                 </div>
             </div>
             @endforeach
+            {{ $events->links() }}
             {{-- <div class="col-md-4">
                 <div class="event-item">
                     <div class="thumb-holder">
@@ -356,7 +357,7 @@
                 </div>
             </div> --}}
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-12">
                 <div class="pagination-navigation">
                     <div class="row">
@@ -381,6 +382,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>

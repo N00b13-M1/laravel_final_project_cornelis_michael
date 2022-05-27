@@ -1,4 +1,3 @@
-oioiuoiuouo
 <nav class="sidebar-menu slide-from-left">
     <div class="nano">
         <div class="content">

@@ -9,29 +9,28 @@
         </div>
 
         <div class="row">
-            @foreach ($teachers as $item)
+            @for ($i = 0; $i < ($teachers->count()-8) ; $i++)
             <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
-                        <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->professor_photo) }}" alt=""></a>
+                        <a href="{{ $teachers[$i]->url }}"><img src="{{ asset('assets/images/' . $teachers[$i]->professor_photo) }}" alt=""></a>
                         <div class="hover-content">
                             <ul>
-                                <li><a href="{{ $item->facebook_id }}"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="{{ $item->twitter_id }}"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="{{ $item->dribble_id }}"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="{{ $item->linkedin_id }}"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="{{ $teachers[$i]->facebook_id }}"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{ $teachers[$i]->twitter_id }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ $teachers[$i]->dribble_id }}"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="{{ $teachers[$i]->linkedin_id }}"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="down-content">
-                        <a href="{{ $item->url }}"><h4>{{ $item->professor_name }}</h4></a>
-                        <span>{{ $item->professor_title }}</span>
-                        <p>{{ $item->text1 }}</p>
+                        <a href="{{ $teachers[$i]->url }}"><h4>{{ $teachers[$i]->professor_name }}</h4></a>
+                        <span>{{ $teachers[$i]->professor_title }}</span>
+                        <p>{{ $teachers[$i]->text1 }}</p>
                     </div>
                 </div>
             </div>
-            @endforeach
-            {{ $teachers->links() }}
+            @endfor
 
             {{-- <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">

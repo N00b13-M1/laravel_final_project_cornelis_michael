@@ -25,6 +25,7 @@
                         </div>
                     </div>
                     @endforeach
+                    {{ $news->links() }}
                     {{-- <div class="classic-item">
                         <a href="single-post.html"><img src="{{ asset('assets/images/news-classic-6.jpg') }}" alt=""></a>
                         <ul>

@@ -57,6 +57,7 @@
                 </div>
             </div>
             @endforeach
+            {{ $courses->links() }}
 
             {{-- <div class="col-md-4">
                 <div class="item course-item">
@@ -249,7 +250,7 @@
             </div> --}}
         </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-12">
             <div class="pagination-navigation">
                 <div class="row">
@@ -274,6 +275,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </div> --}}
 </section>

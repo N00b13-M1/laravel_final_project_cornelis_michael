@@ -19,6 +19,7 @@
                 </div>
             </div>
             @endforeach
+            {{-- {{ $professors->links() }} --}}
             {{-- <div class="col-md-3">
                 <div class="teacher-item">
                     <img src="{{ asset('assets/images/teacher-1.jpg') }}" alt="">
@@ -212,7 +213,7 @@
                 </div>
             </div> --}}
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-12">
                 <div class="pagination-navigation">
                     <div class="row">
@@ -237,6 +238,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>

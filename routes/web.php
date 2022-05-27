@@ -37,8 +37,6 @@ Route::get('/', function () {
     $courses = Course::all();
     $news = News::all();
     $teachers = Professor::all();
-    $teachers = Professor::paginate(4);
-    // $plop = 'plopperdeplop';
     return view('front.frontend',compact('banners', 'services', 'courses', 'news', 'teachers'));
 })->name('home');
 
@@ -47,6 +45,7 @@ Route::get('/', function () {
 Route::get('/courses', function () {
     $banners = Banner::all();
     $courses = Course::all();
+    $courses = Course::paginate(3);
     $contact = Contact::all();
     return view('front.pages.courses', compact('courses', 'banners', 'contact'));
 })->name('courses');
@@ -60,18 +59,21 @@ Route::get('/contact', function () {
 Route::get('/events', function () {
     $banners = Banner::all();
     $events = Event::all();
+    $events =  Event::paginate(3);
     return view('front.pages.events', compact('banners', 'events'));
 })->name('events');
 
 Route::get('/news', function () {
     $banners = Banner::all();
     $news = News::all();
+    $news =  News::paginate(4);
     return view('front.pages.news', compact('banners', 'news'));
 })->name('news');
 
 Route::get('/professors', function () {
     $banners = Banner::all();
     $professors = Professor::all();
+    // $professors =  News::paginate(3);
     return view('front.pages.professors', compact('banners', 'professors'));
 })->name('professors');
 
