@@ -21,7 +21,7 @@ class Professor extends Model
         'skype_id',
         'facebook_id',
         'twitter_id',
-        'drible_id',
+        'dribble_id',
         'linkedin_id',
     ];
 }

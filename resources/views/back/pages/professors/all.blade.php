@@ -36,7 +36,7 @@
                 @foreach ($professors as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <td>{{ $item->professor_photo }}</td>
+                        <td><img src="{{ asset('assets/images/' . $item->professor_photo ) }}"></td>
                         <td>{{ $item->professor_name }}</td>
                         <td>{{ $item->professor_title }}</td>
                         <td>{{ $item->text1 }}</td>
@@ -47,7 +47,7 @@
                         <td>{{ $item->skype_id }}</td>
                         <td>{{ $item->facebook_id }}</td>
                         <td>{{ $item->twitter_id }}</td>
-                        <td>{{ $item->drible_id }}</td>
+                        <td>{{ $item->dribble_id }}</td>
                         <td>{{ $item->linkedin_id }}</td>
                         <td>
                             <a href="{{ route('professors.show', $item) }}"><button class="btn btn-primary">Show</button>

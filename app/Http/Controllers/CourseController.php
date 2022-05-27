@@ -17,7 +17,8 @@ class CourseController extends Controller
     {
         $courses = Course::all();
         $course_titles = Schema::getColumnListing('courses');
-        $course_titles = array_slice($course_titles, 0, 11);
+        $course_titles = array_slice($course_titles, 0, 10);
+        // dd($course_titles);
 
         return view('back.pages.courses.all', compact('courses','course_titles'));
     }

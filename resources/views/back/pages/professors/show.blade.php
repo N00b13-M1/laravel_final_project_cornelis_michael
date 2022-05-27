@@ -49,8 +49,8 @@
                 <input type="text" class="form-control" id="twitter_id" name="twitter_id" value="{{ $professor->twitter_id}}" readonly>
             </div>
             <div class="mb-3">
-                <label for="drible_id" class="form-label">Drible ID</label>
-                <input type="text" class="form-control" id="drible_id" name="drible_id" value="{{ $professor->drible_id}}" readonly>
+                <label for="dribble_id" class="form-label">Dribble ID</label>
+                <input type="text" class="form-control" id="dribble_id" name="dribble_id" value="{{ $professor->dribble_id}}" readonly>
             </div>
             <div class="mb-3">
                 <label for="linkedin_id" class="form-label">LinkedIn ID</label>

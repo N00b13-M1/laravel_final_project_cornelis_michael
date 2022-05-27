@@ -39,13 +39,12 @@
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->desc }}</td>
                         <td>{{ $item->bg }}</td>
-                        <td>{{ $item->teacher_pic }}</td>
+                        <td><img src="{{ asset('assets/images/' . $item->teacher_pic ) }}"></td>
                         <td>{{ $item->teacher_name }}</td>
                         <td>{{ $item->price_class }}</td>
                         <td>{{ $item->price }}</td>
                         <td>{{ $item->url }}</td>
                         <td>{{ $item->text }}</td>
-                        <td>{{ $item->url2 }}</td>
                         <td>
                             <a href="{{ route('courses.show', $item) }}"><button class="btn btn-primary">Show</button>
                             </a>
