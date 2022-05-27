@@ -17,7 +17,28 @@
             @method('put')
             <div class="mb-3">
                 <label for="logo" class="form-label">Logo</label>
-                <input type="text" class="form-control" id="logo" name="logo" value="{{ old('logo') ? old('logo') : $service->logo }}">
+                <div class='d-flex m-auto'>
+                    @php
+                        $logos = [
+                        'fa fa-graduation-cap',
+                        'fa fa-globe',
+                        'fa fa-clock-o',
+                        'fa fa-book',
+                        'fa fa-paperclip',
+                        'fa fa-magnet',
+                        'fa fa-shopping-cart',
+                        'fa fa-bar-chart'];
+                    @endphp
+                    @foreach ($logos as $item)
+                        <div class="form-check m-1">
+                            <label class="form-check-label d-block m-auto" for="flexRadioDefault1">
+                                <i class="{{ $item }}"></i>
+                            </label>
+                            <input class="form-check-input d-block m-auto" type="radio" name="logo" id="flexRadioDefault1"
+                                value="{{ $item }}">
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>

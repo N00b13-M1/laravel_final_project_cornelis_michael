@@ -6,7 +6,8 @@
         <form action="{{ route('services.index') }}" method="get">
             <div class="mb-3">
                 <label for="logo" class="form-label">Logo</label>
-                <input type="text" class="form-control" id="logo" name="logo" value="{{ $service->logo }}" readonly>
+                <br>
+                <i class="{{ $service->logo }}"></i>
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>

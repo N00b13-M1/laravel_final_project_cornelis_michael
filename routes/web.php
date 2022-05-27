@@ -37,10 +37,11 @@ Route::get('/', function () {
     $courses = Course::all();
     $news = News::all();
     $teachers = Professor::all();
-    // $professors = Professor::paginate(4);
-    $plop = 'plopperdeplop';
-    return view('front.frontend',compact('banners', 'services', 'courses', 'news', 'teachers', 'plop'));
+    $teachers = Professor::paginate(4);
+    // $plop = 'plopperdeplop';
+    return view('front.frontend',compact('banners', 'services', 'courses', 'news', 'teachers'));
 })->name('home');
+
 
 
 Route::get('/courses', function () {

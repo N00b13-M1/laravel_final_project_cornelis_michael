@@ -31,7 +31,8 @@
                 </div>
             </div>
             @endforeach
-            {{ dd($plop) }}
+            {{ $teachers->links() }}
+
             {{-- <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">

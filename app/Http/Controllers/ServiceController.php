@@ -30,7 +30,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('back.pages.services.create');
+        $services =  Service::all();
+        return view('back.pages.services.create', compact('services'));
     }
 
     /**
@@ -65,7 +66,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        dd($service);
+        // dd($service);
         return view('back.pages.services.show', compact('service'));
     }
 

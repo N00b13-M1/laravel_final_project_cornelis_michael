@@ -36,13 +36,14 @@
                 @foreach ($services as $service)
                     <tr>
                         <th scope="row">{{ $service->id }}</th>
-                        <td>{{ $service->logo }}</td>
+                        <td><i class="{{ $service->logo }}"></i></td>
                         <td>{{ $service->title }}</td>
                         <td>{{ $service->description }}</td>
                         <td>
                             <a href="{{ route('services.show', $service) }}"><button class="btn btn-primary">Show</button>
                             </a>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>
