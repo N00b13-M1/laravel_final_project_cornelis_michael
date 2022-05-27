@@ -19,6 +19,7 @@
                 <label for="logo" class="form-label">Logo</label>
                 <div class='d-flex m-auto'>
                     @php
+                        // dd($services);
                         $logos = [
                         'fa fa-graduation-cap',
                         'fa fa-globe',
