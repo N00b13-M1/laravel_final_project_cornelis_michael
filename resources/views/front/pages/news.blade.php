@@ -39,3 +39,5 @@
         @include('front.partials.sidebar-menu')
 	</div>
     @endsection
+
+    

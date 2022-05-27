@@ -3,8 +3,6 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="classic-posts">
-
-                    {{-- {{ dd($news) }} --}}
                     @foreach ($news as $item )
                     <div class="classic-item">
                         <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>

@@ -7,6 +7,7 @@
                 <p>High Life squid literally scenester fap Helvetica quinoa church-key</p>
             </div>
         </div>
+
         <div class="row">
             @foreach ($teachers as $item)
             <div class="col-md-3 col-sm-6">
@@ -30,6 +31,7 @@
                 </div>
             </div>
             @endforeach
+            {{ dd($plop) }}
             {{-- <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">

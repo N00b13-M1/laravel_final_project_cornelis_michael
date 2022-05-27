@@ -48,4 +48,3 @@ class User extends Authenticatable
         $this->belongsTo(Role::class);
     }
 }
-

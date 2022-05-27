@@ -33,6 +33,8 @@
                     <img src="{{ asset('assets/images/line-dec.png') }}" alt="">
                 </div>
                 <div class="row">
+
+                    rgergergerg
                     <div class="col-md-12">
                         @for ($i=$news->count()-1; $i > $news->count()-3 ; $i--)
                             <div class="news-item">
@@ -52,3 +54,5 @@
         </div>
     </div>
 </section>
+
+
