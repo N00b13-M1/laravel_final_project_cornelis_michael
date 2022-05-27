@@ -36,7 +36,7 @@
                 @foreach ($banners as $banner)
                     <tr>
                         <th scope="row">{{ $banner->id }}</th>
-                        <td>{{ $banner->bg }}</td>
+                        <td><img src="{{ asset('assets/images/' . $banner->bg ) }}"></td>
                         <td>{{ $banner->title }}</td>
                         <td>{{ $banner->dropbox }}</td>
                         <td>{{ $banner->description }}</td>
