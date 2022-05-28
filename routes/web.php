@@ -67,6 +67,7 @@ Route::get('/news', function () {
     $banners = Banner::all();
     $news = News::all();
     $news =  News::paginate(4);
+    // dd($number = $news);
     return view('front.pages.news', compact('banners', 'news'));
 })->name('news');
 
@@ -76,7 +77,6 @@ Route::get('/professors', function () {
     // $professors =  News::paginate(3);
     return view('front.pages.professors', compact('banners', 'professors'));
 })->name('professors');
-
 
 Route::resource('back/banners', BannerController::class);
 Route::resource('back/services', ServiceController::class);

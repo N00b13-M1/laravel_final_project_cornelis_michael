@@ -4,8 +4,11 @@
             <div class="col-md-12">
                 <div class="pre-featured">
                     <div class="info-text">
-                        <h4>showing 1-9 of 40 courses</h4>
+                        @if ($courses->currentPage()))
+                        <h4>showing {{ -2+(3*$courses->currentPage()) }}-{{ ($courses->currentPage()*3) }} of {{ $courses->total() }} courses</h4>
+                        @endif
                     </div>
+                    {{-- {{ dd($courses->total() ) }} --}}
                     <div class="right-content">
                         <div class="input-select">
                             <select name="category" id="category">
