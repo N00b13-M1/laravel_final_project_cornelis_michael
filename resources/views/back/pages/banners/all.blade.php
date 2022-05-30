@@ -42,6 +42,7 @@
                         <td>{{ $banner->description }}</td>
                         <td>{{ $banner->url }}</td>
                         <td>{{ $banner->url_text }}</td>
+                        <td>{{ $banner->primary }}</td>
                         <td>
                             <a href="{{ route('banners.show', $banner) }}"><button class="btn btn-primary">Show</button>
                             </a>

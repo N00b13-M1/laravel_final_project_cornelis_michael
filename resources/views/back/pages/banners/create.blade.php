@@ -38,6 +38,10 @@
                 <label for="url_text" class="form-label">URL Text</label>
                 <input type="text" class="form-control" id="url_text" name="url_text" value="{{ old('url_text') }}">
             </div>
+            <div class="mb-3">
+                <label for="primary" class="form-label">Primary</label>
+                <input type="number" class="form-control" id="primary" name="primary" value=2 readonly>
+            </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>
     </div>

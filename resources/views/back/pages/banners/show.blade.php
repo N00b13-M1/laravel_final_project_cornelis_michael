@@ -29,6 +29,10 @@
                 <label for="url_text" class="form-label">URL Text</label>
                 <input type="text" class="form-control" id="url_text" name="url_text" value="{{ $banner->url_text }}" readonly>
             </div>
+            <div class="mb-3">
+                <label for="primary" class="form-label">Primary</label>
+                <input type="boolean" class="form-control" id="primary" name="primary" value="{{ $banner->primary }}" readonly>
+            </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('banners.index') }}"></a>Return</button>
 
         </form>

@@ -17,8 +17,10 @@ class BannerController extends Controller
     {
         $banners = Banner::all();
         $banner_titles = Schema::getColumnListing('banners');
-        $banner_titles = array_slice($banner_titles, 0, 7);
+        $banner_titles = array_slice($banner_titles, 0, 8);
+        $banners = Banner::orderBy('primary', 'asc')->get();
         // dd($banners);
+
         return view('back.pages.banners.all', compact('banners','banner_titles'));
     }
 
@@ -41,7 +43,6 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-			'bg' => 'required',
 			'title' => 'required',
 			'dropbox' => 'required',
 			'description' => 'required',
@@ -56,6 +57,7 @@ class BannerController extends Controller
         $banner->description = $request->description;
         $banner->url = $request->url;
         $banner->url_text = $request->url_text;
+        $banner->primary = $request->primary;
 
         $banner->save();
         return redirect()->route('banners.index')->with("success", "Successfully Added");
@@ -94,7 +96,6 @@ class BannerController extends Controller
     public function update(Request $request, Banner $banner)
     {
         $validated = $request->validate([
-            'bg' => 'required',
 			'title' => 'required',
 			'dropbox' => 'required',
 			'description' => 'required',
@@ -108,8 +109,27 @@ class BannerController extends Controller
         $banner->description = $request->description;
         $banner->url = $request->url;
         $banner->url_text = $request->url_text;
+        $banner->primary = $request->primary;
 
+        // dd($request->primary);
+        $oldvalues = Banner::where('primary', 2)->get();
+        foreach ($oldvalues as $oldvalue) {
+            $oldvalue->primary = 1;
+            $oldvalue->save(); # code...
+        }
+
+        // dd($oldvalues);
+
+        if($request->primary = 0) {
+
+        }
+        // elseif($request->primary = 1) {
+        //     $oldvalues = Banner::where('primary', 1)->get();
+        //     $oldvalues->primary = 0;
+        //     $oldvalues->save();
+        // }
         $banner->save();
+        // dd($banner);
         return redirect()->route('banners.index')->with("update", "Successfully Updated");
     }
 

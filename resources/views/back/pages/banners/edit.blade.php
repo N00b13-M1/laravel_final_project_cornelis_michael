@@ -47,6 +47,18 @@
                 <input type="text" class="form-control" id="url_text" name="url_text"
                     value="{{ old('url_text') ? old('url_text') : $banner->url_text }}">
             </div>
+            <div class="mb-3">
+                <label for="primary" class="form-label">Primary Picture</label>
+                <div class="input-select">
+                    <select name="primary" id="primary">
+                        <option value="-1">Select an option</option>
+                        <option value="0">True</option>
+                        <option value="1" >False</option>
+                    </select>
+                </div>
+                {{-- <input type="boolean" class="form-control" id="primary" name="primary"
+                    value="{{ old('primary') ? old('primary') : $banner->primary }}"> --}}
+            </div>
             <button type="submit" class="btn btn-primary m-2">Save</button>
         </form>
     </div>

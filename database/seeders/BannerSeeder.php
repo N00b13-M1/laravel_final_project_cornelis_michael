@@ -22,6 +22,7 @@ class BannerSeeder extends Seeder
             'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod<br>ornare. Nam congue nisi purus, sed luctus risus.',
             'url'=> '#',
             'url_text' => 'Buy now',
+            'primary' => 0,
             'created_at' =>now(),
 
         ]);
@@ -32,6 +33,7 @@ class BannerSeeder extends Seeder
             'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod<br>ornare. Nam congue nisi purus, sed luctus risus.',
             'url'=> '#',
             'url_text' => 'Buy now',
+            'primary' => 1,
             'created_at' =>now(),
         ]);
         DB::table('banners')->insert([
@@ -41,6 +43,7 @@ class BannerSeeder extends Seeder
             'description' => 'Salvia next level crucifix pickled heirloom synth',
             'url'=> 'courses-grid.html',
             'url_text' => 'Courses Categories',
+            'primary' => 2,
             'created_at' =>now(),
         ]);
         DB::table('banners')->insert([
@@ -50,6 +53,7 @@ class BannerSeeder extends Seeder
             'description' => 'Salvia next level crucifix pickled heirloom synth',
             'url'=> 'events-grid.html',
             'url_text' => 'News',
+            'primary' => 2,
             'created_at' =>now(),
         ]);
         DB::table('banners')->insert([
@@ -59,6 +63,7 @@ class BannerSeeder extends Seeder
             'description' => 'Salvia next level crucifix pickled heirloom synth',
             'url'=> 'our-teachers.html',
             'url_text' => 'Our Teachers',
+            'primary' => 2,
             'created_at' =>now(),
         ]);
         DB::table('banners')->insert([
@@ -68,6 +73,7 @@ class BannerSeeder extends Seeder
             'description' => 'Salvia next level crucifix pickled heirloom synth',
             'url'=> 'grid-news.html',
             'url_text' => 'News',
+            'primary' => 2,
             'created_at' =>now(),
         ]);
         DB::table('banners')->insert([
@@ -77,6 +83,7 @@ class BannerSeeder extends Seeder
             'description' => 'Salvia next level crucifix pickled heirloom synth',
             'url'=> 'contact.html',
             'url_text' => 'Contact',
+            'primary' => 2,
             'created_at' =>now(),
         ]);
 

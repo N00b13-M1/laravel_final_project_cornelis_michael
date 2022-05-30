@@ -16,5 +16,12 @@ class Banner extends Model
         'description',
         'url',
         'url_text',
+
+    ];
+
+    protected $guarded= [
+        'primary',
+        // 'created_at',
+        // 'updated_at'
     ];
 }
