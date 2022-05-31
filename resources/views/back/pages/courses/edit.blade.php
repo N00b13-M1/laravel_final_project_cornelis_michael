@@ -17,16 +17,16 @@
             @method('put')
             <div class="mb-3">
                 <label for="favorite" class="form-label">Is this a Favorite?</label>
-                <div class="form-control border border-dark rounded-0">
+                <div class="form-control form-group border border-dark rounded-0">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="favorite1" id="favorite" value=0>
-                        <label class="form-check-label" for="favorite">
+                        <input class="form-check-input" type="radio" name="favorite" id="favoriteYes" value="Yes" {{ $course->favorite == "Yes" ? "checked" : "" }}>
+                        <label class="form-check-label" for="favoriteYes">
                         Yes
                         </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="favorite2" id="favorite" value=1 checked>
-                        <label class="form-check-label" for="favorite">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="favorite" id="favoriteNo" value="No" {{ $course->favorite == "No" ? "checked" : "" }}>
+                        <label class="form-check-label" for="favoriteNo">
                         No
                         </label>
                     </div>
@@ -46,6 +46,7 @@
                             style="width: 200px" alt="" class="m-2 d-block">
                 <input type="file" class="form-control" id="bg" name="bg"
                             value="{{ old('bg') ? old('bg') : $course->bg }}">
+
             </div>
             <div class="mb-3">
                 <label for="teacher_pic" class="form-label">Teacher Picture</label>
@@ -78,3 +79,4 @@
         </form>
     </div>
 @endsection
+

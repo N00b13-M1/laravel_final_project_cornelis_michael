@@ -37,7 +37,7 @@ Route::get('/', function () {
     $courses = Course::all();
     $news = News::all();
     $teachers = Professor::all();
-    $banners_carousel = Banner::where('primary', '=', 1)->orWhere('primary', '=', 0)->get();
+    $banners_carousel = Banner::where('primary', '=', "Yes")->orWhere('primary', '=', "No")->get();
     $banners_asc = $banners_carousel->sortBy('primary');
     $banners_des = $banners_carousel->sortByDesc('primary');
     // if($banners_carousel[0]->primary == 0)

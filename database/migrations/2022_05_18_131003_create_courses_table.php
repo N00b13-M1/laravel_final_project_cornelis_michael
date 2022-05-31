@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('price_class');
             $table->string('price');
             $table->string('url');
-            $table->string('text')->default('N/A');
-            $table->string('favorite')->default(0);
+            $table->string('text');
+            $table->string('favorite')->default("No");
             $table->timestamps();
         });
     }

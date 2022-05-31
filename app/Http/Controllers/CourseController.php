@@ -17,7 +17,7 @@ class CourseController extends Controller
     {
         $courses = Course::all();
         $course_titles = Schema::getColumnListing('courses');
-        $course_titles = array_slice($course_titles, 0, 10);
+        $course_titles = array_slice($course_titles, 0, 11);
         // dd($course_titles);
 
         return view('back.pages.courses.all', compact('courses','course_titles'));
@@ -50,6 +50,7 @@ class CourseController extends Controller
             'price_class' => 'required',
             'price' => 'required',
             'url' => 'required',
+            'text' => 'required',
 		]);
 
         $course = New Course;
@@ -101,24 +102,32 @@ class CourseController extends Controller
         $validated = $request->validate([
 			'title' => 'required',
 			'desc' => 'required',
-			'bg' => 'required',
-			'teacher_pic' => 'required',
+			// 'bg' => 'required',
+			// 'teacher_pic' => 'required',
             'teacher_name' => 'required',
             'price_class' => 'required',
             'price' => 'required',
             'url' => 'required',
+            // 'favorite' => 'required',
 		]);
 
         $course->title = $request->title;
         $course->desc = $request->desc;
-        $course->bg = $request->bg;
-        $course->teacher_pic = $request->teacher_pic;
+        if($request->bg != null) {
+            $course->bg = $request->bg;
+        }
+        if($request->teacher_pic != null) {
+            $course->teacher_pic = $request->teacher_pic;
+        }
         $course->teacher_name = $request->teacher_name;
         $course->price_class = $request->price_class;
         $course->price = $request->price;
         $course->url = $request->url;
         $course->text = $request->text;
+        $course->favorite = $request->favorite;
         $course->updated_at = now();
+
+        // dd($course);
 
         $course->save();
         return redirect()->route('courses.index')->with("update", "Successfully Updated");
@@ -136,3 +145,4 @@ class CourseController extends Controller
         return redirect()->route('courses.index')->with("delete", "Successfully Deleted");
     }
 }
+

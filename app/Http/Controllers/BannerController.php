@@ -21,6 +21,8 @@ class BannerController extends Controller
         $banner_titles = Schema::getColumnListing('banners');
         $banner_titles = array_slice($banner_titles, 0, 8);
         $banners = Banner::orderBy('primary', 'asc')->get();
+        // dd($banners);
+
         return view('back.pages.banners.all', compact('banners','banner_titles'));
     }
 

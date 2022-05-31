@@ -25,7 +25,7 @@ class CourseSeeder extends Seeder
             'price' => '19.99',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -38,7 +38,7 @@ class CourseSeeder extends Seeder
             'price' => '49.99',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -51,7 +51,7 @@ class CourseSeeder extends Seeder
             'price' => '19.99',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -64,7 +64,7 @@ class CourseSeeder extends Seeder
             'price' =>'Free',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -77,7 +77,7 @@ class CourseSeeder extends Seeder
             'price' =>'29.99',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -90,7 +90,7 @@ class CourseSeeder extends Seeder
             'price' =>'29.99',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -103,7 +103,7 @@ class CourseSeeder extends Seeder
             'price' =>'Free',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -116,7 +116,7 @@ class CourseSeeder extends Seeder
             'price' =>'Free',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -129,7 +129,7 @@ class CourseSeeder extends Seeder
             'price' =>'29.99',
             'url' => 'single-course.html',
             'text' => 'N/A',
-            'favorite' => 0,
+            // 'favorite' => 1,
             'created_at' => now(),
         ]);
     }

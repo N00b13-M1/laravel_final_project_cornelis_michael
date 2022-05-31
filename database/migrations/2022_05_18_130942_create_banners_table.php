@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->string('bg');
-            $table->string('title')->nullable();
-            $table->string('dropbox')->nullable();
+            $table->string('title');
+            $table->string('dropbox');
             $table->string('description');
-            $table->string('url')->nullable();
-            $table->string('url_text')->nullable();
+            $table->string('url');
+            $table->string('url_text');
             $table->integer('primary')->default(2);
             $table->timestamps();
         });

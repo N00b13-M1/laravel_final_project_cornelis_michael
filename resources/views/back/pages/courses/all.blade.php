@@ -29,7 +29,7 @@
                     @endforeach
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
-                    <th scope="col">Favorites</i>
+                    <th scope="col">Action</i>
                     </th>
                 </tr>
             </thead>
@@ -46,6 +46,7 @@
                         <td>{{ $item->price }}</td>
                         <td>{{ $item->url }}</td>
                         <td>{{ $item->text }}</td>
+                        <td>{{ $item->favorite }}</td>
                         <td>
                             <a href="{{ route('courses.show', $item) }}"><button class="btn btn-primary">Show</button>
                             </a>
