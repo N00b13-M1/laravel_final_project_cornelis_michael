@@ -50,7 +50,6 @@ class CourseController extends Controller
             'price_class' => 'required',
             'price' => 'required',
             'url' => 'required',
-            'url2' => 'required'
 		]);
 
         $course = New Course;
@@ -63,7 +62,6 @@ class CourseController extends Controller
         $course->price = $request->price;
         $course->url = $request->url;
         $course->text = $request->text;
-        $course->url2 = $request->url;
 
         $course->save();
         return redirect()->route('courses.index')->with("success", "Successfully Added");
@@ -109,7 +107,6 @@ class CourseController extends Controller
             'price_class' => 'required',
             'price' => 'required',
             'url' => 'required',
-            'url2' => 'required'
 		]);
 
         $course->title = $request->title;
@@ -121,7 +118,6 @@ class CourseController extends Controller
         $course->price = $request->price;
         $course->url = $request->url;
         $course->text = $request->text;
-        $course->url2 = $request->url;
         $course->updated_at = now();
 
         $course->save();

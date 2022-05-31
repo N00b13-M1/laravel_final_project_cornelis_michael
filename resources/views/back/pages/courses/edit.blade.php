@@ -16,6 +16,23 @@
             @csrf
             @method('put')
             <div class="mb-3">
+                <label for="favorite" class="form-label">Is this a Favorite?</label>
+                <div class="form-control border border-dark rounded-0">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="favorite1" id="favorite" value=0>
+                        <label class="form-check-label" for="favorite">
+                        Yes
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="favorite2" id="favorite" value=1 checked>
+                        <label class="form-check-label" for="favorite">
+                        No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') ? old('title') : $course->title }}">
             </div>
@@ -55,11 +72,7 @@
             </div>
             <div class="mb-3">
                 <label for="text" class="form-label">Text</label>
-                <input type="text" class="form-control" id="text" name="text" value="{{ old('text') ? old('text') : $course->url }}">
-            </div>
-            <div class="mb-3">
-                <label for="url2" class="form-label">URL 2</label>
-                <input type="text" class="form-control" id="url2" name="url2" value="{{ old('url2') ? old('url2') : $course->url2 }}">
+                <input type="text" class="form-control" id="text" name="text" value="{{ old('text') ? old('text') : $course->text }}">
             </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>

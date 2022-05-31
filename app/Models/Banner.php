@@ -16,6 +16,7 @@ class Banner extends Model
         'description',
         'url',
         'url_text',
+        'primary',
 
     ];
 

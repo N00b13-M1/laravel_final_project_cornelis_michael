@@ -19,5 +19,6 @@ class Course extends Model
         'price',
         'url',
         'text',
+        'favorite',
     ];
 }

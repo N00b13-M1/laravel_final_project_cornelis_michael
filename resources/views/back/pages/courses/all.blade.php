@@ -29,7 +29,8 @@
                     @endforeach
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
-
+                    <th scope="col">Favorites</i>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +39,7 @@
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->desc }}</td>
-                        <td>{{ $item->bg }}</td>
+                        <td><img src="{{ asset('assets/images/' . $item->bg ) }}"></td>
                         <td><img src="{{ asset('assets/images/' . $item->teacher_pic ) }}"></td>
                         <td>{{ $item->teacher_name }}</td>
                         <td>{{ $item->price_class }}</td>
@@ -47,6 +48,10 @@
                         <td>{{ $item->text }}</td>
                         <td>
                             <a href="{{ route('courses.show', $item) }}"><button class="btn btn-primary">Show</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ route('courses.edit', $item) }}"><button class="btn btn-primary">Add/Remove &#9829;</button>
                             </a>
                         </td>
                     </tr>

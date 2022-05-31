@@ -42,10 +42,6 @@
                 <label for="text" class="form-label">Text</label>
                 <input type="text" class="form-control" id="text" name="text" value="{{ $course->text }}" readonly>
             </div>
-            <div class="mb-3">
-                <label for="url2" class="form-label">URL 2</label>
-                <input type="text" class="form-control" id="url2" name="url2" value="{{ $course->url2 }}" readonly>
-            </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('courses.index') }}"></a>Return</button>
 
         </form>

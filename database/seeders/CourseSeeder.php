@@ -24,7 +24,8 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-red',
             'price' => '19.99',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -36,7 +37,8 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-red',
             'price' => '49.99',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -48,9 +50,9 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-red',
             'price' => '19.99',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
-
         ]);
         DB::table('courses')->insert([
             'title' => 'What can you do<br>With a Business Degree?',
@@ -61,7 +63,8 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-yellow',
             'price' =>'Free',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -73,7 +76,8 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-red',
             'price' =>'29.99',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -85,7 +89,8 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-red',
             'price' =>'29.99',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -97,7 +102,8 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-yellow',
             'price' =>'Free',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -109,7 +115,8 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-yellow',
             'price' =>'Free',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -121,10 +128,10 @@ class CourseSeeder extends Seeder
             'price_class' => 'price-red',
             'price' =>'29.99',
             'url' => 'single-course.html',
-            'text' => '',
+            'text' => 'N/A',
+            'favorite' => 0,
             'created_at' => now(),
         ]);
-
     }
 }
 
