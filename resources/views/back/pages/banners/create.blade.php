@@ -24,7 +24,7 @@
             </div>
             <div class="mb-3">
                 <label for="dropbox" class="form-label">Dropbox</label>
-                <input type="text" class="form-control" id="dropbox" name="dropbox" value="{{ old('title') }}">
+                <input type="text" class="form-control" id="dropbox" name="dropbox" value="{{ old('dropbox') }}">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>

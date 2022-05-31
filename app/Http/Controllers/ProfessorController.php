@@ -136,6 +136,7 @@ class ProfessorController extends Controller
         $professor->twitter_id = $request->twitter_id;
         $professor->drible_id = $request->drible_id;
         $professor->linkedin_id = $request->linkedin_id;
+        $professor->updated_at = now();
 
         $professor->save();
         return redirect()->route('professors.index')->with("update", "Successfully Updated");

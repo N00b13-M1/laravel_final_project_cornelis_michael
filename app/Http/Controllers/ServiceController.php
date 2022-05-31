@@ -99,6 +99,7 @@ class ServiceController extends Controller
         $service->logo = $request->logo;
         $service->title = $request->title;
         $service->description = $request->description;
+        $service->updated_at = now();
 
         $service->save();
         return redirect()->route('services.index')->with("update", "Successfully Updated");

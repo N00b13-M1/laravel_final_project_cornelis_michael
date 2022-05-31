@@ -122,6 +122,7 @@ class CourseController extends Controller
         $course->url = $request->url;
         $course->text = $request->text;
         $course->url2 = $request->url;
+        $course->updated_at = now();
 
         $course->save();
         return redirect()->route('courses.index')->with("update", "Successfully Updated");

@@ -116,6 +116,7 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->text1 = $request->text1;
         $news->text2 = $request->text2;
+        $news->updated_at = now();
 
         $news->save();
         return redirect()->route('news.index')->with("update", "Successfully updated");

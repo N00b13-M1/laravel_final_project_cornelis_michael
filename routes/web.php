@@ -37,7 +37,17 @@ Route::get('/', function () {
     $courses = Course::all();
     $news = News::all();
     $teachers = Professor::all();
-    return view('front.frontend',compact('banners', 'services', 'courses', 'news', 'teachers'));
+    $banners_carousel = Banner::where('primary', '=', 1)->orWhere('primary', '=', 0)->get();
+    $banners_asc = $banners_carousel->sortBy('primary');
+    $banners_des = $banners_carousel->sortByDesc('primary');
+    // if($banners_carousel[0]->primary == 0)
+    // {
+    //     dd($banners_asc);
+    // }
+    // else{
+    //     dd($banners_des);
+    // }
+    return view('front.frontend',compact('banners_carousel', 'banners_asc', 'banners_des', 'services', 'courses', 'news', 'teachers'));
 })->name('home');
 
 

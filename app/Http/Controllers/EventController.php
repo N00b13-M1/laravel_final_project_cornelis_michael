@@ -119,6 +119,7 @@ class EventController extends Controller
         $event->link = $request->link;
         $event->event_name = $request->event_name;
         $event->event_desc = $request->event_desc;
+        $event->updated_at = now();
 
         $event->save();
 

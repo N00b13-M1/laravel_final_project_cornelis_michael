@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class BannerController extends Controller
 {
@@ -19,8 +21,6 @@ class BannerController extends Controller
         $banner_titles = Schema::getColumnListing('banners');
         $banner_titles = array_slice($banner_titles, 0, 8);
         $banners = Banner::orderBy('primary', 'asc')->get();
-        // dd($banners);
-
         return view('back.pages.banners.all', compact('banners','banner_titles'));
     }
 
@@ -43,15 +43,15 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'bg' => 'required',
 			'title' => 'required',
-			'dropbox' => 'required',
 			'description' => 'required',
-            'url' => 'required',
-            'url_text' => 'required'
 		]);
 
+
+
         $banner = New Banner;
-        $banner->bg = $request->bg;
+        $banner->bg = $request->file("bg")->hashName();
         $banner->title = $request->title;
         $banner->dropbox = $request->dropbox;
         $banner->description = $request->description;
@@ -60,9 +60,11 @@ class BannerController extends Controller
         $banner->primary = $request->primary;
 
         $banner->save();
+        $request->file("bg")->storePublicly('/assets/images/','public');
         return redirect()->route('banners.index')->with("success", "Successfully Added");
 
     }
+
 
     /**
      * Display the specified resource.
@@ -97,39 +99,60 @@ class BannerController extends Controller
     {
         $validated = $request->validate([
 			'title' => 'required',
-			'dropbox' => 'required',
 			'description' => 'required',
             'url' => 'required',
             'url_text' => 'required'
 		]);
 
-        $banner->bg = $request->bg;
+        // if ($request->bg){
+        //     if(File::exists(public_path($banner->bg)))
+        //         File::delete(public_path($banner->bg));
+        //     $banner->bg = 'storage/img/'.$request->bg->hashName();
+        //     $request->file("bg")->storePublicly('images', 'public');
+        // }
+
+        if($request->file('bg')){
+            // dd($banner->bg);
+            Storage::disk('public')->delete('/assets/images/' . $banner->bg);
+
+            $banner->bg = $request->file('bg')->hashName();
+            $request->file('bg')->storePublicly('/assets/images', 'public');
+        }
+        // else{
+        //     $banner->bg = $banner->bg;
+        // }
         $banner->title = $request->title;
         $banner->dropbox = $request->dropbox;
         $banner->description = $request->description;
         $banner->url = $request->url;
         $banner->url_text = $request->url_text;
         $banner->primary = $request->primary;
+        $banner->updated_at = now();
 
-        // dd($request->primary);
-        $oldvalues = Banner::where('primary', 2)->get();
-        foreach ($oldvalues as $oldvalue) {
-            $oldvalue->primary = 1;
-            $oldvalue->save(); # code...
+
+        if($request->primary == 0) {
+            $oldvalues = Banner::where('primary', 0)->get();
+            foreach ($oldvalues as $oldvalue) {
+                        $oldvalue->primary = 1;
+                        $oldvalue->save();
+            };
+            $banner->primary = $request->primary;
         }
 
-        // dd($oldvalues);
-
-        if($request->primary = 0) {
-
+        elseif($request->primary == 1) {
+            $oldvalues = Banner::where('primary', 1)->get();
+            foreach ($oldvalues as $oldvalue) {
+                    $oldvalue->primary = 0;
+                    $oldvalue->save();
+            };
+            $banner->primary = $request->primary;
         }
-        // elseif($request->primary = 1) {
-        //     $oldvalues = Banner::where('primary', 1)->get();
-        //     $oldvalues->primary = 0;
-        //     $oldvalues->save();
+
+        // if($request->primary){
+        //     $oldvalues = Banner::where('primary', 0)->get();
         // }
         $banner->save();
-        // dd($banner);
+
         return redirect()->route('banners.index')->with("update", "Successfully Updated");
     }
 
@@ -141,6 +164,7 @@ class BannerController extends Controller
      */
     public function destroy(Banner $banner)
     {
+        Storage::disk('public')->delete('/assets/images/' . $banner->bg);
         $banner->delete();
         return redirect()->route('banners.index')->with("delete", "Successfully Deleted");
     }

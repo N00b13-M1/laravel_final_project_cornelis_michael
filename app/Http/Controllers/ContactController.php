@@ -79,7 +79,7 @@ class ContactController extends Controller
 		]);
 
         $contact->address = $request->address;
-
+        $contact->updated_at = now();
         $contact->save();
         return redirect()->route('contacts.index')->with("update", "Successfully Updated");
     }

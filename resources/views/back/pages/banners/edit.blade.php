@@ -51,9 +51,9 @@
                 <label for="primary" class="form-label">Primary Picture</label>
                 <div class="input-select">
                     <select name="primary" id="primary">
-                        <option value="-1">Select an option</option>
-                        <option value="0">True</option>
-                        <option value="1" >False</option>
+                        <option value="2">Select an option</option>
+                        <option value="0">True (value= 0)</option>
+                        <option value="1" >False (value= 1)</option>
                     </select>
                 </div>
                 {{-- <input type="boolean" class="form-control" id="primary" name="primary"
