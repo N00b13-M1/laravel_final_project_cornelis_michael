@@ -26,7 +26,7 @@
                     </div>
                     </li>
                     @if (Auth::check())
-                        <a href="{{ route('backend') }}">{{ Auth::user()->name }} logged in </a>
+                        <a href="{{ route('backend') }}"><button class="logged">{{ Auth::user()->name }} logged in</button></a>
                     @else
                     <ul>
                         <li>

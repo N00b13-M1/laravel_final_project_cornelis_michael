@@ -6186,3 +6186,8 @@ button.close {
     width: 50%;
 }
 
+.logged {
+    background-color: #a12c30;
+    color: white;
+    padding: 5px
+}
