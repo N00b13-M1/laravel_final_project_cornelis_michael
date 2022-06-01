@@ -63,9 +63,18 @@ class CourseController extends Controller
         $course->price = $request->price;
         $course->url = $request->url;
         $course->text = $request->text;
-
+        $favorites = Course::where('favorite', '=', "Yes")->count();
+        if($request->favorite == "Yes" && $favorites ==8 ){
+            $course->favorite = "No";
+            $course->save();
+            return redirect()->route('courses.index')
+            ->with("success", "Successfully Added")
+            ->with("fav_max", "Favorite denied, max 8 favorites");
+        }
+        else {
         $course->save();
         return redirect()->route('courses.index')->with("success", "Successfully Added");
+        }
     }
 
     /**
@@ -111,58 +120,44 @@ class CourseController extends Controller
             // 'favorite' => 'required',
 		]);
 
-
-
-        $favorites = Course::where('favorite', '=', "Yes")->get();
-        // dd($favorites->count());
-        if($favorites->count() == 4){
-            $course->title = $request->title;
-            $course->desc = $request->desc;
-            if($request->bg != null) {
+        $course->title = $request->title;
+        $course->desc = $request->desc;
+        if($request->bg != null) {
             $course->bg = $request->bg;
-            }
-            if($request->teacher_pic != null) {
+        }
+        if($request->teacher_pic != null) {
             $course->teacher_pic = $request->teacher_pic;
-            }
-            $course->teacher_name = $request->teacher_name;
-            $course->price_class = $request->price_class;
-            $course->price = $request->price;
-            $course->url = $request->url;
-            $course->text = $request->text;
-            $course->favorite = "No";
-            $course->updated_at = now();
+        }
+        $course->teacher_name = $request->teacher_name;
+        $course->price_class = $request->price_class;
+        $course->price = $request->price;
+        $course->url = $request->url;
+        $course->text = $request->text;
+        $course->updated_at = now();
 
+        $favorites = Course::where('favorite', '=', "Yes")->count();
+        // dd($favorites);
+        if($request->favorite == "Yes" && $favorites ==8 ){
+            $course->favorite = "No";
             $course->save();
             return redirect()->route('courses.index')
             ->with("update", "Successfully Updated")
-            ->with("fav_max", "Favorite update denied, max 4 favorites");
+            ->with("fav_max", "Favorite update denied, max 8 favorites");
+        }
+        elseif($request->favorite == "No" && $favorites == 4 ){
+
+            $course->favorite = "Yes";
+            $course->save();
+            return redirect()->route('courses.index')
+            ->with("update", "Successfully Updated")
+            ->with("fav_min", "Favorite update denied, min 4 favorites");
         }
         else{
-            $course->title = $request->title;
-            $course->desc = $request->desc;
-            if($request->bg != null) {
-            $course->bg = $request->bg;
-            }
-            if($request->teacher_pic != null) {
-            $course->teacher_pic = $request->teacher_pic;
-            }
-            $course->teacher_name = $request->teacher_name;
-            $course->price_class = $request->price_class;
-            $course->price = $request->price;
-            $course->url = $request->url;
-            $course->text = $request->text;
             $course->favorite = $request->favorite;
-            $course->updated_at = now();
-
             $course->save();
-            return redirect()->route('courses.index')->with("update", "Successfully Updated");
+            return redirect()->route('courses.index')
+            ->with("update", "Successfully Updated");
         }
-
-
-
-
-
-        // dd($course);
 
 
     }
@@ -175,8 +170,15 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        $course->delete();
-        return redirect()->route('courses.index')->with("delete", "Successfully Deleted");
+        $favorites = Course::where('favorite', '=', "Yes")->count();
+        if($favorites == 4 ) {
+            return redirect()->route('courses.index')
+            ->with("fav_min", "Delete Denied, min 4 favorites");
+        }
+        else{
+            $course->delete();
+            return redirect()->route('courses.index')->with("delete", "Successfully Deleted");
+        }
     }
 }
 

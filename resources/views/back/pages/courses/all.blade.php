@@ -21,12 +21,18 @@
                 <p class="text-danger">{{ session()->get('delete') }}</p>
             </div>
         @endif
-                {{-- Alert Max Favorites Reached --}}
-                @if (session()->has('fav_max'))
-                <div class="alert alert-info w-50 mx-auto m-3">
-                    <p class="text-info">{{ session()->get('fav_max') }}</p>
-                </div>
-            @endif
+        {{-- Alert Max Favorites Reached --}}
+        @if (session()->has('fav_max'))
+        <div class="alert alert-info w-50 mx-auto m-3">
+            <p class="text-info">{{ session()->get('fav_max') }}</p>
+        </div>
+        @endif
+        {{-- Alert Min Favorites Reached --}}
+        @if (session()->has('fav_min'))
+        <div class="alert alert-info w-50 mx-auto m-3">
+            <p class="text-info">{{ session()->get('fav_min') }}</p>
+        </div>
+        @endif
         <table class="table table-dark ms-5">
             <thead>
                 <tr>
