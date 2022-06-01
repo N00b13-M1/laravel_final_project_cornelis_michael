@@ -3,7 +3,7 @@
         <div class="fullwidthbanner-container">
             <div class="fullwidthbanner">
                 <ul>
-                    @if ($banners_carousel[0])
+                    @if ($banners_carousel[0]->primary == 0)
                         @foreach ($banners_asc as $item)
                                     <li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
                                     {{-- {{ dd($banners) }} --}}
@@ -18,7 +18,7 @@
 
                         @endforeach
 
-                    @else
+                    @elseif($banners_carousel[0]->primary == 1)
                         @foreach ($banners_des as $item)
                         <li class="first-slide" data-transition="fade" data-slotamount="10" data-masterspeed="300">
                             {{-- {{ dd($banners) }} --}}
