@@ -75,6 +75,7 @@
                 <label for="text" class="form-label">Text</label>
                 <input type="text" class="form-control" id="text" name="text" value="{{ old('text') ? old('text') : $course->text }}">
             </div>
+            
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
     </div>

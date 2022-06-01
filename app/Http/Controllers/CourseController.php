@@ -111,26 +111,60 @@ class CourseController extends Controller
             // 'favorite' => 'required',
 		]);
 
-        $course->title = $request->title;
-        $course->desc = $request->desc;
-        if($request->bg != null) {
+
+
+        $favorites = Course::where('favorite', '=', "Yes")->get();
+        // dd($favorites->count());
+        if($favorites->count() == 4){
+            $course->title = $request->title;
+            $course->desc = $request->desc;
+            if($request->bg != null) {
             $course->bg = $request->bg;
-        }
-        if($request->teacher_pic != null) {
+            }
+            if($request->teacher_pic != null) {
             $course->teacher_pic = $request->teacher_pic;
+            }
+            $course->teacher_name = $request->teacher_name;
+            $course->price_class = $request->price_class;
+            $course->price = $request->price;
+            $course->url = $request->url;
+            $course->text = $request->text;
+            $course->favorite = "No";
+            $course->updated_at = now();
+
+            $course->save();
+            return redirect()->route('courses.index')
+            ->with("update", "Successfully Updated")
+            ->with("fav_max", "Favorite update denied, max 4 favorites");
         }
-        $course->teacher_name = $request->teacher_name;
-        $course->price_class = $request->price_class;
-        $course->price = $request->price;
-        $course->url = $request->url;
-        $course->text = $request->text;
-        $course->favorite = $request->favorite;
-        $course->updated_at = now();
+        else{
+            $course->title = $request->title;
+            $course->desc = $request->desc;
+            if($request->bg != null) {
+            $course->bg = $request->bg;
+            }
+            if($request->teacher_pic != null) {
+            $course->teacher_pic = $request->teacher_pic;
+            }
+            $course->teacher_name = $request->teacher_name;
+            $course->price_class = $request->price_class;
+            $course->price = $request->price;
+            $course->url = $request->url;
+            $course->text = $request->text;
+            $course->favorite = $request->favorite;
+            $course->updated_at = now();
+
+            $course->save();
+            return redirect()->route('courses.index')->with("update", "Successfully Updated");
+        }
+
+
+
+
 
         // dd($course);
 
-        $course->save();
-        return redirect()->route('courses.index')->with("update", "Successfully Updated");
+
     }
 
     /**

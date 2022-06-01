@@ -3,19 +3,19 @@
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
         <h1 class="text-center fs-1 py-5">Mailing List</h1>
-        {{-- Alert Testimonial Added --}}
+        {{-- Alert Mails Added --}}
         @if (session()->has('success'))
             <div class="alert alert-success w-50 mx-auto m-3">
                 <p class="text-success">{{ session()->get('success') }}</p>
             </div>
         @endif
-        {{-- Alert Testimonial Updated --}}
+        {{-- Alert Mails Updated --}}
         @if (session()->has('update'))
             <div class="alert alert-warning w-50 mx-auto m-3">
                 <p class="text-warning">{{ session()->get('update') }}</p>
             </div>
         @endif
-        {{-- Alert Testimonial Deleted --}}
+        {{-- Alert Mails Deleted --}}
         @if (session()->has('delete'))
             <div class="alert alert-danger w-50 mx-auto m-3">
                 <p class="text-danger">{{ session()->get('delete') }}</p>

@@ -40,23 +40,18 @@ Route::get('/', function () {
     $banners_carousel = Banner::where('primary', '=', "Yes")->orWhere('primary', '=', "No")->get();
     $banners_asc = $banners_carousel->sortBy('primary');
     $banners_des = $banners_carousel->sortByDesc('primary');
-    // if($banners_carousel[0]->primary == 0)
-    // {
-    //     dd($banners_asc);
-    // }
-    // else{
-    //     dd($banners_des);
-    // }
-    return view('front.frontend',compact('banners_carousel', 'banners_asc', 'banners_des', 'services', 'courses', 'news', 'teachers'));
+    $favorites = Course::where('favorite', '=', "Yes")->get();
+    return view('front.frontend',compact('banners_carousel', 'banners_asc', 'banners_des', 'services', 'courses', 'news', 'teachers', 'favorites'));
 })->name('home');
 
 
 
 Route::get('/courses', function () {
     $banners = Banner::all();
-    $courses = Course::all();
-    $courses = Course::paginate(3);
+    $courses = Course::paginate(4);
+
     $contact = Contact::all();
+
     return view('front.pages.courses', compact('courses', 'banners', 'contact'));
 })->name('courses');
 

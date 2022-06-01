@@ -9,7 +9,7 @@
         </div>
         <div class="row">
             <div id="owl-courses">
-                @foreach ( $courses as $item )
+                @foreach ( $favorites as $item )
                 <div class="item course-item">
                     <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
                     <div class="down-content">
