@@ -2,7 +2,7 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center fs-1 py-5">Edit Course</h1>
+        <h1 class="text-center fs-1 py-5">Edit Professor</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -15,6 +15,8 @@
         <form action="{{ route('professors.update', $professor) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
+
+            {{-- {{ $professor->fixed }} --}}
             <div class="mb-3">
                 <label for="professor_photo" class="form-label">Professor Photo</label>
                 <img src="{{ asset('/assets/images/' . $professor->professor_photo) }}" style="width: 200px" alt=""
@@ -81,6 +83,7 @@
                 <label for="dribble_id" class="form-label">Dribble ID</label>
                 <input type="text" class="form-control" id="dribble_id" name="dribble_id"
                     value="{{ old('dribble_id') ? old('dribble_id') : $professor->dribble_id }}">
+
             </div>
             <div class="mb-3">
                 <label for="linkedin_id" class="form-label">LinkedIn ID</label>
@@ -88,17 +91,37 @@
                     value="{{ old('linkedin_id') ? old('linkedin_id') : $professor->linkedin_id }}">
             </div>
             <div class="mb-3">
+                <label class="form-check-label" for="fixed">
+                    Fixed
+                </label>
                 <div class="form-check">
-                    <label class="form-check-label form-label" for="fixed">
-                        Fixed
-                    </label>
-
-                    <input class="form-check-input form-control" type="checkbox" id="fixed" value="false"
-                        {{ old('fixed') == true ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" name="fixed" id="fixed" value="1" {{ $professor->fixed || old('fixed',0) == 1 ? 'checked' : ''}}>
                 </div>
-            </div>
 
+
+                    {{-- {{  dd($professor->fixed) }} --}}
+                    {{-- @if ($professor->fixed == true)
+                    value="1"
+                    @else
+                    value="0"
+                    @endif> --}}
+                    {{-- <select name="fixed" id="fixed">
+                        <option value="1" @if (old('fixed') == true) selected @endif>Yes</option>
+                        <option value="0" @if (old('fixed') == false) selected @endif>No</option>
+                    </select> --}}
+                {{-- // </div>
+                // @if ($errors->has('fixed'))
+                //     <div class="invalid-feedback">
+                //         {{ $errors->first('fixed') }}
+                //     </div>
+                // @endif --}}
+                {{-- <select name="fixed" id="fixed">
+                    <option value="1" @if (old('fixed') == true) selected @endif>Yes</option>
+                    <option value="0" @if (old('fixed') == false) selected @endif>No</option>
+                </select> --}}
+            </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
     </div>
 @endsection
+

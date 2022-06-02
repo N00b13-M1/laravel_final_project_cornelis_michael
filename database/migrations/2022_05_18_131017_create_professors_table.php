@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('professor_name');
             $table->string('professor_title');
             $table->string('url');
-            $table->text('text1');
+            $table->text('text1')->nullable();
             $table->string('textstrong');
             $table->text('text2');
             $table->string('phone');

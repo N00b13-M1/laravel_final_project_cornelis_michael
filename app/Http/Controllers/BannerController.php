@@ -121,9 +121,9 @@ class BannerController extends Controller
             $banner->bg = $request->file('bg')->hashName();
             $request->file('bg')->storePublicly('/assets/images', 'public');
         }
-        // else{
-        //     $banner->bg = $banner->bg;
-        // }
+        else{
+            $banner->bg = $banner->bg;
+        }
         $banner->title = $request->title;
         $banner->dropbox = $request->dropbox;
         $banner->description = $request->description;

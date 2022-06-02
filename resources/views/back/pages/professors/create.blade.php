@@ -71,9 +71,12 @@
                 <input type="text" class="form-control" id="linkedin_id" name="linkedin_id" value="{{ old('linkedin_id') }}">
             </div>
             <div class="mb-3">
-                <label for="fixed" class="form-label">Fixed</label>
-                <br>
-                <input type="checkbox" class="form-control" id="fixed" name="fixed" value="" >
+                <label class="form-check-label" for="fixed">
+                    Fixed
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="fixed" id="fixed" value="{{ old('fixed') }}">
+                </div>
             </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>

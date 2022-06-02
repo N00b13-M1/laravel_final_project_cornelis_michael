@@ -74,7 +74,7 @@ class ProfessorController extends Controller
         $professor->twitter_id = $request->twitter_id ?? '';
         $professor->dribble_id = $request->dribble_id ?? '';
         $professor->linkedin_id = $request->linkedin_id ?? '';
-        $professor->fixed = false;
+        $professor->fixed = $request->has('fixed');
         // dd($professor);
 
         $professor->save();
@@ -113,8 +113,11 @@ class ProfessorController extends Controller
      */
     public function update(Request $request, Professor $professor)
     {
+        // $professor->fixed = $request->has('fixed');
+        // $professor -> update($request->all());
+
         $validated = $request->validate([
-			'professor_photo' => 'required',
+			// 'professor_photo' => 'required',
 			'professor_name' => 'required',
 			'professor_title' => 'required',
             'url' => 'required',
@@ -128,8 +131,8 @@ class ProfessorController extends Controller
             'twitter_id' => 'required',
             'dribble_id' => 'required',
             'linkedin_id' => 'required',
+            // 'fixed' => 'required'
 		]);
-
 
         if($request->file('professor_photo')){
             Storage::disk('public')->delete('/assets/images/' . $professor->professor_photo);
@@ -137,6 +140,20 @@ class ProfessorController extends Controller
             $professor->professor_photo = $request->file('professor_photo')->hashName();
             $request->file('professor_photo')->storePublicly('/assets/images', 'public');
         }
+        else{
+            $professor->professor_photo = $professor->professor_photo;
+        }
+
+        // if($request->professor_photo)
+        // {
+        //     $professor->professor_photo = $request->file('professor_photo')->hashName();
+        // }
+        // else
+        // {
+        //     $professor->professor_photo = $professor->professor_photo;
+        // }
+
+
         $professor->professor_name = $request->professor_name;
         $professor->professor_title = $request->professor_title;
         $professor->text1 = $request->text1;
@@ -149,10 +166,14 @@ class ProfessorController extends Controller
         $professor->twitter_id = $request->twitter_id;
         $professor->dribble_id = $request->dribble_id;
         $professor->linkedin_id = $request->linkedin_id;
-        $professor->fixed = $request->fixed;
-        // dd($professor);
+        $professor->fixed = $request->has('fixed');
         $professor->updated_at = now();
+
+        // dd($professor->all());
+
+
         $professor->save();
+
         return redirect()->route('professors.index')->with("update", "Successfully Updated");
     }
 

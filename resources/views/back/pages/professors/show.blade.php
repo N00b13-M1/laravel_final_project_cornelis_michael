@@ -59,10 +59,14 @@
             </div>
             <div class="mb-3">
                 <label for="fixed" class="form-label">Fixed</label>
-                <input type="boolean" class="form-control" id="fixed" name="fixed" value="{{ $professor->fixed}}" readonly>
+                <input type="boolean" class="form-control" id="fixed" name="fixed"
+                @if ($professor->fixed == true)
+                value="Yes"
+                @else
+                value="No"
+                @endif readonly>
             </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('professors.index') }}"></a>Return</button>
-
         </form>
         <td>
             <button type="submit" class="btn btn-warning bg-warning m-2"><a href="{{ route('professors.edit', $professor) }}">Edit</a></button>

@@ -50,7 +50,13 @@
                         <td>{{ $item->twitter_id }}</td>
                         <td>{{ $item->dribble_id }}</td>
                         <td>{{ $item->linkedin_id }}</td>
-                        <td>{{ $item->fixed }}</td>
+                        {{-- <td>{{ $item->fixed }}</td> --}}
+                        @if ($item->fixed == 1)
+                            <td>Yes</td>
+                        @else
+                            <td>No</td>
+
+                        @endif
                         <td>
                             <a href="{{ route('professors.show', $item) }}"><button class="btn btn-primary">Show</button>
                             </a>
