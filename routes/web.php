@@ -45,12 +45,7 @@ Route::get('/', function () {
     $teachers = Professor::where('fixed', true)->get()->take(2)->prepend($random_prof[0])->push($random_prof[1]);
     // dd($teachers);
     return view('front.frontend',compact('banners_carousel', 'banners_asc', 'banners_des', 'services', 'courses', 'news', 'teachers', 'favorites'));
-
-
-
 })->name('home');
-
-
 
 Route::get('/courses', function () {
     $banners = Banner::all();
@@ -88,6 +83,13 @@ Route::get('/professors', function () {
     // $professors =  News::paginate(3);
     return view('front.pages.professors', compact('banners', 'professors'));
 })->name('professors');
+
+Route::get('/professor/{id}', function ($id) {
+    // dd($i);
+    $banners = Banner::all();
+    $professors = Professor::where('id', $id)->get();
+    return view('front.pages.single-teacher', compact('banners','professors', 'id'));
+})->name('professor.single');
 
 Route::resource('back/banners', BannerController::class);
 Route::resource('back/services', ServiceController::class);

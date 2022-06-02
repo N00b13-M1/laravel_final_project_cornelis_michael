@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach ($favorites as $item)
+            @foreach ($courses as $item)
             <div class="col-md-4">
                 <div class="item course-item">
                     <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>

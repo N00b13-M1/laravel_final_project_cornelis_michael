@@ -31,23 +31,23 @@
                 </div>
             </div>
             @endfor --}}
-    
+
             @foreach ($teachers as $item)
                             <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
-                        <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->professor_photo) }}" alt=""></a>
+                        <a href="{{ route('professor.single', $item->id ) }}"><img src="{{ asset('assets/images/' . $item->professor_photo) }}" alt=""></a>
                         <div class="hover-content">
                             <ul>
-                                <li><a href="{{ $item->facebook_id }}"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="{{ $item->twitter_id }}"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="{{ $item->dribble_id }}"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="{{ $item->linkedin_id }}"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="{{ url('http://www.facebook.com/' . $item->facebook_id) }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{ url('http://www.twitter.com/' .$item->twitter_id) }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ url('http://www.dribble.com/' . $item->dribble_id) }}" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="{{ url('http://www.linkedin.com/' . $item->linkedin_id) }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="down-content">
-                        <a href="{{ $item->url }}"><h4>{{ $item->professor_name }}</h4></a>
+                        <a href="{{ route('professor.single', $item->id ) }}"><h4>{{ $item->professor_name }}</h4></a>
                         <span>{{ $item->professor_title }}</span>
                         <p>{{ $item->text1 }}</p>
                     </div>

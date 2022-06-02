@@ -61,7 +61,9 @@
                         <form action="" method="post">
                             @csrf
                             <input type="text" class="email" name="emailsubscription" placeholder="Email Address..." value="">
-                            <button type="submit" class="bg-danger">Subscribe</button>
+                            <div class="accent-button">
+                                <a href="#"><button type="submit" class="accent-button">Subscribe</button></a>
+                            </div>
                         </form>
                     </div>
                 </div>

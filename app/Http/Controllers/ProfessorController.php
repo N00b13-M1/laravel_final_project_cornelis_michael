@@ -52,6 +52,7 @@ class ProfessorController extends Controller
             // 'text2' => 'required',
             'phone' => 'required',
             'email' => 'required',
+
             // 'skype_id' => 'required',
             // 'facebook_id' => 'required',
             // 'twitter_id' => 'required',
@@ -76,7 +77,6 @@ class ProfessorController extends Controller
         $professor->linkedin_id = $request->linkedin_id ?? '';
         $professor->fixed = $request->has('fixed');
         // dd($professor);
-
         $professor->save();
         $request->file("professor_photo")->storePublicly('/assets/images/','public');
         return redirect()->route('professors.index')->with("success", "Successfully Added");
