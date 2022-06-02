@@ -36,12 +36,18 @@ Route::get('/', function () {
     $services = Service::all();
     $courses = Course::all();
     $news = News::all();
-    $teachers = Professor::all();
+    // $teachers = Professor::all();
     $banners_carousel = Banner::where('primary', '=', "Yes")->orWhere('primary', '=', "No")->get();
     $banners_asc = $banners_carousel->sortBy('primary');
     $banners_des = $banners_carousel->sortByDesc('primary');
     $favorites = Course::where('favorite', '=', "Yes")->get();
+    $random_prof = Professor::where('fixed', false)->get()->random(2);
+    $teachers = Professor::where('fixed', true)->get()->take(2)->prepend($random_prof[0])->push($random_prof[1]);
+    // dd($teachers);
     return view('front.frontend',compact('banners_carousel', 'banners_asc', 'banners_des', 'services', 'courses', 'news', 'teachers', 'favorites'));
+
+
+
 })->name('home');
 
 

@@ -9,7 +9,7 @@
         </div>
 
         <div class="row">
-            @for ($i = 0; $i < ($teachers->count()-8) ; $i++)
+            {{-- @for ($i = 0; $i < ($teachers->count()-8) ; $i++)
             <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
@@ -30,7 +30,65 @@
                     </div>
                 </div>
             </div>
-            @endfor
+            @endfor --}}
+    
+            @foreach ($teachers as $item)
+                            <div class="col-md-3 col-sm-6">
+                <div class="teacher-item">
+                    <div class="thumb-holder">
+                        <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->professor_photo) }}" alt=""></a>
+                        <div class="hover-content">
+                            <ul>
+                                <li><a href="{{ $item->facebook_id }}"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{ $item->twitter_id }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ $item->dribble_id }}"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="{{ $item->linkedin_id }}"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="down-content">
+                        <a href="{{ $item->url }}"><h4>{{ $item->professor_name }}</h4></a>
+                        <span>{{ $item->professor_title }}</span>
+                        <p>{{ $item->text1 }}</p>
+                    </div>
+                </div>
+            </div>
+
+            @endforeach
+
+            {{-- @for($i=1; $i < 4; $i+=3)
+                <p>{{ $i }}</p>
+                @for ()
+
+                @endfor
+                // 1
+                // 4+3
+                // 5+1
+                // 8+3
+                // 9+1
+                // 12+3
+            @endfor --}}
+            {{-- @php
+                $i=1;
+                if ($i % 2 != 0) {
+                    for($i=1; $i < 4; $i+=3){
+                        <p>"test"</p>
+                    }
+                }
+                else {
+                    dd($i+2);
+                }
+            @endphp --}}
+
+
+
+
+
+
+
+
+
+
 
             {{-- <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">

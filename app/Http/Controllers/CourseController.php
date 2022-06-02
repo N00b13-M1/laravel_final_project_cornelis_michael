@@ -33,6 +33,7 @@ class CourseController extends Controller
         return view('back.pages.courses.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *

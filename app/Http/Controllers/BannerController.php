@@ -113,6 +113,7 @@ class BannerController extends Controller
         //     $request->file("bg")->storePublicly('images', 'public');
         // }
 
+        // dd($request);
         if($request->file('bg')){
             // dd($banner->bg);
             Storage::disk('public')->delete('/assets/images/' . $banner->bg);

@@ -34,6 +34,7 @@ class ProfessorSeeder extends Seeder
             'twitter_id' => 'nicksmith1',
             'dribble_id' => 'nicksmith1',
             'linkedin_id' => 'nicksmith1',
+            'fixed' => true,
             'created_at' => now()
         ]);
         DB::table('professors')->insert([
@@ -54,6 +55,7 @@ class ProfessorSeeder extends Seeder
             'twitter_id' => 'johnrosado1',
             'dribble_id' => 'johnrosado1',
             'linkedin_id' => 'johnrosado1',
+            'fixed' => true,
             'created_at' => now()
         ]);
         DB::table('professors')->insert([
@@ -74,6 +76,7 @@ class ProfessorSeeder extends Seeder
             'twitter_id' => 'marialehmann1',
             'dribble_id' => 'marialehmann1',
             'linkedin_id' => 'marialehmann1',
+            'fixed' => true,
             'created_at' => now()
         ]);
         DB::table('professors')->insert([
@@ -94,6 +97,8 @@ class ProfessorSeeder extends Seeder
             'twitter_id' => 'samueldelossantos1',
             'dribble_id' => 'samueldelossantos1',
             'linkedin_id' => 'samueldelossantos1',
+            'fixed' => true,
+
             'created_at' => now()
         ]);
         DB::table('professors')->insert(

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Professor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class ProfessorController extends Controller
 {
@@ -17,7 +18,7 @@ class ProfessorController extends Controller
     {
         $professors = Professor::all();
         $professor_titles = Schema::getColumnListing('professors');
-        $professor_titles = array_slice($professor_titles, 0,14);
+        $professor_titles = array_slice($professor_titles, 0,16);
         // dd($professor_titles);
         return view('back.pages.professors.all', compact('professors', 'professor_titles'));
     }
@@ -32,6 +33,7 @@ class ProfessorController extends Controller
         return view('back.pages.professors.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,34 +46,39 @@ class ProfessorController extends Controller
 			'professor_photo' => 'required',
 			'professor_name' => 'required',
 			'professor_title' => 'required',
-            'text1' => 'required',
-            'textstrong' => 'required',
-            'text2' => 'required',
+            // 'url' => 'required',
+            // 'text1' => 'required',
+            // 'textstrong' => 'required',
+            // 'text2' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'skype_id' => 'required',
-            'facebook_id' => 'required',
-            'twitter_id' => 'required',
-            'drible_id' => 'required',
-            'linkedin_id' => 'required',
+            // 'skype_id' => 'required',
+            // 'facebook_id' => 'required',
+            // 'twitter_id' => 'required',
+            // 'dribble_id' => 'required',
+            // 'linkedin_id' => 'required',
 		]);
 
         $professor = New Professor;
-        $professor->professor_photo = $request->professor_photo;
+        $professor->professor_photo = $request->file('professor_photo')->hashName();
         $professor->professor_name = $request->professor_name;
         $professor->professor_title = $request->professor_title;
-        $professor->text1 = $request->text1;
-        $professor->textstrong = $request->textstrong;
-        $professor->text2 = $request->text2;
+        $professor->url = $request->url ?? '';
+        $professor->text1 = $request->text1 ?? '';
+        $professor->textstrong = $request->textstrong ?? '';
+        $professor->text2 = $request->text2 ?? '';
         $professor->phone = $request->phone;
         $professor->email = $request->email;
-        $professor->skype_id = $request->skype_id;
-        $professor->facebook_id = $request->facebook_id;
-        $professor->twitter_id = $request->twitter_id;
-        $professor->drible_id = $request->drible_id;
-        $professor->linkedin_id = $request->linkedin_id;
+        $professor->skype_id = $request->skype_id ?? '';
+        $professor->facebook_id = $request->facebook_id ?? '';
+        $professor->twitter_id = $request->twitter_id ?? '';
+        $professor->dribble_id = $request->dribble_id ?? '';
+        $professor->linkedin_id = $request->linkedin_id ?? '';
+        $professor->fixed = false;
+        // dd($professor);
 
         $professor->save();
+        $request->file("professor_photo")->storePublicly('/assets/images/','public');
         return redirect()->route('professors.index')->with("success", "Successfully Added");
     }
 
@@ -110,6 +117,7 @@ class ProfessorController extends Controller
 			'professor_photo' => 'required',
 			'professor_name' => 'required',
 			'professor_title' => 'required',
+            'url' => 'required',
             'text1' => 'required',
             'textstrong' => 'required',
             'text2' => 'required',
@@ -118,12 +126,17 @@ class ProfessorController extends Controller
             'skype_id' => 'required',
             'facebook_id' => 'required',
             'twitter_id' => 'required',
-            'drible_id' => 'required',
+            'dribble_id' => 'required',
             'linkedin_id' => 'required',
 		]);
 
 
-        $professor->professor_photo = $request->professor_photo;
+        if($request->file('professor_photo')){
+            Storage::disk('public')->delete('/assets/images/' . $professor->professor_photo);
+
+            $professor->professor_photo = $request->file('professor_photo')->hashName();
+            $request->file('professor_photo')->storePublicly('/assets/images', 'public');
+        }
         $professor->professor_name = $request->professor_name;
         $professor->professor_title = $request->professor_title;
         $professor->text1 = $request->text1;
@@ -134,10 +147,11 @@ class ProfessorController extends Controller
         $professor->skype_id = $request->skype_id;
         $professor->facebook_id = $request->facebook_id;
         $professor->twitter_id = $request->twitter_id;
-        $professor->drible_id = $request->drible_id;
+        $professor->dribble_id = $request->dribble_id;
         $professor->linkedin_id = $request->linkedin_id;
+        $professor->fixed = $request->fixed;
+        // dd($professor);
         $professor->updated_at = now();
-
         $professor->save();
         return redirect()->route('professors.index')->with("update", "Successfully Updated");
     }

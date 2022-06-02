@@ -27,6 +27,10 @@
                 <input type="text" class="form-control" id="professor_title" name="professor_title" value="{{ old('professor_title') }}">
             </div>
             <div class="mb-3">
+                <label for="url" class="form-label">URL</label>
+                <input type="text" class="form-control" id="url" name="url" value="{{ old('url') }}">
+            </div>
+            <div class="mb-3">
                 <label for="text1" class="form-label">Text1</label>
                 <input type="text" class="form-control" id="text1" name="text1" value="{{ old('text1') }}">
             </div>
@@ -66,7 +70,16 @@
                 <label for="linkedin_id" class="form-label">LinkedIn ID</label>
                 <input type="text" class="form-control" id="linkedin_id" name="linkedin_id" value="{{ old('linkedin_id') }}">
             </div>
+            <div class="mb-3">
+                <label for="fixed" class="form-label">Fixed</label>
+                <br>
+                <input type="checkbox" class="form-control" id="fixed" name="fixed" value="" >
+            </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>
     </div>
 @endsection
+
+
+
+

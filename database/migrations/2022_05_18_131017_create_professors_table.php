@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('twitter_id');
             $table->string('dribble_id');
             $table->string('linkedin_id');
+            $table->boolean('fixed')->default(false);
             $table->timestamps();
         });
     }

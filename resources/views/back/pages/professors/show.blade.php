@@ -2,11 +2,12 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center text-4xl py-5">Detailed Course</h1>
-        <form action="{{ route('courses.index') }}" method="get">
+        <h1 class="text-center text-4xl py-5">Detailed Professor</h1>
+        <form action="{{ route('professors.index') }}" method="get">
             <div class="mb-3">
                 <label for="professor_photo" class="form-label">Professor Photo</label>
-                <input type="file" class="form-control" id="professor_photo" name="professor_photo" value="{{ $professor->professor_photo }}" readonly>
+                <img src="{{ asset('/assets/images/' . $professor->professor_photo ) }}"
+                style="width: 200px" alt="" class="m-2 d-block">
             </div>
             <div class="mb-3">
                 <label for="professor_name" class="form-label">Professor Name</label>
@@ -55,6 +56,10 @@
             <div class="mb-3">
                 <label for="linkedin_id" class="form-label">LinkedIn ID</label>
                 <input type="text" class="form-control" id="linkedin_id" name="linkedin_id" value="{{ $professor->linkedin_id}}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="fixed" class="form-label">Fixed</label>
+                <input type="boolean" class="form-control" id="fixed" name="fixed" value="{{ $professor->fixed}}" readonly>
             </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('professors.index') }}"></a>Return</button>
 
