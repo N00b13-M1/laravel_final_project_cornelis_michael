@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class CourseSeeder extends Seeder
 {
-    
+
 
     /**
      * Run the database seeds.
@@ -21,11 +21,21 @@ class CourseSeeder extends Seeder
             'title' => 'How to become<br>a Powerful Speaker',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-1.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-12.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-red',
             'price' => '19.99',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2015-11-14',
+            'months' => 1,
+            'weeks' => 4,
+            'study_level' => "Post Graduate",
+            'discipline' => "Public Speaking",
             'favorite' => "Yes",
             'created_at' => now(),
         ]);
@@ -33,11 +43,21 @@ class CourseSeeder extends Seeder
             'title' => 'Electrical &amp; Electronic <br>Engingering',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-2.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-2.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-red',
             'price' => '49.99',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2022-01-14',
+            'months' => 6,
+            'weeks' => 24,
+            'study_level' => "Undergrad",
+            'discipline' => "Engineering",
             'favorite' => "Yes",
             'created_at' => now(),
         ]);
@@ -45,11 +65,21 @@ class CourseSeeder extends Seeder
             'title' => 'How to become<br>a Powerful Speaker',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-3.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-4.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-red',
             'price' => '19.99',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2022-11-14',
+            'months' => 1,
+            'weeks' => 4,
+            'study_level' => "Post Graduate",
+            'discipline' => "Public Speaking",
             'favorite' => "Yes",
             'created_at' => now(),
         ]);
@@ -57,11 +87,21 @@ class CourseSeeder extends Seeder
             'title' => 'What can you do<br>With a Business Degree?',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-4.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-7.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-yellow',
             'price' =>'Free',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2022-09-14',
+            'months' => 6,
+            'weeks' => 24,
+            'study_level' => "Graduate",
+            'discipline' => "Management & Business",
             'favorite' => "Yes",
             'created_at' => now(),
         ]);
@@ -69,11 +109,21 @@ class CourseSeeder extends Seeder
             'title' => 'Fashion buying<br>and Product Management',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-5.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-12.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-red',
             'price' =>'29.99',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2022-10-04',
+            'months' => 3,
+            'weeks' => 12,
+            'study_level' => "Professional Certification",
+            'discipline' => "Marketing",
             // 'favorite' => 1,
             'created_at' => now(),
         ]);
@@ -81,11 +131,21 @@ class CourseSeeder extends Seeder
             'title' => 'Fashion buying<br>and Product Management',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-6.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-2.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-red',
             'price' =>'29.99',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2022-11-04',
+            'months' => 3,
+            'weeks' => 12,
+            'study_level' => "Professional Certification",
+            'discipline' => "Marketing",
             // 'favorite' => 1,
             'created_at' => now(),
         ]);
@@ -93,11 +153,21 @@ class CourseSeeder extends Seeder
             'title' => 'How to become<br>a Powerful Speaker',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-7.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-4.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-yellow',
             'price' =>'Free',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2015-12-14',
+            'months' => 1,
+            'weeks' => 4,
+            'study_level' => "Post Graduate",
+            'discipline' => "Public Speaking",
             // 'favorite' => 1,
             'created_at' => now(),
         ]);
@@ -105,11 +175,21 @@ class CourseSeeder extends Seeder
             'title' => 'What can you do<br>With a Business Degree?',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-8.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-7.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-yellow',
             'price' =>'Free',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2022-11-14',
+            'months' => 6,
+            'weeks' => 24,
+            'study_level' => "Graduate",
+            'discipline' => "Management & Business",
             // 'favorite' => 1,
             'created_at' => now(),
         ]);
@@ -117,15 +197,24 @@ class CourseSeeder extends Seeder
             'title' => 'Fashion buying<br>and Product Management',
             'desc' => 'Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson.',
             'bg' => 'course-9.jpg',
+            'bg-2' => 'course-slider-2.jpeg',
+            'bg-3' => 'course-slider-3.jpeg',
+            'bg-4' => 'course-slider-4.jpeg',
             'teacher_pic' => 'teacher-12.jpg',
             'teacher_name' => 'Ernest Byrd',
             'price_class' => 'price-red',
             'price' =>'29.99',
-            'text' => 'N/A',
+            'text' => 'Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney\'s quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.
+            <br><br>
+            McSweeney\'s Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney\'s forage salvia trust fund.',
+            'starting_date' => '2022-11-04',
+            'months' => 3,
+            'weeks' => 12,
+            'study_level' => "Professional Certification",
+            'discipline' => "Marketing",
             // 'favorite' => 1,
             'created_at' => now(),
         ]);
     }
 }
-
 

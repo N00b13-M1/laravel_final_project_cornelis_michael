@@ -7,35 +7,36 @@
                         <div class="col-md-12">
                             <div class="item course-item">
                                 <div class="up-content">
-                                    <a href="single-course.html"><h4>How to become a Powerful Speaker ?</h4></a>
+                                    <a href="single-course.html"><h4>
+                                        {!! $courses[0]->title !!}</h4></a>
                                     <p>Plaid you probably haven't heard of them fashion axe meditation</p>
-                                    <img src="assets/images/course-author-1.jpg" alt="">
-                                    <h6>Ernest Byrd</h6>
-                                    <div class="price-red">
-                                        <span>Free</span>
+                                    <img src="{{ asset('assets/images/' . $courses[0]->teacher_pic) }}" alt="">
+                                    <h6>{{ $courses[0]->teacher_name }}</h6>
+                                    <div class="{{ $courses[0]->price_class }}">
+                                        <span>{{ $courses[0]->price }}</span>
                                         <div id="base"></div>
                                     </div>
                                 </div>
                                 <div class="courses-slider">
                                     <ul class="slides">
-                                        <li data-thumb="http://placehold.it/140x100">
-                                          <img src="http://placehold.it/770x380" alt="" />
+                                        <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
+                                          <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
                                         </li>
-                                        <li data-thumb="http://placehold.it/140x100">
-                                          <img src="http://placehold.it/770x380" alt="" />
-                                        </li>
-                                        <li data-thumb="http://placehold.it/140x100">
-                                          <img src="http://placehold.it/770x380" alt="" />
-                                        </li>
-                                        <li data-thumb="http://placehold.it/140x100">
-                                          <img src="http://placehold.it/770x380" alt="" />
-                                        </li>
+                                        <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
+                                          </li>
+                                          <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
+                                          </li>
+                                          <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
+                                          </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="description">
                                 <h4>Description</h4>
-                                <p>Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney's quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.<br><br>McSweeney's Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney's forage salvia trust fund.</p>
+                                <p>{!! $courses[0]->text !!}</p>
                             </div>
                             {{-- <div class="topics">
                                 <h4>Topics Included</h4>
@@ -64,6 +65,7 @@
                                     </div>
                                 </div>
                             </div> --}}
+
                         </div>
                     </div>
                 </div>
@@ -74,11 +76,11 @@
                         <h4>Course Information</h4>
                     </div>
                     <ul>
-                        <li><span>Starts:</span>14 November 2015</li>
-                        <li><span>Duration:</span>1 Month / 4 Weeks</li>
-                        <li><span>Study Level:</span>Post Graduate</li>
-                        <li><span>Disipline</span>Account &amp; Finance</li>
-                        <li><span>Price:</span>$45 / month</li>
+                        <li><span>Starts:</span>{{ $courses[0]->starting_date }}</li>
+                        <li><span>Duration:</span>{{ $courses[0]->months }} Month / {{ $courses[0]->weeks }} Weeks</li>
+                        <li><span>Study Level:</span>{{ $courses[0]->study_level }}</li>
+                        <li><span>Disipline</span>{{ $courses[0]->discipline }}</li>
+                        <li><span>Price:</span>${{ $courses[0]->price }} / month</li>
                     </ul>
                 </div>
 
