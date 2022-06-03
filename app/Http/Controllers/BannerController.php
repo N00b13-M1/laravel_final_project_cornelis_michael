@@ -172,3 +172,4 @@ class BannerController extends Controller
         return redirect()->route('banners.index')->with("delete", "Successfully Deleted");
     }
 }
+

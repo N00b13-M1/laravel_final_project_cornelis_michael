@@ -6,9 +6,9 @@
                 <span>Salvia next level crucifix pickled heirloom synth</span>
                 <div class="page-list">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="/">Home</a></li>
                         <li><i class="fa fa-angle-right"></i></li>
-                        <li><a href="classic-news.html">News</a></li>
+                        <li><a href="{{ route('news') }}">News</a></li>
                     </ul>
                 </div>
             </div>

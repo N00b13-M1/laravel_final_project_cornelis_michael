@@ -20,9 +20,9 @@
 								<span>{{ $banners[6]->description }}</span>
 								<div class="page-list">
 									<ul>
-										<li class="active"><a href="index.html">Home</a></li>
+										<li class="active"><a href="/">Home</a></li>
 										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="{{ $banners[6]->url }}">{{ $banners[6]->url_text }}</a></li>
+										<li><a href="">{{ $banners[6]->url_text }}</a></li>
 									</ul>
 								</div>
 							</div>

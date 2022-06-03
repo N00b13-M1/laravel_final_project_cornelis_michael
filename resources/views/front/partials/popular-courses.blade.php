@@ -11,7 +11,7 @@
             <div id="owl-courses">
                 @foreach ( $favorites as $item )
                 <div class="item course-item">
-                    <a href="{{ route('course.single', [$item->id]) }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
+                    <a href="{{ route('course.single', $item->id) }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
                     <div class="down-content">
                         <img src="{{ asset('assets/images/' . $item->teacher_pic) }}" alt="">
                         <h6>{{  $item->teacher_name }}</h6>

@@ -4,11 +4,8 @@
 	$contact = \App\Models\Contact::all();
     @endphp
     <div class="sidebar-menu-container" id="sidebar-menu-container">
-
 		<div class="sidebar-menu-push">
-
 			<div class="sidebar-menu-overlay"></div>
-
 			<div class="sidebar-menu-inner">
                 @include('front.partials.header')
                 @include('front.partials.search')
@@ -41,11 +38,4 @@
     @endsection
 
 
-
-
-
-
-
-
-
-
+    

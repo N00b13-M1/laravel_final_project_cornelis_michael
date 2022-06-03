@@ -21,9 +21,9 @@
 								<span>{{ $banners[3]->description }}</span>
 								<div class="page-list">
 									<ul>
-										<li class="active"><a href="index.html">Home</a></li>
+										<li class="active"><a href="/">Home</a></li>
 										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="{{ $banners[3]->url }}">{{ $banners[3]->url_text }}</a></li>
+										<li><a href="{{ route('events') }}">{{ $banners[3]->url_text }}</a></li>
 									</ul>
 								</div>
 							</div>

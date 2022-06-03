@@ -7,8 +7,8 @@
                         <div class="col-md-12">
                             <div class="item course-item">
                                 <div class="up-content">
-                                    <a href="single-course.html"><h4>
-                                        {!! $courses[0]->title !!}</h4></a>
+                                    <a href="{{ route('course.single', $id) }}">
+                                        <h4>{!! $courses[0]->title !!}</h4></a>
                                     <p>Plaid you probably haven't heard of them fashion axe meditation</p>
                                     <img src="{{ asset('assets/images/' . $courses[0]->teacher_pic) }}" alt="">
                                     <h6>{{ $courses[0]->teacher_name }}</h6>
@@ -20,17 +20,24 @@
                                 <div class="courses-slider">
                                     <ul class="slides">
                                         <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
-                                          <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
+                                            <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
                                         </li>
-                                        <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
-                                            <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
-                                          </li>
-                                          <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
-                                            <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
-                                          </li>
-                                          <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg) }}">
-                                            <img src="{{ asset('assets/images/' . $courses[0]->bg) }}" alt="" />
-                                          </li>
+                                        <li data-thumb="{{ asset('assets/images/' . $courses[0]->$one) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->$one) }}" alt="" />
+                                        </li>
+                                        <li data-thumb="{{ asset('assets/images/' . $courses[0]->$two) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->$two) }}" alt="" />
+                                        </li>
+                                        <li data-thumb="{{ asset('assets/images/' . $courses[0]->$three) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->$three) }}" alt="" />
+                                        </li>
+
+                                        {{-- <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg_3) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->bg_3) }}" alt="" />
+                                        </li>
+                                        <li data-thumb="{{ asset('assets/images/' . $courses[0]->bg_4) }}">
+                                            <img src="{{ asset('assets/images/' . $courses[0]->bg_4) }}" alt="" />
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>

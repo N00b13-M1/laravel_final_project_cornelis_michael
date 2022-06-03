@@ -18,6 +18,7 @@ use App\Models\Event;
 use App\Models\News;
 use App\Models\Professor;
 use App\Models\Service;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,7 +61,18 @@ Route::get('/course/{id}', function ($id) {
     // dd($i);
     $banners = Banner::all();
     $courses = Course::where('id', $id)->get();
-    return view('front.pages.single-course', compact('banners','courses'));
+    // $course_bg2 = Course::ram
+
+    $input = [
+        "bg_2",
+        "bg_3",
+        "bg_4",
+    ];
+    $one = Arr::random($input,1)[0];
+    $two = Arr::random($input,1)[0];
+    $three = Arr::random($input,1)[0];
+
+    return view('front.pages.single-course', compact('banners','courses', "id", "one", "two", "three"));
 })->name('course.single');
 
 Route::get('/contact', function () {
