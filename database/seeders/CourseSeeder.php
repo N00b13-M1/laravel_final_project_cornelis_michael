@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class CourseSeeder extends Seeder
 {
+    
+
     /**
      * Run the database seeds.
      *

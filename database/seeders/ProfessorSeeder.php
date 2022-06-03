@@ -20,7 +20,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-12.jpg',
             'professor_name' => 'Nick Smith',
             'professor_title' => 'Physic Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -41,7 +40,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-2.jpg',
             'professor_name' => 'John Rosado',
             'professor_title' => 'English Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -62,7 +60,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-4.jpg',
             'professor_name' => 'Maria Lehmann',
             'professor_title' => 'Design Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -83,7 +80,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-7.jpg',
             'professor_name' => 'Samuelles Delossantos',
             'professor_title' => 'Design Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -106,7 +102,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-12.jpg',
             'professor_name' => 'Nick Smith',
             'professor_title' => 'Physic Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -126,7 +121,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-2.jpg',
             'professor_name' => 'John Rosado',
             'professor_title' => 'English Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -146,7 +140,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-4.jpg',
             'professor_name' => 'Maria Lehmann',
             'professor_title' => 'Design Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -166,7 +159,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-7.jpg',
             'professor_name' => 'Samuelles Delossantos',
             'professor_title' => 'Design Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -187,7 +179,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-12.jpg',
             'professor_name' => 'Nick Smith',
             'professor_title' => 'Physic Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -207,7 +198,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-2.jpg',
             'professor_name' => 'John Rosado',
             'professor_title' => 'English Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -227,7 +217,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-4.jpg',
             'professor_name' => 'Maria Lehmann',
             'professor_title' => 'Design Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
@@ -247,7 +236,6 @@ class ProfessorSeeder extends Seeder
             'professor_photo' => 'teacher-7.jpg',
             'professor_name' => 'Samuelles Delossantos',
             'professor_title' => 'Design Teacher',
-            'url' => 'single-teacher.html',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
             ',
