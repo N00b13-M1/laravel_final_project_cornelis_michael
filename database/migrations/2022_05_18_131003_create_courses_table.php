@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('teacher_name');
             $table->string('price_class');
             $table->string('price');
-            $table->string('url');
             $table->string('text');
             $table->string('favorite')->default("No");
             $table->timestamps();
