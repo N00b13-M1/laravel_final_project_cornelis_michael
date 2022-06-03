@@ -12,25 +12,24 @@
 			<div class="sidebar-menu-inner">
                 @include('front.partials.header')
                 @include('front.partials.search')
-                <div class="page-heading news-heading" style="background-image: url('assets/images/{{ $banners[4]->bg }}');;background-size: cover; background-repeat: no-repeat; width: 100%; padding: 100px 0px 0px 0px;">
+                <div class="page-heading">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
-                                {{-- {{ dd($banners) }} --}}
-								<h1>{{ $banners[7]->title }}</h1>
-								<span>{{ $banners[7]->description }}</span>
+								<h1>Single Course</h1>
+								<span>Salvia next level crucifix pickled heirloom synth</span>
 								<div class="page-list">
 									<ul>
-                                        <li class="active"><a href="/">Home</a></li>
+										<li class="active"><a href="index.html">Home</a></li>
 										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="{{ $banners[7]->url }}">{{ $banners[7]->url_text }}</a></li>
+										<li><a href="courses-grid.html">Single Course</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-                @include('front.partials.single-teacher')
+                @include('front.partials.single-course')
                 @include('front.partials.call-to-action')
                 @include('front.partials.footer')
 				<a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
@@ -39,13 +38,3 @@
         @include('front.partials.sidebar-menu')
 	</div>
     @endsection
-
-
-
-
-
-
-
-
-
-

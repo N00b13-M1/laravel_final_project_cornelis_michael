@@ -19,10 +19,10 @@
                             <span>${{ $item->price }}</span>
                             <div class="base"></div>
                         </div>
-                        <a href="{{ $item->url }}"><h4>{!! $item->title !!}</h4></a>
+                        <a href="{{ route('course.single', [$item->id]) }}"><h4>{!! $item->title !!}</h4></a>
                         <p>{{ $item->desc }}</p>
                         <div class="text-button">
-                            <a href="{{ $item->url }}">view more<i class="fa fa-arrow-right"></i></a>
+                            <a href="{{ route('course.single', [$item->id]) }}">view more<i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

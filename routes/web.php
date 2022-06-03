@@ -56,6 +56,13 @@ Route::get('/courses', function () {
     return view('front.pages.courses', compact('courses', 'banners', 'contact'));
 })->name('courses');
 
+Route::get('/course/{id}', function ($id) {
+    // dd($i);
+    $banners = Banner::all();
+    $courses = Course::where('id', $id)->get();
+    return view('front.pages.single-course', compact('banners','courses'));
+})->name('course.single');
+
 Route::get('/contact', function () {
     $banners = Banner::all(); //Not needed if you include @php
     $contact = Contact::all();
