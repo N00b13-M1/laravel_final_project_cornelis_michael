@@ -41,7 +41,7 @@
             @foreach ($courses as $item)
             <div class="col-md-4">
                 <div class="item course-item">
-                    <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
+                    <a href="{{ route('course.single', $item->id) }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
                     <div class="down-content">
                         <img src="{{ asset('assets/images/' . $item->teacher_pic) }}" alt="">
                         <h6>{{ $item->teacher_name }}</h6>
@@ -49,12 +49,12 @@
                             <span>${{ $item->price }}</span>
                             <div class="base"></div>
                         </div>
-                        <a href="{{  $item->url }}">
+                        <a href="{{ route('course.single', [$item->id]) }}">
                             <h4>{!! $item->title !!}</h4>
                         </a>
                         <p>{{ $item->desc }}</p>
                         <div class="text-button">
-                            <a href="{{  $item->url }}">view more<i class="fa fa-arrow-right"></i></a>
+                            <a href="{{ route('course.single', $item->id) }}">view more<i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
