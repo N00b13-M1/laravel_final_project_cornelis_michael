@@ -80,7 +80,7 @@ class BannerSeeder extends Seeder
             'created_at' =>now(),
         ]);
         DB::table('banners')->insert([
-            'bg' => 'news-heading-bg.jpg',
+            'bg' => 'teachers-heading-bg.jpg',
             'title' => 'SINGLE TEACHER',
             'dropbox' => '',
             'description' => 'Salvia next level crucifix pickled heirloom synth',
@@ -88,6 +88,14 @@ class BannerSeeder extends Seeder
             'primary' => 2,
             'created_at' =>now(),
         ]);
-
+        DB::table('banners')->insert([
+            'bg' => 'page-heading-bg.jpg',
+            'title' => 'SINGLE COURSE',
+            'dropbox' => '',
+            'description' => 'Salvia next level crucifix pickled heirloom synth',
+            'url_text' => 'Single Course',
+            'primary' => 2,
+            'created_at' =>now(),
+        ]);
     }
 }

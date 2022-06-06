@@ -61,7 +61,7 @@
                         <div class="date">
                             <p>{!! $item->circle_txt !!}</p>
                         </div>
-                        <a href="{{ $item->link }}">
+                        <a href="{{ route('professor.single', $item->id ) }}">
                             <h4>{!!  $item->event_name !!}</h4>
                         </a>
                         <p>{{ $item->event_desc }}</p>

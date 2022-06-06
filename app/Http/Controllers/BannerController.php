@@ -57,7 +57,6 @@ class BannerController extends Controller
         $banner->title = $request->title;
         $banner->dropbox = $request->dropbox;
         $banner->description = $request->description;
-        $banner->url = $request->url;
         $banner->url_text = $request->url_text;
         $banner->primary = $request->primary;
 
@@ -102,7 +101,6 @@ class BannerController extends Controller
         $validated = $request->validate([
 			'title' => 'required',
 			'description' => 'required',
-            'url' => 'required',
             'url_text' => 'required'
 		]);
 
@@ -127,7 +125,6 @@ class BannerController extends Controller
         $banner->title = $request->title;
         $banner->dropbox = $request->dropbox;
         $banner->description = $request->description;
-        $banner->url = $request->url;
         $banner->url_text = $request->url_text;
         $banner->primary = $request->primary;
         $banner->updated_at = now();

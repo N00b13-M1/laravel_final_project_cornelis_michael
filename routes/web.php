@@ -50,7 +50,7 @@ Route::get('/', function () {
 
 Route::get('/courses', function () {
     $banners = Banner::all();
-    $courses = Course::paginate(4);
+    $courses = Course::paginate(3);
 
     $contact = Contact::all();
 
@@ -99,12 +99,11 @@ Route::get('/news', function () {
 Route::get('/professors', function () {
     $banners = Banner::all();
     $professors = Professor::all();
-    // $professors =  News::paginate(3);
+    $professors =  Professor::paginate(4);
     return view('front.pages.professors', compact('banners', 'professors'));
 })->name('professors');
 
 Route::get('/professor/{id}', function ($id) {
-    // dd($i);
     $banners = Banner::all();
     $professors = Professor::where('id', $id)->get();
     return view('front.pages.single-teacher', compact('banners','professors', 'id'));

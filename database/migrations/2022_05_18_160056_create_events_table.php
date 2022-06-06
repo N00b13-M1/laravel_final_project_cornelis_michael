@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('where');
             $table->string('when');
             $table->string('circle_txt');
-            $table->string('link');
             $table->string('event_name');
             $table->string('event_desc');
             $table->timestamps();

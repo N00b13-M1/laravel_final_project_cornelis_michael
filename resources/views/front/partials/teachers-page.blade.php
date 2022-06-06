@@ -19,7 +19,7 @@
                 </div>
             </div>
             @endforeach
-            {{-- {{ $professors->links() }} --}}
+            {{ $professors->links() }}
             {{-- <div class="col-md-3">
                 <div class="teacher-item">
                     <img src="{{ asset('assets/images/teacher-1.jpg') }}" alt="">
@@ -241,4 +241,5 @@
         </div> --}}
     </div>
 </section>
+
 
