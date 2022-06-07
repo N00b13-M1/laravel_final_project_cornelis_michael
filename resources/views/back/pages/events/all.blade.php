@@ -41,7 +41,6 @@
                         <td>{{ $item->where }}</td>
                         <td>{{ $item->when }}</td>
                         <td>{{ $item->circle_txt }}</td>
-                        <td>{{ $item->link }}</td>
                         <td>{{ $item->event_name }}</td>
                         <td>{{ $item->event_desc }}</td>
                         <td>

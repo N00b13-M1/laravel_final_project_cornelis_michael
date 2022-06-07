@@ -39,7 +39,6 @@
                         <td><img src="{{ asset('assets/images/' . $item->professor_photo ) }}"></td>
                         <td>{{ $item->professor_name }}</td>
                         <td>{{ $item->professor_title }}</td>
-                        <td>{{ $item->url }}</td>
                         <td>{{ $item->text1 }}</td>
                         <td>{{ $item->textstrong }}</td>
                         <td>{{ $item->text2 }}</td>

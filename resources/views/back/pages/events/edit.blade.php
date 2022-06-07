@@ -44,10 +44,6 @@
                 <input type="text" class="form-control" id="circle_txt" name="circle_txt" value="{{ old('circle_txt') ? old('circle_txt') : $event->circle_txt }}">
             </div>
             <div class="mb-3">
-                <label for="link" class="form-label">URL</label>
-                <input type="text" class="form-control" id="link" name="link" value="{{ old('link') ? old('link') : $event->link }}">
-            </div>
-            <div class="mb-3">
                 <label for="event_name" class="form-label">Event Name</label>
                 <input type="text" class="form-control" id="event_name" name="event_name" value="{{ old('event_name') ? old('event_name') : $event->event_name }}">
             </div>

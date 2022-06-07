@@ -38,11 +38,6 @@
                     value="{{ old('description') ? old('description') : $banner->description }}">
             </div>
             <div class="mb-3">
-                <label for="url" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url" name="url"
-                    value="{{ old('url') ? old('url') : $banner->url }}">
-            </div>
-            <div class="mb-3">
                 <label for="url_text" class="form-label">URL Text</label>
                 <input type="text" class="form-control" id="url_text" name="url_text"
                     value="{{ old('url_text') ? old('url_text') : $banner->url_text }}">
@@ -54,10 +49,9 @@
                         <option value="-1">Select an option</option>
                         <option value="0" {{ $banner->primary == "0" ? "selected" : "" }}>True (value= 0)</option>
                         <option value="1" {{ $banner->primary == "1" ? "selected" : "" }}>False (value= 1)</option>
+                        <option value="2" {{ $banner->primary == "2" ? "selected" : "" }}>No Home Banner (value= 2)</option>
                     </select>
                 </div>
-                {{-- <input type="boolean" class="form-control" id="primary" name="primary"
-                    value="{{ old('primary') ? old('primary') : $banner->primary }}"> --}}
             </div>
             <button type="submit" class="btn btn-primary m-2">Save</button>
         </form>

@@ -41,7 +41,6 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-			'url' => 'required',
 			'img' => 'required',
 			'created_when' => 'required',
             'posted_by' => 'required',
@@ -52,7 +51,6 @@ class NewsController extends Controller
 		]);
 
         $news = New News;
-        $news->url = $request->url;
         $news->img = $request->img;
         $news->created_when = $request->created_when;
         $news->posted_by = $request->posted_by;
@@ -98,7 +96,6 @@ class NewsController extends Controller
     public function update(Request $request, News $news)
     {
         $validated = $request->validate([
-			'url' => 'required',
 			'img' => 'required',
 			'created_when' => 'required',
             'posted_by' => 'required',
@@ -108,7 +105,6 @@ class NewsController extends Controller
             'text2' => 'required',
 		]);
 
-        $news->url = $request->url;
         $news->img = $request->img;
         $news->created_when = $request->created_when;
         $news->posted_by = $request->posted_by;

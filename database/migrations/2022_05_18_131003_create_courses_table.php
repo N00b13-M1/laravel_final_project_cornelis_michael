@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
             $table->string('bg');
+            $table->string('teacher_pic');
             $table->string('bg_2');
             $table->string('bg_3');
             $table->string('bg_4');
-            $table->string('teacher_pic');
             $table->string('teacher_name');
             $table->string('price_class');
             $table->string('price');
@@ -33,6 +33,8 @@ return new class extends Migration
             $table->string('discipline');
             $table->string('favorite')->default("No");
             $table->timestamps();
+
+
         });
     }
 

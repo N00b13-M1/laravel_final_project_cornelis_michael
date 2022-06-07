@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
             $table->string('img');
             $table->string('created_when');
             $table->string('posted_by');

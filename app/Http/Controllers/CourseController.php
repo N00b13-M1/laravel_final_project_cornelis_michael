@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -17,7 +18,7 @@ class CourseController extends Controller
     {
         $courses = Course::all();
         $course_titles = Schema::getColumnListing('courses');
-        $course_titles = array_slice($course_titles, 0, 11);
+        $course_titles = array_slice($course_titles, 0, 18);
         // dd($course_titles);
 
         return view('back.pages.courses.all', compact('courses','course_titles'));
@@ -50,22 +51,41 @@ class CourseController extends Controller
             'teacher_name' => 'required',
             'price_class' => 'required',
             'price' => 'required',
-            'url' => 'required',
             'text' => 'required',
 		]);
 
         $course = New Course;
         $course->title = $request->title;
         $course->desc = $request->desc;
-        $course->bg = $request->bg;
-        $course->teacher_pic = $request->teacher_pic;
+        $course->bg = $request->file('bg')->hashName();
+        $course->teacher_pic = $request->file('teacher_pic')->hashName();
+        $course->bg_2 = $request->file('bg_2')->hashName();
+        $course->bg_3 = $request->file('bg_3')->hashName();
+        $course->bg_4 = $request->file('bg_4')->hashName();
+
+        // // $pictures =
+        // // dd(count($pictures));
+
+        $pictures = collect(['bg', 'teacher_pic', 'bg_2', 'bg_3', 'bg_4']);
+        dd($pictures->count());
+
+        for ($i=0; $i < $pictures->count(); $i++) {
+            # code...
+        }
+
+
+
         $course->teacher_name = $request->teacher_name;
         $course->price_class = $request->price_class;
         $course->price = $request->price;
-        $course->url = $request->url;
         $course->text = $request->text;
+        $course->starting_date = $request->starting_date ?? '';
+        $course->months = $request->months ?? '';
+        $course->weeks = $request->weeks ?? '';
+        $course->study_level = $request->study_level ?? '';
+        $course->discipline = $request->discipline ?? '';
         $favorites = Course::where('favorite', '=', "Yes")->count();
-        if($request->favorite == "Yes" && $favorites ==8 ){
+        if($request->favorite == "Yes" && $favorites == 8 ){
             $course->favorite = "No";
             $course->save();
             return redirect()->route('courses.index')
@@ -117,23 +137,80 @@ class CourseController extends Controller
             'teacher_name' => 'required',
             'price_class' => 'required',
             'price' => 'required',
-            'url' => 'required',
             // 'favorite' => 'required',
 		]);
 
         $course->title = $request->title;
         $course->desc = $request->desc;
-        if($request->bg != null) {
-            $course->bg = $request->bg;
+        // if($request->bg != null) {
+        //     $course->bg = $request->bg;
+        // }
+        // if($request->teacher_pic != null) {
+        //     $course->teacher_pic = $request->teacher_pic;
+        // }
+        // $pictures = ['bg', 'teacher_pic', 'bg_2', 'bg_3', 'bg_4'];
+
+
+        if($request->file('bg')){
+            Storage::disk('public')->delete('/assets/images/' . $course->bg);
+
+            $course->bg = $request->file('bg')->hashName();
+            $request->file('bg')->storePublicly('/assets/images', 'public');
         }
-        if($request->teacher_pic != null) {
-            $course->teacher_pic = $request->teacher_pic;
+        else{
+            $course->bg = $course->bg;
         }
+
+
+        if($request->file('teacher_pic')){
+            Storage::disk('public')->delete('/assets/images/' . $course->teacher_pic);
+
+            $course->teacher_pic = $request->file('teacher_pic')->hashName();
+            $request->file('teacher_pic')->storePublicly('/assets/images', 'public');
+        }
+        else{
+            $course->teacher_pic = $course->teacher_pic;
+        }
+
+        if($request->file('bg_2')){
+            Storage::disk('public')->delete('/assets/images/' . $course->bg_2);
+
+            $course->bg_2 = $request->file('bg_2')->hashName();
+            $request->file('bg_2')->storePublicly('/assets/images', 'public');
+        }
+        else{
+            $course->bg_2 = $course->bg_2;
+        }
+
+        if($request->file('bg_3')){
+            Storage::disk('public')->delete('/assets/images/' . $course->bg_3);
+
+            $course->bg_3 = $request->file('bg_3')->hashName();
+            $request->file('bg_3')->storePublicly('/assets/images', 'public');
+        }
+        else{
+            $course->bg_3 = $course->bg_3;
+        }
+
+        if($request->file('bg_4')){
+            Storage::disk('public')->delete('/assets/images/' . $course->bg_4);
+
+            $course->bg_4 = $request->file('bg_4')->hashName();
+            $request->file('bg_4')->storePublicly('/assets/images', 'public');
+        }
+        else{
+            $course->bg_4 = $course->bg_4;
+        }
+
         $course->teacher_name = $request->teacher_name;
         $course->price_class = $request->price_class;
         $course->price = $request->price;
-        $course->url = $request->url;
         $course->text = $request->text;
+        $course->starting_date = $course->starting_date;
+        $course->months = $course->months;
+        $course->weeks = $course->weeks;
+        $course->study_level = $course->study_level;
+        $course->discipline = $course->discipline;
         $course->updated_at = now();
 
         $favorites = Course::where('favorite', '=', "Yes")->count();
@@ -160,7 +237,6 @@ class CourseController extends Controller
             ->with("update", "Successfully Updated");
         }
 
-
     }
 
     /**
@@ -182,4 +258,3 @@ class CourseController extends Controller
         }
     }
 }
-

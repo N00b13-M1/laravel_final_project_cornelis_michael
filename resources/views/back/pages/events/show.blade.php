@@ -5,7 +5,7 @@
         <h1 class="text-center fs-1 py-5">Detailed Event</h1>
         <form action="{{ route('events.index') }}" method="get">
             <div class="mb-3">
-                {{ dd($event) }}
+                {{-- {{ dd($event) }} --}}
                 <label for="img" class="form-label">Event Image</label>
                 <img src="{{ asset('assets/images/' . $event->img) }}">
             </div>
@@ -28,10 +28,6 @@
             <div class="mb-3">
                 <label for="circle_txt" class="form-label">Circle Text</label>
                 <input type="text" class="form-control" id="circle_txt" name="circle_txt" value="{{ $event->circle_txt }}" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="link" class="form-label">URL</label>
-                <input type="text" class="form-control" id="link" name="link" value="{{ $event->link }}" readonly>
             </div>
             <div class="mb-3">
                 <label for="event_name" class="form-label">Event Name</label>

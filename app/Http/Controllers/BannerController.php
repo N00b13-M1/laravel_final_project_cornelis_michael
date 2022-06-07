@@ -19,7 +19,7 @@ class BannerController extends Controller
     {
         $banners = Banner::all();
         $banner_titles = Schema::getColumnListing('banners');
-        $banner_titles = array_slice($banner_titles, 0, 8);
+        $banner_titles = array_slice($banner_titles, 0, 7);
         $banners = Banner::orderBy('primary', 'asc')->get();
         // dd($banners);
 

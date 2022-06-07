@@ -40,9 +40,14 @@
                         <td>{{ $banner->title }}</td>
                         <td>{{ $banner->dropbox }}</td>
                         <td>{{ $banner->description }}</td>
-                        <td>{{ $banner->url }}</td>
                         <td>{{ $banner->url_text }}</td>
-                        <td>{{ $banner->primary }}</td>
+                        @if ($banner->primary == 0)
+                        <td>Yes</td>
+                        @elseif ($banner->primary == 1)
+                        <td>No</td>
+                        @else
+                        <td>No Home Banner</td>
+                        @endif
                         <td>
                             <a href="{{ route('banners.show', $banner) }}"><button class="btn btn-primary">Show</button>
                             </a>

@@ -68,14 +68,39 @@
                 <input type="number" class="form-control" id="price" name="price" value="{{ old('price') ? old('price') : $course->price }}">
             </div>
             <div class="mb-3">
-                <label for="url" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url" name="url" value="{{ old('url') ? old('url') : $course->url }}">
-            </div>
-            <div class="mb-3">
                 <label for="text" class="form-label">Text</label>
                 <input type="text" class="form-control" id="text" name="text" value="{{ old('text') ? old('text') : $course->text }}">
             </div>
-            
+            <div class="mb-3">
+                <label for="starting_date" class="form-label">Starting Date</label>
+                <input type="date" class="form-control" id="starting_date" name="starting_date" value="{{ old('starting_date') ? old('starting_date') : $course->starting_date }}">
+            </div>
+            <div class="mb-3">
+                <label for="months" class="form-label">Months</label>
+                <input type="number" class="form-control" id="months" name="months" value="{{ old('months') ? old('months') : $course->months }}">
+            </div>
+            <div class="mb-3">
+                <label for="weeks" class="form-label">Weeks</label>
+                <input type="number" class="form-control" id="weeks" name="weeks" value="{{ old('weeks') ? old('weeks') : $course->weeks }}">
+            </div>
+            <div class="mb-3">
+                <label for="study_level" class="form-label">Study Level</label>
+                <input type="text" class="form-control" id="study_level" name="study_level" value="{{ old('study_level') ? old('study_level') : $course->study_level }}">
+            </div>
+            <div class="mb-3">
+                <label for="discipline" class="form-label">Discipline</label>
+                <input type="text" class="form-control" id="discipline" name="discipline" value="{{ old('discipline') ? old('discipline') : $course->discipline }}">
+            </div>
+            {{-- <div class="mb-3">
+                <label for="favorite" class="form-label">Favorite Course</label>
+                <div class="input-select">
+                    <select name="favorite" id="favorite">
+                        <option value="-1">Select an option</option>
+                        <option value="0" {{ $course->favorite == "Yes" ? "selected" : "" }}>Yes</option>
+                        <option value="1" {{ $course->favorite == "No" ? "selected" : "" }}>No</option>
+                    </select>
+                </div>
+            </div> --}}
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
     </div>

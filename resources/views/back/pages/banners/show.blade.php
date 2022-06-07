@@ -22,16 +22,19 @@
                 <input type="text" class="form-control" id="description" name="description" value="{{ $banner->description }}" readonly>
             </div>
             <div class="mb-3">
-                <label for="url" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url" name="url" value="{{ $banner->url }}" readonly>
-            </div>
-            <div class="mb-3">
                 <label for="url_text" class="form-label">URL Text</label>
                 <input type="text" class="form-control" id="url_text" name="url_text" value="{{ $banner->url_text }}" readonly>
             </div>
             <div class="mb-3">
                 <label for="primary" class="form-label">Primary</label>
-                <input type="boolean" class="form-control" id="primary" name="primary" value="{{ $banner->primary }}" readonly>
+                <input type="boolean" class="form-control" id="primary" name="primary"
+                @if ($banner->primary == 0)
+                value="Yes"
+                @elseif ($banner->primary == 1)
+                value="No"
+                @else
+                value="No Home Banner"
+                @endif readonly>
             </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('banners.index') }}"></a>Return</button>
 

@@ -31,10 +31,6 @@
                 <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
             </div>
             <div class="mb-3">
-                <label for="url" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url" name="url" value="{{ old('url') }}">
-            </div>
-            <div class="mb-3">
                 <label for="url_text" class="form-label">URL Text</label>
                 <input type="text" class="form-control" id="url_text" name="url_text" value="{{ old('url_text') }}">
             </div>

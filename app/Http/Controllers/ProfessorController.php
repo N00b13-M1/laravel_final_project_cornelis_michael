@@ -18,7 +18,7 @@ class ProfessorController extends Controller
     {
         $professors = Professor::all();
         $professor_titles = Schema::getColumnListing('professors');
-        $professor_titles = array_slice($professor_titles, 0,16);
+        $professor_titles = array_slice($professor_titles, 0,15);
         // dd($professor_titles);
         return view('back.pages.professors.all', compact('professors', 'professor_titles'));
     }
@@ -64,7 +64,6 @@ class ProfessorController extends Controller
         $professor->professor_photo = $request->file('professor_photo')->hashName();
         $professor->professor_name = $request->professor_name;
         $professor->professor_title = $request->professor_title;
-        $professor->url = $request->url ?? '';
         $professor->text1 = $request->text1 ?? '';
         $professor->textstrong = $request->textstrong ?? '';
         $professor->text2 = $request->text2 ?? '';
@@ -120,7 +119,6 @@ class ProfessorController extends Controller
 			// 'professor_photo' => 'required',
 			'professor_name' => 'required',
 			'professor_title' => 'required',
-            'url' => 'required',
             'text1' => 'required',
             'textstrong' => 'required',
             'text2' => 'required',

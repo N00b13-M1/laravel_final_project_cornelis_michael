@@ -4,6 +4,7 @@
             <div class="col-md-8">
                 <div class="classic-posts">
                     @foreach ($news as $item )
+
                     <div class="classic-item">
                         <a href="{{ route("news.single", $item->id) }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>
                         <ul>
@@ -17,7 +18,7 @@
                         <p>{{ $item->text1 }}</p>
                         <div class="buttons">
                             <div class="accent-button">
-                                <a href="{{ $item->url }}">Continue Reading</a>
+                                <a href="{{ route("news.single", $item->id) }}">Continue Reading</a>
                             </div>
                             <div class="second-button">
                                 <a href="#">Share <i class="fa fa-share-alt"></i></a>

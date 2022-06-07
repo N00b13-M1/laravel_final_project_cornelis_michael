@@ -36,6 +36,7 @@
         <table class="table table-dark ms-5">
             <thead>
                 <tr>
+
                     @foreach ($course_titles as $item)
                         <th scope="col">{{ $item }}</th>
                     @endforeach
@@ -52,12 +53,19 @@
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->desc }}</td>
                         <td><img src="{{ asset('assets/images/' . $item->bg ) }}"></td>
+                        <td><img src="{{ asset('assets/images/' . $item->bg_2 ) }}"></td>
+                        <td><img src="{{ asset('assets/images/' . $item->bg_3 ) }}"></td>
+                        <td><img src="{{ asset('assets/images/' . $item->bg_4) }}"></td>
                         <td><img src="{{ asset('assets/images/' . $item->teacher_pic ) }}"></td>
                         <td>{{ $item->teacher_name }}</td>
                         <td>{{ $item->price_class }}</td>
                         <td>{{ $item->price }}</td>
-                        <td>{{ $item->url }}</td>
                         <td>{{ $item->text }}</td>
+                        <td>{{ $item->starting_date }}</td>
+                        <td>{{ $item->months }}</td>
+                        <td>{{ $item->weeks }}</td>
+                        <td>{{ $item->study_level }}</td>
+                        <td>{{ $item->discipline }}</td>
                         <td>{{ $item->favorite }}</td>
                         <td>
                             <a href="{{ route('courses.show', $item) }}"><button class="btn btn-primary">Show</button>

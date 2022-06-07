@@ -34,12 +34,7 @@
                 <input type="text" class="form-control" id="professor_title" name="professor_title"
                     value="{{ old('professor_title') ? old('professor_title') : $professor->professor_title }}">
             </div>
-            <div class="mb-3">
-                <label for="url" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url" name="url"
-                    value="{{ old('url') ? old('url') : $professor->url }}"">
-                </div>
-                <div class=" mb-3">
+            <div class=" mb-3">
                 <label for="text1" class="form-label">Text1</label>
                 <input type="text" class="form-control" id="text1" name="text1"
                     value="{{ old('text1') ? old('text1') : $professor->text1 }}">

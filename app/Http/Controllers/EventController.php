@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -17,7 +18,7 @@ class EventController extends Controller
     {
         $events = Event::all();
         $event_titles = Schema::getColumnListing('events');
-        $event_titles = array_slice($event_titles, 0, 10);
+        $event_titles = array_slice($event_titles, 0, 9);
         // dd($event_titles);
         return view ('back.pages.events.all', compact('events', 'event_titles'));
     }
@@ -47,23 +48,23 @@ class EventController extends Controller
 			'where' => 'required',
             'when' => 'required',
             'circle_txt' => 'required',
-            'link' => 'required',
             'event_name' => 'required',
             'event_desc' => 'required'
 		]);
 
         $event = New Event;
-        $event->img = $request->img;
+        $event->img = $request->file('img')->hashName();
+
         $event->stars = $request->stars;
         $event->likes = $request->likes;
         $event->where = $request->where;
         $event->when = $request->when;
         $event->circle_txt = $request->circle_txt;
-        $event->link = $request->link;
         $event->event_name = $request->event_name;
         $event->event_desc = $request->event_desc;
 
         $event->save();
+        $request->file("img")->storePublicly('/assets/images/','public');
         return redirect()->route('events.index')->with("success", "Successfully Added");
     }
 
@@ -99,24 +100,29 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         $validated = $request->validate([
-			'img' => 'required',
 			'stars' => 'required',
 			'likes' => 'required',
 			'where' => 'required',
             'when' => 'required',
             'circle_txt' => 'required',
-            'link' => 'required',
             'event_name' => 'required',
             'event_desc' => 'required'
 		]);
 
-        $event->img = $request->img;
+        if($request->file('img')){
+            Storage::disk('public')->delete('/assets/images/' . $event->img);
+
+            $event->img = $request->file('img')->hashName();
+            $request->file('img')->storePublicly('/assets/images', 'public');
+        }
+        else{
+
+        $event->img = $event->img;
         $event->stars = $request->stars;
         $event->likes = $request->likes;
         $event->where = $request->where;
         $event->when = $request->when;
         $event->circle_txt = $request->circle_txt;
-        $event->link = $request->link;
         $event->event_name = $request->event_name;
         $event->event_desc = $request->event_desc;
         $event->updated_at = now();
