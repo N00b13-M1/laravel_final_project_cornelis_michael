@@ -5,13 +5,13 @@
                 <div class="classic-posts">
                     @foreach ($news as $item )
                     <div class="classic-item">
-                        <a href="{{ $item->url }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>
+                        <a href="{{ route("news.single", $item->id) }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>
                         <ul>
                             <li>Posted: <em>{{ $item->created_when }}</em></li>
                             <li>By: <em>{{ $item->posted_by }}</em></li>
                             <li>Comments: <em>{{ $item->number_of_comments }}</em></li>
                         </ul>
-                        <a href="{{ $item->url }}">
+                        <a href="{{ route("news.single", $item->id) }}">
                             <h4>{{ $item->title }}</h4>
                         </a>
                         <p>{{ $item->text1 }}</p>

@@ -96,6 +96,13 @@ Route::get('/news', function () {
     return view('front.pages.news', compact('banners', 'news'));
 })->name('news');
 
+Route::get('/news/{id}', function ($id) {
+    // dd($id);
+    $banners = Banner::all();
+    $news_post = News::where('id', $id)->get();
+    return view('front.pages.single-post', compact('banners', 'news_post', 'id'));
+})->name('news.single');
+
 Route::get('/professors', function () {
     $banners = Banner::all();
     $professors = Professor::all();

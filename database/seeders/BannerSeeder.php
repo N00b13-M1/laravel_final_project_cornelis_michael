@@ -23,7 +23,6 @@ class BannerSeeder extends Seeder
             'url_text' => 'Buy now',
             'primary' => 0,
             'created_at' =>now(),
-
         ]);
         DB::table('banners')->insert([
             'bg' => 'slidebg-2.jpg',
@@ -94,6 +93,15 @@ class BannerSeeder extends Seeder
             'dropbox' => '',
             'description' => 'Salvia next level crucifix pickled heirloom synth',
             'url_text' => 'Single Course',
+            'primary' => 2,
+            'created_at' =>now(),
+        ]);
+        DB::table('banners')->insert([
+            'bg' => 'news-heading-bg.jpg',
+            'title' => 'SINGLE POST',
+            'dropbox' => '',
+            'description' => 'Salvia next level crucifix pickled heirloom synth',
+            'url_text' => 'Single Post',
             'primary' => 2,
             'created_at' =>now(),
         ]);

@@ -23,7 +23,7 @@
 									<ul>
 										<li class="active"><a href="/">Home</a></li>
 										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="{{ route('news')}}">{{ $banners[5]->url_text }}</a></li>
+										<li><a href="{{ route('news.single') }}">{{ $banners[5]->url_text }}</a></li>
 									</ul>
 								</div>
 							</div>
