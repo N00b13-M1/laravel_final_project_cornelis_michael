@@ -16,7 +16,6 @@ class Event extends Model
         'where',
         'when',
         'circle_txt',
-        'link',
         'event_name',
         'event_desc',
     ];

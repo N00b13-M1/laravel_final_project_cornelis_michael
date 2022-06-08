@@ -23,5 +23,6 @@ class Professor extends Model
         'twitter_id',
         'dribble_id',
         'linkedin_id',
+        'fixed',
     ];
 }

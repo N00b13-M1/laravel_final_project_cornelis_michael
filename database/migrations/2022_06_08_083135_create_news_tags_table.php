@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('news_tags', function (Blueprint $table) {
             $table->id();
+            $table->primary(['user_id', 'role_id']);
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Role::class);
             $table->timestamps();
         });
     }

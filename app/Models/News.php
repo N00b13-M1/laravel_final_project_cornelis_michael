@@ -10,13 +10,18 @@ class News extends Model
     use HasFactory;
 
     protected $fillable= [
-        'url',
         'img',
         'created_when',
         'posted_by',
         'number_of_comments',
         'title',
         'text1',
+        'strong',
         'text2',
     ];
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

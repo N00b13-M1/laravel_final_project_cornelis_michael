@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             AddressSeeder::class,
             EventSeeder::class,
             ContactSeeder::class,
+            TagSeeder::class,
+            CategorieSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();

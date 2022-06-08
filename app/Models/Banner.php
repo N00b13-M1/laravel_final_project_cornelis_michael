@@ -14,7 +14,6 @@ class Banner extends Model
         'title',
         'dropbox',
         'description',
-        'url',
         'url_text',
         'primary',
 
