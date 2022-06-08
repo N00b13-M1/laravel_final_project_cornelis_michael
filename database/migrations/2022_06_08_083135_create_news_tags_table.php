@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('news_tags', function (Blueprint $table) {
             $table->id();
-            $table->primary(['user_id', 'role_id']);
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Role::class);
+            $table->foreignId('news_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            // $table->primary(['news_id', 'tag_id',]);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -32,3 +31,4 @@ return new class extends Migration
         Schema::dropIfExists('news_tags');
     }
 };
+

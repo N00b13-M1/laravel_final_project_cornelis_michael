@@ -6,6 +6,7 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Tag;
 
 class NewsController extends Controller
 {
@@ -17,10 +18,10 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::all();
+        $tags = Tag::all();
         $news_titles = Schema::getColumnListing('news');
         $news_titles = array_slice($news_titles, 0, 8);
-        // dd($news);
-        return view ('back.pages.news.all', compact('news', 'news_titles'));
+        return view ('back.pages.news.all', compact('news', 'news_titles', 'tags'));
     }
 
     /**

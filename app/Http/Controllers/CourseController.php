@@ -56,7 +56,7 @@ class CourseController extends Controller
 
         $course = New Course;
         $course->title = $request->title;
-        $course->desc = $request->desc;
+        $course->desc = $request->desc ?? '';
         $course->bg = $request->file('bg')->hashName();
         $course->teacher_pic = $request->file('teacher_pic')->hashName();
         $course->bg_2 = $request->file('bg_2')->hashName();
@@ -73,7 +73,7 @@ class CourseController extends Controller
         $course->teacher_name = $request->teacher_name;
         $course->price_class = $request->price_class;
         $course->price = $request->price;
-        $course->text = $request->text;
+        $course->text = $request->text ?? '';
         $course->starting_date = $request->starting_date ?? '';
         $course->months = $request->months ?? '';
         $course->weeks = $request->weeks ?? '';
@@ -166,7 +166,6 @@ class CourseController extends Controller
             $course->bg = $course->bg;
         }
 
-
         if($request->file('teacher_pic')){
             Storage::disk('public')->delete('/assets/images/' . $course->teacher_pic);
 
@@ -252,19 +251,36 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        $favorites = Course::where('favorite', '=', "Yes")->count();
-        if($favorites > 4 ) {
+        // dd($course->favorite);
+
+        $favorites = Course::where('favorite', '=', "Yes")->count();        // $normals = Course::where('favorite', '=', "No")->count();
+        if($course->favorite == "Yes"){
+            if($favorites > 4 ) {
+                Storage::disk('public')->delete('/assets/images/' . $course->bg);
+                Storage::disk('public')->delete('/assets/images/' . $course->teacher_pic);
+                Storage::disk('public')->delete('/assets/images/' . $course->bg_2);
+                Storage::disk('public')->delete('/assets/images/' . $course->bg_3);
+                Storage::disk('public')->delete('/assets/images/' . $course->bg_4);
+
+                $course->delete();
+                return redirect()->route('courses.index')->with("delete", "Successfully Deleted");
+            }
+            elseif ($favorites == 4 )  {
+                return redirect()->route('courses.index')
+                ->with("fav_min", "Delete Denied, min 4 favorites");
+            }
+
+        }
+        else{
+            Storage::disk('public')->delete('/assets/images/' . $course->bg);
+            Storage::disk('public')->delete('/assets/images/' . $course->teacher_pic);
             Storage::disk('public')->delete('/assets/images/' . $course->bg_2);
             Storage::disk('public')->delete('/assets/images/' . $course->bg_3);
             Storage::disk('public')->delete('/assets/images/' . $course->bg_4);
 
             $course->delete();
             return redirect()->route('courses.index')->with("delete", "Successfully Deleted");
-        }
-        else{
-            return redirect()->route('courses.index')
-            ->with("fav_min", "Delete Denied, min 4 favorites");
+
         }
     }
 }
-

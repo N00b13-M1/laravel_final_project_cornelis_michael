@@ -10,7 +10,7 @@ class Tag extends Model
     use HasFactory;
 
     protected $fillable=[
-        'tag_id',
+        'tag_desc',
     ];
 
     public function news()
@@ -18,7 +18,7 @@ class Tag extends Model
         return $this->belongsToMany(News::class);
     }
 
-
 }
+
 
 
