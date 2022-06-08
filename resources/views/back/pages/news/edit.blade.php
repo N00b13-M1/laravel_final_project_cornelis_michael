@@ -16,10 +16,6 @@
             @csrf
             @method('put')
             <div class="mb-3">
-                <label for="url" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url" name="url" value="{{ old('url') ? old('url') : $news->url }}">
-            </div>
-            <div class="mb-3">
                 <label for="img" class="form-label">News Image</label>
                 <img src="{{ asset('assets/images/' . $news->img) }}">
                 <br>

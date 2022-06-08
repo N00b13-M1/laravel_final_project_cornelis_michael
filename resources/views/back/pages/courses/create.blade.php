@@ -18,13 +18,13 @@
                 <label for="favorite" class="form-label">Is this a Favorite?</label>
                 <div class="form-control border border-dark rounded-0">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="favorite1" id="favorite" value="Yes">
+                        <input class="form-check-input" type="radio" name="favorite" id="favorite" value="Yes">
                         <label class="form-check-label" for="favorite">
                         Yes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="favorite2" id="favorite" value="No">
+                        <input class="form-check-input" type="radio" name="favorite" id="favorite" value="No">
                         <label class="form-check-label" for="favorite">
                         No
                         </label>

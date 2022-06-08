@@ -34,6 +34,7 @@ class ServiceController extends Controller
         return view('back.pages.services.create', compact('services'));
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -118,3 +119,4 @@ class ServiceController extends Controller
         return redirect()->route('services.index')->with("delete", "Successfully Deleted");
     }
 }
+

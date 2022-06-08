@@ -63,17 +63,12 @@ class CourseController extends Controller
         $course->bg_3 = $request->file('bg_3')->hashName();
         $course->bg_4 = $request->file('bg_4')->hashName();
 
-        // // $pictures =
-        // // dd(count($pictures));
+        // $pictures = array(['bg', 'teacher_pic', 'bg_2', 'bg_3', 'bg_4']);
+        // // dd($pictures->count());
 
-        $pictures = collect(['bg', 'teacher_pic', 'bg_2', 'bg_3', 'bg_4']);
-        dd($pictures->count());
-
-        for ($i=0; $i < $pictures->count(); $i++) {
-            # code...
-        }
-
-
+        // for ($i=0; $i < count($pictures); $i++) {
+        //     dd($request->$pictures[2]);
+        // }
 
         $course->teacher_name = $request->teacher_name;
         $course->price_class = $request->price_class;
@@ -88,12 +83,22 @@ class CourseController extends Controller
         if($request->favorite == "Yes" && $favorites == 8 ){
             $course->favorite = "No";
             $course->save();
+            $request->file("bg")->storePublicly('/assets/images/','public');
+            $request->file("teacher_pic")->storePublicly('/assets/images/','public');
+            $request->file("bg_2")->storePublicly('/assets/images/','public');
+            $request->file("bg_3")->storePublicly('/assets/images/','public');
+            $request->file("bg_4")->storePublicly('/assets/images/','public');
             return redirect()->route('courses.index')
             ->with("success", "Successfully Added")
             ->with("fav_max", "Favorite denied, max 8 favorites");
         }
         else {
         $course->save();
+        $request->file("bg")->storePublicly('/assets/images/','public');
+        $request->file("teacher_pic")->storePublicly('/assets/images/','public');
+        $request->file("bg_2")->storePublicly('/assets/images/','public');
+        $request->file("bg_3")->storePublicly('/assets/images/','public');
+        $request->file("bg_4")->storePublicly('/assets/images/','public');
         return redirect()->route('courses.index')->with("success", "Successfully Added");
         }
     }
@@ -248,13 +253,18 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         $favorites = Course::where('favorite', '=', "Yes")->count();
-        if($favorites == 4 ) {
-            return redirect()->route('courses.index')
-            ->with("fav_min", "Delete Denied, min 4 favorites");
-        }
-        else{
+        if($favorites > 4 ) {
+            Storage::disk('public')->delete('/assets/images/' . $course->bg_2);
+            Storage::disk('public')->delete('/assets/images/' . $course->bg_3);
+            Storage::disk('public')->delete('/assets/images/' . $course->bg_4);
+
             $course->delete();
             return redirect()->route('courses.index')->with("delete", "Successfully Deleted");
         }
+        else{
+            return redirect()->route('courses.index')
+            ->with("fav_min", "Delete Denied, min 4 favorites");
+        }
     }
 }
+

@@ -21,7 +21,7 @@ class BannerController extends Controller
         $banner_titles = Schema::getColumnListing('banners');
         $banner_titles = array_slice($banner_titles, 0, 7);
         $banners = Banner::orderBy('primary', 'asc')->get();
-        // dd($banners);
+
 
         return view('back.pages.banners.all', compact('banners','banner_titles'));
     }
@@ -126,31 +126,62 @@ class BannerController extends Controller
         $banner->dropbox = $request->dropbox;
         $banner->description = $request->description;
         $banner->url_text = $request->url_text;
-        $banner->primary = $request->primary;
+
+        if($banner->primary == 2) {
+            if($request->primary == 0) {
+                $bannerbgs = Banner::where('primary', "!=", 2)->get();
+                foreach ($bannerbgs as $bg) {
+                    $bg->primary = 1;
+                    $bg->save();
+                }
+                $banner->primary = $request->primary;
+            }
+            elseif($request->primary == 1) {
+                $banner->primary = $request->primary;
+            }
+
+        }
+
+        elseif ($banner->primary == 1) {
+            if($request->primary == 0) {
+                $oldvalues = Banner::where('primary', 0)->get();
+                foreach ($oldvalues as $oldvalue) {
+                            $oldvalue->primary = 1;
+                            $oldvalue->save();
+                };
+                $banner->primary = $request->primary;
+            }
+
+            elseif($request->primary == 1) {
+                $banner->primary = $request->primary;
+            }
+            else {
+                $banner->primary = $request->primary;
+            }
+
+        }
+        else{
+            if($request->primary == 0) {
+                $banner->primary = $request->primary;
+            }
+
+            elseif($request->primary == 1) {
+                $newvalue = Banner::where('primary', 1)->first();
+                // dd($newvalue);
+                $newvalue->primary = 0;
+                $newvalue->save();
+                $banner->primary = $request->primary;
+            }
+            else {
+                $newvalue = Banner::where('primary', 1)->first();
+                $newvalue->primary = 0;
+                $newvalue->save();
+                $banner->primary = $request->primary;
+            }
+
+        }
+
         $banner->updated_at = now();
-
-
-        if($request->primary == 0) {
-            $oldvalues = Banner::where('primary', 0)->get();
-            foreach ($oldvalues as $oldvalue) {
-                        $oldvalue->primary = 1;
-                        $oldvalue->save();
-            };
-            $banner->primary = $request->primary;
-        }
-
-        elseif($request->primary == 1) {
-            $oldvalues = Banner::where('primary', 1)->get();
-            foreach ($oldvalues as $oldvalue) {
-                    $oldvalue->primary = 0;
-                    $oldvalue->save();
-            };
-            $banner->primary = $request->primary;
-        }
-
-        // if($request->primary){
-        //     $oldvalues = Banner::where('primary', 0)->get();
-        // }
         $banner->save();
 
         return redirect()->route('banners.index')->with("update", "Successfully Updated");

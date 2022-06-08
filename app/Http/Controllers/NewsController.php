@@ -17,7 +17,7 @@ class NewsController extends Controller
     {
         $news = News::all();
         $news_titles = Schema::getColumnListing('news');
-        $news_titles = array_slice($news_titles, 0, 9);
+        $news_titles = array_slice($news_titles, 0, 8);
         // dd($news);
         return view ('back.pages.news.all', compact('news', 'news_titles'));
     }
@@ -51,7 +51,7 @@ class NewsController extends Controller
 		]);
 
         $news = New News;
-        $news->img = $request->img;
+        $news->img = $request->file('img');
         $news->created_when = $request->created_when;
         $news->posted_by = $request->posted_by;
         $news->number_of_comments = $request->number_of_comments;

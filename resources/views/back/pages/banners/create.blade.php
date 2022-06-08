@@ -36,7 +36,8 @@
             </div>
             <div class="mb-3">
                 <label for="primary" class="form-label">Primary</label>
-                <input type="number" class="form-control" id="primary" name="primary" value=2 readonly>
+                <input type="number" class="form-control" id="primary" name="primary"
+                value=2 readonly>
             </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>

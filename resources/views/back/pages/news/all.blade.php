@@ -35,7 +35,6 @@
                 @foreach ($news as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <td>{{ $item->url }}</td>
                         <td><img src="{{ asset('assets/images/' . $item->img ) }}"></td>
                         <td>{{ $item->created_when }}</td>
                         <td>{{ $item->posted_by }}</td>
