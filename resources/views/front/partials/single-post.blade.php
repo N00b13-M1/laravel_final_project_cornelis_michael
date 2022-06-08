@@ -4,16 +4,16 @@
             <div class="col-md-8">
                 <div class="classic-posts">
                     <div class="single-item">
-                        <img src="" alt="">
+                        <img src="{{ asset('assets/images/' . $news_post[0]->img) }}" alt="">
                         <ul>
-                            <li>Posted: <em>7 Oct 2015</em></li>
-                            <li>By: <em>Admin</em></li>
-                            <li>Comments: <em>2</em></li>
+                            <li>Posted: <em>{{ $news_post[0]->created_when }}</em></li>
+                            <li>By: <em>{{ $news_post[0]->posted_by }}</em></li>
+                            <li>Comments: <em>{{ $news_post[0]->number_of_comments }}</em></li>
                         </ul>
-                        <a href="single-post.html"><h4>New University Finder: Compare</h4></a>
-                        <p>Church-key ugh sriracha slow-carb, +1 you probably haven't heard of them put a bird on it single-origin coffee. Pork belly irony chia, fann pack taxidermy Intelligentsia Pitchfork cliche tote bag stumptown authentic umami asymetrical. Bitters Distillery mixtape 90's Portland Brooklyn. Sriracha selfies gluten-free, wolf 8-bit blog Pinterest occupy Marfa seitan narwhal taxidermy sustainable DIY bespoke. Farm-to-table Odd Future raw denim leggings, Pitchfork actually cray health goth Pinterest hella Intelligentsia. Narwhal pug kogi, 3 wolf moon seitan chambray normcore swag VHS farm-to-table occupy High Life Schlitz. Skateboard Pinterest Vice Shoreditch gentrify fanny pack. Meggings street art fingerstache Neutra Kickstarter. Ennui small batch migas occupy, plaid typewriter jean shorts paleo.<br><br>Sriracha meditation Pitchfork, literally ugh whatever fap actually tote bag gentrify. Next level sartorial single-origin coffee, banjo drinking vinegar Godard meditation McSweeney's beard occupy hella American Apparel letterpress.<br><br>Vice pour-over banjo keffiyeh. Raw denim Kickstarter 8-bit Odd Future street art Carles. Synth cold-pressed master cleanse, next level aesthetic Helvetica Austin banh mi squid pickled. Actually fanny pack slow-carb stumptown pug, blog street art Schlitz Carles. Chambray kitsch biodiesel, cred Schlitz banjo readymade mumblecore.</p>
-                        <div class="block"><em>Church key ugh sriracha slow-carb, you probably haven't heard of them put bird single origin coffee ork belly irony chia.</em></div>
-                        <p>Authentic bespoke you probably haven't heard of them, Odd Future Pinterest jean shorts ugh Banksy kitsch shabby chic flannel PBR keffiyeh scenester. Migas cornhole cronut sriracha banh mi Pinterest Helvetica. Pickled taxidermy pop-up fashion axe, kale chips skateboard Blue Bottle. Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap cronut raw denim. Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast. Banjo tofu dreamcatcher 90's letterpress vinyl meggings, health goth readymade McSweeney's raw denim.</p>
+                        <a href="{{ route('news.single', $id) }}"><h4>{{ $news_post[0]->title }}</h4></a>
+                        <p>{{ $news_post[0]->text1 }}</p>
+                        <div class="block"><em>{{ $news_post[0]->strong }}</em></div>
+                        <p>{{ $news_post[0]->text2 }}</p>
                         <div class="tags-share">
                             <div class="tag">
                                 <i class="fa fa-tags"></i><p>Tags:</p><span><a href="#">School</a>, <a href="#">Students</a>, <a href="#">Classrooms</a></span>

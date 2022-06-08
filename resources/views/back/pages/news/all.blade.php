@@ -41,6 +41,7 @@
                         <td>{{ $item->number_of_comments }}</td>
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->text1 }}</td>
+                        <td>{{ $item->strong}}</td>
                         <td>{{ $item->text2 }}</td>
                         <td>
                             <a href="{{ route('news.show', $item) }}">

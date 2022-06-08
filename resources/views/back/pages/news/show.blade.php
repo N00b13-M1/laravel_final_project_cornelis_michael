@@ -29,6 +29,10 @@
                 <input type="text" class="form-control" id="text1" name="text1" value="{{ $news->text1 }}" readonly>
             </div>
             <div class="mb-3">
+                <label for="strong" class="form-label">Strong Text</label>
+                <input type="text" class="form-control" id="strong" name="strong" value="{{ $news->strong }}" readonly>
+            </div>
+            <div class="mb-3">
                 <label for="text2" class="form-label">Text 2</label>
                 <input type="text" class="form-control" id="text2" name="text2" value="{{ $news->text2 }}" readonly>
             </div>

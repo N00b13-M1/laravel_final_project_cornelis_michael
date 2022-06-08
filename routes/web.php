@@ -103,6 +103,7 @@ Route::get('/news/{id}', function ($id) {
     // dd($id);
     $banners = Banner::all();
     $news_post = News::where('id', $id)->get();
+    // dd($news_post);
     return view('front.pages.single-post', compact('banners', 'news_post', 'id'));
 })->name('news.single');
 

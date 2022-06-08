@@ -48,6 +48,7 @@ class NewsController extends Controller
             'number_of_comments' => 'required',
             'title' => 'required',
             'text1' => 'required',
+            'strong' => 'required',
             'text2' => 'required',
 		]);
 
@@ -59,6 +60,7 @@ class NewsController extends Controller
         $news->number_of_comments = $request->number_of_comments;
         $news->title = $request->title;
         $news->text1 = $request->text1;
+        $news->strong = $request->strong;
         $news->text2 = $request->text2;
 
         $news->save();
@@ -105,6 +107,7 @@ class NewsController extends Controller
             'number_of_comments' => 'required',
             'title' => 'required',
             'text1' => 'required',
+            'strong' => 'required',
             'text2' => 'required',
 		]);
 
@@ -122,6 +125,7 @@ class NewsController extends Controller
         $news->number_of_comments = $request->number_of_comments;
         $news->title = $request->title;
         $news->text1 = $request->text1;
+        $news->strong = $request->strong;
         $news->text2 = $request->text2;
         $news->updated_at = now();
 
