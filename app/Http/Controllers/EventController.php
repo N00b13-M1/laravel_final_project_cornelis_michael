@@ -116,9 +116,9 @@ class EventController extends Controller
             $request->file('img')->storePublicly('/assets/images', 'public');
         }
         else{
+            $event->img = $event->img;
         }
 
-        $event->img = $event->img;
         $event->stars = $request->stars;
         $event->likes = $request->likes;
         $event->where = $request->where;

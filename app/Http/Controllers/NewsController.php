@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -51,7 +52,8 @@ class NewsController extends Controller
 		]);
 
         $news = New News;
-        $news->img = $request->file('img');
+        $news->img = $request->file('img')->hashName();
+
         $news->created_when = $request->created_when;
         $news->posted_by = $request->posted_by;
         $news->number_of_comments = $request->number_of_comments;
@@ -60,6 +62,7 @@ class NewsController extends Controller
         $news->text2 = $request->text2;
 
         $news->save();
+        $request->file("img")->storePublicly('/assets/images/','public');
         return redirect()->route('news.index')->with("success", "Successfully Added");
     }
 
@@ -96,7 +99,7 @@ class NewsController extends Controller
     public function update(Request $request, News $news)
     {
         $validated = $request->validate([
-			'img' => 'required',
+			// 'img' => 'required',
 			'created_when' => 'required',
             'posted_by' => 'required',
             'number_of_comments' => 'required',
@@ -105,7 +108,15 @@ class NewsController extends Controller
             'text2' => 'required',
 		]);
 
-        $news->img = $request->img;
+        if($request->file('img')){
+            Storage::disk('public')->delete('/assets/images/' . $news->img);
+
+            $news->img = $request->file('img')->hashName();
+            $request->file('img')->storePublicly('/assets/images', 'public');
+        }
+        else{
+            $news->img = $news->img;
+        }
         $news->created_when = $request->created_when;
         $news->posted_by = $request->posted_by;
         $news->number_of_comments = $request->number_of_comments;
