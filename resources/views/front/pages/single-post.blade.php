@@ -13,7 +13,7 @@
                 @include('front.partials.header')
                 @include('front.partials.search')
                 <div class="page-heading" style="background-image: url('../assets/images/{{ $banners[9]->bg }}'); background-size: cover; background-repeat: no-repeat; width: 100%; padding: 100px 0px 0px 0px;">
-                    {{-- {{ $banners[9]->bg }} --}}
+                    {{-- {{ dd($banners[9]->bg) }} --}}
                     <div class="container">
 						<div class="row">
 							<div class="col-md-12">

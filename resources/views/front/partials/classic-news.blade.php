@@ -4,7 +4,6 @@
             <div class="col-md-8">
                 <div class="classic-posts">
                     @foreach ($news as $item )
-
                     <div class="classic-item">
                         <a href="{{ route("news.single", $item->id) }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>
                         <ul>
@@ -167,7 +166,7 @@
                             <li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li>
                         </ul>
                     </div>
-                    <div class="recent-news">
+                    {{-- <div class="recent-news">
                         <div class="widget-heading">
                             <h4>Recent News</h4>
                         </div>
@@ -194,7 +193,7 @@
                                 <span>7 October 2015</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                     <div class="tags">
                         <div class="widget-heading">
                             <h4>Tags</h4>
@@ -260,4 +259,3 @@
         </div>
     </div>
 </section>
-

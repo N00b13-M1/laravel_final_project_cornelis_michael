@@ -23,13 +23,11 @@
         @endif
         <table class="table table-dark ms-5">
             <thead>
-                {{-- {{ dd($news[0]->tags) }} --}}
                 <tr>
                     @foreach ($news_titles as $item)
                         <th scope="col">{{ $item }}</th>
-                        {{-- <th scope="col">{{ $tag_title }}</th> --}}
                     @endforeach
-
+                    <th scope="col">Tags</th>
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
                 </tr>
@@ -46,7 +44,11 @@
                         <td>{{ $item->text1 }}</td>
                         <td>{{ $item->strong}}</td>
                         <td>{{ $item->text2 }}</td>
-                        {{-- <td></td> --}}
+                        @foreach ( as )
+
+                        @endforeach
+                        <td></td>
+
                         <td>
                             <a href="{{ route('news.show', $item) }}">
                                 <button class="btn btn-primary">Show</button>

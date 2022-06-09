@@ -4,6 +4,7 @@
             <div class="col-md-8">
                 <div class="classic-posts">
                     <div class="single-item">
+
                         <img src="{{ asset('assets/images/' . $news_post[0]->img) }}" alt="">
                         <ul>
                             <li>Posted: <em>{{ $news_post[0]->created_when }}</em></li>

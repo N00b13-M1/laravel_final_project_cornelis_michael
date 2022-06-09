@@ -20,7 +20,7 @@ class NewsController extends Controller
         $news = News::all();
         $tags = Tag::all();
         $news_titles = Schema::getColumnListing('news');
-        $news_titles = array_slice($news_titles, 0, 8);
+        $news_titles = array_slice($news_titles, 0, 9);
         return view ('back.pages.news.all', compact('news', 'news_titles', 'tags'));
     }
 
