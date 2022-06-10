@@ -13,4 +13,9 @@ class Categorie extends Model
         'category_desc',
 
     ];
+    public function news()
+    {
+        return $this->belongsToMany(News::class);
+    }
 }
+

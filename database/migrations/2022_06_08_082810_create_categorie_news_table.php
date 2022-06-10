@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('news_tags', function (Blueprint $table) {
+        Schema::create('categorie_news', function (Blueprint $table) {
             $table->id();
             $table->foreignId('news_id')->constrained()->onDelete('cascade');
-            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            $table->foreignId('categorie_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -27,7 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_tags');
+        Schema::dropIfExists('categorie_news');
     }
 };
-

@@ -11,13 +11,16 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailSubscriptionController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\TagsandcategoryController;
 use App\Models\Banner;
+use App\Models\Categorie;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Event;
 use App\Models\News;
 use App\Models\Professor;
 use App\Models\Service;
+use App\Models\Tag;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
@@ -54,9 +57,7 @@ Route::get('/', function () {
 Route::get('/courses', function () {
     $banners = Banner::all();
     $courses = Course::paginate(3);
-
     $contact = Contact::all();
-
     return view('front.pages.courses', compact('courses', 'banners', 'contact'));
 })->name('courses');
 
@@ -95,16 +96,19 @@ Route::get('/news', function () {
     $banners = Banner::all();
     $news = News::all();
     $news =  News::paginate(4);
+    $tags = Tag::all();
+    $categories = Categorie::all();
     // dd($number = $news);
-    return view('front.pages.news', compact('banners', 'news'));
+    return view('front.pages.news', compact('banners', 'news', 'tags', 'categories' ));
 })->name('news');
 
 Route::get('/news/{id}', function ($id) {
     // dd($id);
     $banners = Banner::all();
     $news_post = News::where('id', $id)->get();
-    // dd($news_post);
-    return view('front.pages.single-post', compact('banners', 'news_post', 'id'));
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('front.pages.single-post', compact('banners', 'news_post', 'id', 'tags', 'categories'));
 })->name('news.single');
 
 Route::get('/professors', function () {
@@ -120,6 +124,13 @@ Route::get('/professor/{id}', function ($id) {
     return view('front.pages.single-teacher', compact('banners','professors', 'id'));
 })->name('professor.single');
 
+Route::get('/professors', function () {
+    $banners = Banner::all();
+    $professors = Professor::all();
+    return view('front.pages.professors', compact('banners', 'professors'));
+})->name('professors');
+
+
 Route::resource('back/banners', BannerController::class);
 Route::resource('back/services', ServiceController::class);
 Route::resource('back/courses', CourseController::class);
@@ -128,6 +139,16 @@ Route::resource('back/professors', ProfessorController::class);
 Route::resource('back/events', EventController::class);
 Route::resource('back/contacts', ContactController::class);
 Route::resource('back/news', NewsController::class);
+// Route::resource('back/tagsandcategories', TagsandcategoryController::class);
+
+Route::get('back/tagsandcategories', [TagsandcategoryController::class, 'index'])->name('tagsandcategories.index');
+
+Route::get('back/tags/create', [TagsandcategoryController::class, 'create_tags'])->name('tagsandcategories.create_tags');
+Route::get('back/categories/create', [TagsandcategoryController::class, 'create_categories'])->name('tagsandcategories.create_categories');
+
+Route::get('back/tags/{id}', [TagsandcategoryController::class, 'show_tag'])->name('tagsandcategories.show_tags');
+Route::get('back/categories/{id}', [TagsandcategoryController::class, 'show_categories'])->name('tagsandcategories.show_categories');
+
 
 Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
 Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
@@ -140,7 +161,6 @@ Route::get('/dashboard', function () {
 Route::get('/back', function () {
     return view('back.backend');
 })->name('backend');
-
 
 
 

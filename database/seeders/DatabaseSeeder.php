@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             CategorieSeeder::class,
             NewsTagSeeder::class,
+            NewsCategorieSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

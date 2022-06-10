@@ -74,6 +74,13 @@
             </a>
             <span class="tooltip">Mailing list</span>
         </li>
+        <li>
+            <a href="{{ route('tagsandcategories.index') }}">
+                <i class='bx bx-purchase-tag-alt'></i>
+                <span class="links_name">Tags & Categories</span>
+            </a>
+            <span class="tooltip">Tags & Categories</span>
+        </li>
         <li class="profile">
             <div class="profile-details">
                 <!--<img src="profile.jpg" alt="profileImg">-->

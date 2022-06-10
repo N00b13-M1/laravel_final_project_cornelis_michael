@@ -60,7 +60,7 @@
                         <td>{{ $item->teacher_name }}</td>
                         <td>{{ $item->price_class }}</td>
                         <td>{{ $item->price }}</td>
-                        <td>{{ $item->text }}</td>
+                        {{-- <td>{{ $item->text }}</td> --}}
                         <td>{{ $item->starting_date }}</td>
                         <td>{{ $item->months }}</td>
                         <td>{{ $item->weeks }}</td>

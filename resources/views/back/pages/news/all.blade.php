@@ -28,11 +28,13 @@
                         <th scope="col">{{ $item }}</th>
                     @endforeach
                     <th scope="col">Tags</th>
+                    <th scope="col">Categories</th>
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
                 </tr>
             </thead>
             <tbody>
+                {{-- {{ dd($news->tag) }} --}}
                 @foreach ($news as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
@@ -44,11 +46,22 @@
                         <td>{{ $item->text1 }}</td>
                         <td>{{ $item->strong}}</td>
                         <td>{{ $item->text2 }}</td>
-                        @foreach ( as )
-
+                        <td>
+                            <div>
+                        @foreach ($item->tags as $tag )
+                        <div class="bg-success m-1 p-1 rounded text-center">{{ $tag->tag_desc }}
+                        </div>
                         @endforeach
-                        <td></td>
-
+                            <div>
+                        </td>
+                        <td>
+                            <div>
+                        @foreach ($item->categories as $category )
+                        <div class="bg-danger m-1 p-1 rounded text-center">{{ $category->category_desc }}
+                        </div>
+                        @endforeach
+                            <div>
+                        </td>
                         <td>
                             <a href="{{ route('news.show', $item) }}">
                                 <button class="btn btn-primary">Show</button>

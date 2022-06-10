@@ -158,12 +158,15 @@
                             <h4>Categories</h4>
                         </div>
                         <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Design</a></li>
+                            @foreach ($categories as $category)
+                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ $category->category_desc }}</a></li>
+                            @endforeach
+                            {{-- <li><a href="#"><i class="fa fa-angle-right"></i>Design</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>International</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Learning</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Read</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Education</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li> --}}
                         </ul>
                     </div>
                     {{-- <div class="recent-news">
@@ -199,7 +202,10 @@
                             <h4>Tags</h4>
                         </div>
                         <ul>
-                            <li><a href="#">Photography</a></li>
+                            @foreach ($tags as $tag)
+                                <li><a href="#">{{ $tag->tag_desc }}</a></li>
+                            @endforeach
+                            {{-- <li><a href="#">Photography</a></li>
                             <li><a href="#">Design</a></li>
                             <li><a href="#">Envanto</a></li>
                             <li><a href="#">Course</a></li>
@@ -207,7 +213,7 @@
                             <li><a href="#">College</a></li>
                             <li><a href="#">Teachers</a></li>
                             <li><a href="#">Read</a></li>
-                            <li><a href="#">Excursions</a></li>
+                            <li><a href="#">Excursions</a></li> --}}
                         </ul>
                     </div>
                     {{-- <div class="recent-tweets">
