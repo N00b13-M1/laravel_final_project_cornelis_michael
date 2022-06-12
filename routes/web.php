@@ -124,12 +124,6 @@ Route::get('/professor/{id}', function ($id) {
     return view('front.pages.single-teacher', compact('banners','professors', 'id'));
 })->name('professor.single');
 
-Route::get('/professors', function () {
-    $banners = Banner::all();
-    $professors = Professor::all();
-    return view('front.pages.professors', compact('banners', 'professors'));
-})->name('professors');
-
 
 Route::resource('back/banners', BannerController::class);
 Route::resource('back/services', ServiceController::class);
@@ -143,12 +137,29 @@ Route::resource('back/news', NewsController::class);
 
 Route::get('back/tagsandcategories', [TagsandcategoryController::class, 'index'])->name('tagsandcategories.index');
 
-Route::get('back/tags/create', [TagsandcategoryController::class, 'create_tags'])->name('tagsandcategories.create_tags');
-Route::get('back/categories/create', [TagsandcategoryController::class, 'create_categories'])->name('tagsandcategories.create_categories');
+Route::get('back/tag/create', [TagsandcategoryController::class, 'create_tag'])->name('tagsandcategories.create_tag');
 
-Route::get('back/tags/{id}', [TagsandcategoryController::class, 'show_tag'])->name('tagsandcategories.show_tags');
-Route::get('back/categories/{id}', [TagsandcategoryController::class, 'show_categories'])->name('tagsandcategories.show_categories');
+Route::post('back/tag/store', [TagsandcategoryController::class, 'store_tag'])->name('tagsandcategories.store_tag');
 
+
+Route::get('back/category/create', [TagsandcategoryController::class, 'create_category'])->name('tagsandcategories.create_category');
+
+Route::post('back/category/store', [TagsandcategoryController::class, 'store_category'])->name('tagsandcategories.store_category');
+
+
+Route::get('back/show/{id}/tag', [TagsandcategoryController::class, 'show_tag'])->name('tagsandcategories.show_tag');
+Route::get('back/show/{id}/category', [TagsandcategoryController::class, 'show_category'])->name('tagsandcategories.show_category');
+
+Route::get('back/edit/{id}/tag', [TagsandcategoryController::class, 'edit_tag'])->name('tagsandcategories.edit_tag');
+
+Route::post('back/update/{id}/tag', [TagsandcategoryController::class, 'update_tag'])->name('tagsandcategories.update_tag');
+
+Route::get('back/edit/{id}/category', [TagsandcategoryController::class, 'edit_category'])->name('tagsandcategories.edit_category');
+
+Route::post('back/update/{id}/category', [TagsandcategoryController::class, 'update_category'])->name('tagsandcategories.update_category');
+
+Route::post('back/delete/{id}/tag', [TagsandcategoryController::class, 'destroy_tag'])->name('tagsandcategories.destroy_tag');
+Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'destroy_category'])->name('tagsandcategories.destroy_category');
 
 Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
 Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
@@ -163,6 +174,6 @@ Route::get('/back', function () {
 })->name('backend');
 
 
-
 require __DIR__.'/auth.php';
+
 

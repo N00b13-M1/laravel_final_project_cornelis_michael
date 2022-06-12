@@ -2,7 +2,6 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center fs-1 py-5">Tags & Categories</h1>
         {{-- Alert Services Added --}}
         @if (session()->has('success'))
             <div class="alert alert-success w-50 mx-auto m-3">
@@ -21,6 +20,7 @@
                 <p class="text-danger">{{ session()->get('delete') }}</p>
             </div>
         @endif
+        <h2 class="text-center fs-1 py-5">Categories</h2>
         <table class="table table-dark ms-5">
             <thead>
                 <tr>
@@ -38,7 +38,7 @@
                         <th scope="row">{{ $category->id }}</th>
                         <td>{{ $category->category_desc }}</td>
                         <td>
-                            <a href="{{ route('tagsandcategories.show_categories', $category->id) }}"><button class="btn btn-primary">Show</button>
+                            <a href="{{ route('tagsandcategories.show_category', $category->id) }}"><button class="btn btn-primary">Show</button>
                             </a>
                         </td>
 
@@ -46,9 +46,10 @@
                 @endforeach
             </tbody>
             <div class='text-center'>
-                <a href="{{ route("tagsandcategories.create_categories") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
+                <a href="{{ route("tagsandcategories.create_category") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
             </div>
         </table>
+        <h2 class="text-center fs-1 py-5">Tags</h2>
         <table class="table table-dark ms-5">
             <thead>
                 <tr>
@@ -66,14 +67,14 @@
                         <th scope="row">{{ $tag->id }}</th>
                         <td>{{ $tag->tag_desc }}</td>
                         <td>
-                            <a href="{{ route('tagsandcategories.show_tags', $tag->id) }}"><button class="btn btn-primary">Show</button>
+                            <a href="{{ route('tagsandcategories.show_tag', $tag->id) }}"><button class="btn btn-primary">Show</button>
                             </a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
             <div class='text-center'>
-                <a href="{{ route("tagsandcategories.create_tags") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
+                <a href="{{ route("tagsandcategories.create_tag") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
             </div>
         </table>
     </div>
