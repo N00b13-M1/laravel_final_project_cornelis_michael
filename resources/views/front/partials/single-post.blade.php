@@ -17,7 +17,19 @@
                         <p>{{ $news_post[0]->text2 }}</p>
                         <div class="tags-share">
                             <div class="tag">
-                                <i class="fa fa-tags"></i><p>Tags:</p><span><a href="#">School</a>, <a href="#">Students</a>, <a href="#">Classrooms</a></span>
+                                <i class="fa fa-tags"></i><p>Tags:</p>
+                                <span>
+                                    @foreach ( $news_post[0]->tags as $item)
+                                        @if ($item->last)
+                                        <a href="#">{{ $item->tag_desc }}</a>
+                                        @else
+                                        <a href="#">{{ $item->tag_desc }}</a>,
+                                        @endif
+                                    @endforeach
+                                    {{-- @foreach ( $news_post[0]->tags as $item)
+                                    <a href="#">{{ $item->tag_desc }}</a>
+                                    @endforeach --}}
+                                </span>
                             </div>
                             <div class="share">
                                 <div class="second-button">

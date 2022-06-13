@@ -163,6 +163,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
+        dd($news);
         $news->delete();
         return redirect()->route('news.index')->with("delete", "Successfully Deleted");
     }
