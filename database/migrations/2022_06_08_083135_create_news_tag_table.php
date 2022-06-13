@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('news_id')->constrained()->onDelete('cascade');
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            // $table->integer('news_id')->unsigned();
+            // $table->foreignId('news_id')->references("id")->on('news');
+            // $table->integer('tag_id')->unsigned();
+            // $table->foreignId('tag_id')->references("id")->on('tags');
             $table->timestamps();
         });
     }

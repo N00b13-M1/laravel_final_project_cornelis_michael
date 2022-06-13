@@ -46,7 +46,20 @@
                 <label for="text2" class="form-label">Text 2</label>
                 <input type="text" class="form-control" id="text2" name="text2" value="{{ old('text2') }}">
             </div>
+            <div class="mb-3">
+                <label for="tag_desc" class="form-label">Tags</label>
+                @foreach ($tags as $tag )
+                <div class="form-check">
+                    <label class="form-check-label" for="tag_desc">
+                        {{ $tag->tag_desc }}
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" id="tag_desc" name="tag_desc[]">
+                </div>
+                @endforeach
+                {{-- <input type="text" class="form-control" id="tag_desc" name="tag_desc" value="{{ old('tag_desc') }}"> --}}
+            </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>
     </div>
 @endsection
+;k;lk

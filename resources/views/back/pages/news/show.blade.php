@@ -37,6 +37,14 @@
                 <input type="text" class="form-control" id="text2" name="text2" value="{{ $news->text2 }}" readonly>
             </div>
 
+            <div class="mb-3">
+                <label for="text2" class="form-label">Tags</label>
+                <div>
+                    @php
+                        
+                    @endphp
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('news.index') }}"></a>Return</button>
         </form>
         <td>

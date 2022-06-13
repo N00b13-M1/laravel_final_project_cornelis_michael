@@ -31,7 +31,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view ('back.pages.news.create');
+        $tags = Tag::all();
+        return view ('back.pages.news.create', compact('tags'));
     }
 
     /**
@@ -42,6 +43,8 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
         $validated = $request->validate([
 			'img' => 'required',
 			'created_when' => 'required',
@@ -63,8 +66,21 @@ class NewsController extends Controller
         $news->text1 = $request->text1;
         $news->strong = $request->strong;
         $news->text2 = $request->text2;
-
         $news->save();
+
+
+        $news->tags()->sync($request->tag_desc);
+        // // dd($request->tag_desc);
+        // dd($news->tags());
+        // $news->tags()->tag_desc = $request->tag_desc;
+        // // $user->roles()->sync([1, 2, 3]);
+        // $news->tags()->attach($request->tags, [
+        //     'news_id' => $news->id,
+        // ]);
+
+        // dd($news->tags);
+
+
         $request->file("img")->storePublicly('/assets/images/','public');
         return redirect()->route('news.index')->with("success", "Successfully Added");
     }
@@ -77,7 +93,7 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        // dd($news);
+
         return view ('back.pages.news.show', compact('news'));
     }
 
@@ -89,7 +105,9 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        return view('back.pages.news.edit', compact('news'));
+        // $tags = Tag::find($id);
+        dd($news);
+        return view('back.pages.news.edit', compact('news', 'tags'));
     }
 
     /**
@@ -129,8 +147,12 @@ class NewsController extends Controller
         $news->strong = $request->strong;
         $news->text2 = $request->text2;
         $news->updated_at = now();
+        $news->tags()->sync($request->tag_desc);
 
         $news->save();
+        // $news->tags()->sync($request->tag_desc);
+
+
         return redirect()->route('news.index')->with("update", "Successfully updated");
     }
 
@@ -146,3 +168,6 @@ class NewsController extends Controller
         return redirect()->route('news.index')->with("delete", "Successfully Deleted");
     }
 }
+
+
+

@@ -37,15 +37,17 @@
                 {{-- {{ dd($news->tag) }} --}}
                 @foreach ($news as $item)
                     <tr>
+                        {{-- <td> {{ dd($item) }}</td> --}}
                         <th scope="row">{{ $item->id }}</th>
                         <td><img src="{{ asset('assets/images/' . $item->img ) }}"></td>
                         <td>{{ $item->created_when }}</td>
                         <td>{{ $item->posted_by }}</td>
                         <td>{{ $item->number_of_comments }}</td>
                         <td>{{ $item->title }}</td>
-                        <td>{{ $item->text1 }}</td>
-                        <td>{{ $item->strong}}</td>
-                        <td>{{ $item->text2 }}</td>
+                        {{-- <td>{{ $item->text1 }}</td> --}}
+                        <td>{!! (Str::words($item->text1, '5')) !!}</td>
+                        <td>{!! (Str::words($item->strong, '5')) !!}</td>
+                        <td>{!! (Str::words($item->text2, '5')) !!}</td>
                         <td>
                             <div>
                         @foreach ($item->tags as $tag )
