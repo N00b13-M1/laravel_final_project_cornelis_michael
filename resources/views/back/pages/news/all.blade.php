@@ -51,7 +51,7 @@
                         <td>
                             <div>
                         @foreach ($item->tags as $tag )
-                        <div class="bg-success m-1 p-1 rounded text-center">{{ $tag->tag_desc }}
+                        <div class="bg-info m-1 p-1 rounded rounded text-white text-center">{{ $tag->tag_desc }}
                         </div>
                         @endforeach
                             <div>

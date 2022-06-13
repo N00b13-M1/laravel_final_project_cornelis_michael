@@ -36,13 +36,12 @@
                 <label for="text2" class="form-label">Text 2</label>
                 <input type="text" class="form-control" id="text2" name="text2" value="{{ $news->text2 }}" readonly>
             </div>
-
             <div class="mb-3">
                 <label for="text2" class="form-label">Tags</label>
-                <div>
-                    @php
-                        
-                    @endphp
+                <div class="border border-1 border-dark">
+                    @foreach ($news->tags as $tag)
+                        <button class='bg-info m-1 p-1 pe-2 ps-2 rounded rounded-pill text-white'>{{ $tag->tag_desc }}</button>
+                    @endforeach
                 </div>
             </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('news.index') }}"></a>Return</button>

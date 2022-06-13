@@ -93,7 +93,6 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-
         return view ('back.pages.news.show', compact('news'));
     }
 
@@ -105,8 +104,8 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        // $tags = Tag::find($id);
-        dd($news);
+        $tags = Tag::all();
+        // dd($news);
         return view('back.pages.news.edit', compact('news', 'tags'));
     }
 

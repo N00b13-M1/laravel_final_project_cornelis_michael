@@ -30,4 +30,3 @@ class News extends Model
         return $this->belongsToMany(Categorie::class);
     }
 }
-

@@ -55,8 +55,16 @@
                 <div class="form-check">
                     <label class="form-check-label" for="tag_desc">
                         {{ $tag->tag_desc }}
+                        {{-- {{ dd($news->tags) }} --}}
+                        {{-- {{ dd($tag->tag_desc) }} --}}
                     </label>
+                    @if ( $news->tags->contains('tag_desc', $tag->tag_desc) )
+                    {{-- {{ dd("Yes") }} --}}
+                    <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" id="tag_desc" name="tag_desc[]" checked>
+                    @else
                     <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" id="tag_desc" name="tag_desc[]">
+                    {{-- {{ dd("No") }} --}}
+                    @endif
                 </div>
                 @endforeach
             </div>
