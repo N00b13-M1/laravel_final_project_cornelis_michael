@@ -44,6 +44,14 @@
                     @endforeach
                 </div>
             </div>
+            <div class="mb-3">
+                <label for="text2" class="form-label">Categories</label>
+                <div class="border border-1 border-dark">
+                    @foreach ($news->categories as $category)
+                        <button class='bg-warning m-1 p-1 pe-2 ps-2 rounded rounded-pill text-white'>{{ $category->category_desc }}</button>
+                    @endforeach
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('news.index') }}"></a>Return</button>
         </form>
         <td>

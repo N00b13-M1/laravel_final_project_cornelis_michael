@@ -56,7 +56,17 @@
                     <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" id="tag_desc" name="tag_desc[]">
                 </div>
                 @endforeach
-                {{-- <input type="text" class="form-control" id="tag_desc" name="tag_desc" value="{{ old('tag_desc') }}"> --}}
+            </div>
+            <div class="mb-3">
+                <label for="tag_desc" class="form-label">Categories</label>
+                @foreach ($categories as $category )
+                <div class="form-check">
+                    <label class="form-check-label" for="category_desc">
+                        {{ $category->category_desc }}
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="category_desc" name="category_desc[]">
+                </div>
+                @endforeach
             </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>

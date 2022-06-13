@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
@@ -18,10 +19,9 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::all();
-        $tags = Tag::all();
         $news_titles = Schema::getColumnListing('news');
         $news_titles = array_slice($news_titles, 0, 9);
-        return view ('back.pages.news.all', compact('news', 'news_titles', 'tags'));
+        return view ('back.pages.news.all', compact('news', 'news_titles'));
     }
 
     /**
@@ -32,7 +32,8 @@ class NewsController extends Controller
     public function create()
     {
         $tags = Tag::all();
-        return view ('back.pages.news.create', compact('tags'));
+        $categories = Categorie::all();
+        return view ('back.pages.news.create', compact('tags', 'categories'));
     }
 
     /**
@@ -70,6 +71,7 @@ class NewsController extends Controller
 
 
         $news->tags()->sync($request->tag_desc);
+        $news->cateogries()->sync($request->category_desc);
         // // dd($request->tag_desc);
         // dd($news->tags());
         // $news->tags()->tag_desc = $request->tag_desc;
@@ -105,8 +107,8 @@ class NewsController extends Controller
     public function edit(News $news)
     {
         $tags = Tag::all();
-        // dd($news);
-        return view('back.pages.news.edit', compact('news', 'tags'));
+        $categories = Categorie::all();
+        return view('back.pages.news.edit', compact('news', 'tags', 'categories'));
     }
 
     /**
@@ -147,6 +149,7 @@ class NewsController extends Controller
         $news->text2 = $request->text2;
         $news->updated_at = now();
         $news->tags()->sync($request->tag_desc);
+        $news->categories()->sync($request->category_desc);
 
         $news->save();
         // $news->tags()->sync($request->tag_desc);
@@ -163,7 +166,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        dd($news);
+        // dd($news);
         $news->delete();
         return redirect()->route('news.index')->with("delete", "Successfully Deleted");
     }

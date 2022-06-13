@@ -68,6 +68,25 @@
                 </div>
                 @endforeach
             </div>
+            <div class="mb-3">
+                <label for="category_desc" class="form-label">Categories</label>
+                @foreach ($categories as $category )
+                <div class="form-check">
+                    <label class="form-check-label" for="category_desc">
+                        {{ $category->category_desc }}
+                        {{-- {{ dd($news->tags) }} --}}
+                        {{-- {{ dd($tag->tag_desc) }} --}}
+                    </label>
+                    @if ( $news->categories->contains('category_desc', $category->category_desc) )
+                    {{-- {{ dd("Yes") }} --}}
+                    <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="category_desc" name="category_desc[]" checked>
+                    @else
+                    <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="category_desc" name="category_desc[]">
+                    {{-- {{ dd("No") }} --}}
+                    @endif
+                </div>
+                @endforeach
+            </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
     </div>
