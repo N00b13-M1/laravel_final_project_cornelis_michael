@@ -51,7 +51,7 @@
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->title }}</td>
-                        <td>{{ $item->desc }}</td>
+                        <td>{!! (Str::words($item->desc, '5')) !!}</td>
                         <td><img src="{{ asset('assets/images/' . $item->bg ) }}"></td>
                         <td><img src="{{ asset('assets/images/' . $item->bg_2 ) }}"></td>
                         <td><img src="{{ asset('assets/images/' . $item->bg_3 ) }}"></td>
@@ -60,7 +60,7 @@
                         <td>{{ $item->teacher_name }}</td>
                         <td>{{ $item->price_class }}</td>
                         <td>{{ $item->price }}</td>
-                        {{-- <td>{{ $item->text }}</td> --}}
+                        <td>{!! (Str::words($item->text, '5')) !!}</td>
                         <td>{{ $item->starting_date }}</td>
                         <td>{{ $item->months }}</td>
                         <td>{{ $item->weeks }}</td>
