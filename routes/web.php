@@ -57,10 +57,44 @@ Route::get('/', function () {
 Route::get('/courses', function () {
     $banners = Banner::all();
     $courses = Course::paginate(3);
-    
     $contact = Contact::all();
+
     return view('front.pages.courses', compact('courses', 'banners', 'contact'));
 })->name('courses');
+
+Route::get('/courses-free', function () {
+    $banners = Banner::all();
+    $sorted_free = Course::where('price','=', 'Free')->paginate(3);
+
+    return view('front.pages.courses-free', compact('banners', 'sorted_free'));
+})->name('courses-free');
+
+Route::get('/courses-newest', function () {
+    $banners = Banner::all();
+    $sorted_newest = Course::orderBy('created_at', 'DESC')->paginate(3);
+
+    return view('front.pages.courses-newest', compact('banners', 'sorted_newest'));
+})->name('courses-newest');
+
+Route::get('/courses-duration', function () {
+    $banners = Banner::all();
+    $sorted_duration = Course::orderBy('weeks', 'ASC')->paginate(3);
+
+    return view('front.pages.courses-duration', compact('banners', 'sorted_duration'));
+})->name('courses-duration');
+
+
+
+
+// Route::get('/courses', function () {
+
+//     return view('front.pages.courses', compact('sorted_free'));
+// });
+
+
+// $sorted_free = Course::where('price','=', 'Free')->get();
+// $sorted_all = Course::all();
+// $sorted_duration = Course::orderBy('weeks', 'ASC')->get();
 
 Route::get('/course/{id}', function ($id) {
     // dd($i);

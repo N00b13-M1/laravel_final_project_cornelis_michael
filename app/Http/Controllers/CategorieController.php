@@ -84,4 +84,3 @@ class CategorieController extends Controller
     }
 }
 
-

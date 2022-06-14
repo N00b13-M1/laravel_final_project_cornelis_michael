@@ -4,9 +4,9 @@
             <div class="col-md-12">
                 <div class="pre-featured">
                     <div class="info-text">
-                        @if ($courses->currentPage()))
+                        {{-- @if ($courses->currentPage()))
                         <h4>showing {{ -2+(3*$courses->currentPage()) }}-{{ ($courses->currentPage()*3) }} of {{ $courses->total() }} courses</h4>
-                        @endif
+                        @endif --}}
                     </div>
                     {{-- {{ dd($courses->total() ) }} --}}
                     <div class="right-content">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach ($courses as $item)
+            @foreach ($sorted_newest as $item)
             <div class="col-md-4">
                 <div class="item course-item">
                     <a href="{{ route('course.single', $item->id) }}"><img src="{{ asset('assets/images/' . $item->bg) }}" alt=""></a>
@@ -46,7 +46,7 @@
                 </div>
             </div>
             @endforeach
-            {{ $courses->links() }}
+            {{ $sorted_newest->links() }}
 
             {{-- <div class="col-md-4">
                 <div class="item course-item">
