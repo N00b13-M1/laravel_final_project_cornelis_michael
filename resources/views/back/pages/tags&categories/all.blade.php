@@ -69,7 +69,6 @@
                             <a href="{{ route('tagsandcategories.show_category', $category->id) }}"><button class="btn btn-primary">Show</button>
                             </a>
                         </td>
-
                     </tr>
                 @endforeach
             </tbody>

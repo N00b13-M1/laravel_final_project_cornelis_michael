@@ -57,6 +57,7 @@ Route::get('/', function () {
 Route::get('/courses', function () {
     $banners = Banner::all();
     $courses = Course::paginate(3);
+    
     $contact = Contact::all();
     return view('front.pages.courses', compact('courses', 'banners', 'contact'));
 })->name('courses');

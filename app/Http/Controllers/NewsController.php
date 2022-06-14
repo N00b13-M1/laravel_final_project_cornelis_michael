@@ -71,7 +71,7 @@ class NewsController extends Controller
 
 
         $news->tags()->sync($request->tag_desc);
-        $news->cateogries()->sync($request->category_desc);
+        $news->categories()->sync($request->category_desc);
         // // dd($request->tag_desc);
         // dd($news->tags());
         // $news->tags()->tag_desc = $request->tag_desc;
@@ -81,7 +81,6 @@ class NewsController extends Controller
         // ]);
 
         // dd($news->tags);
-
 
         $request->file("img")->storePublicly('/assets/images/','public');
         return redirect()->route('news.index')->with("success", "Successfully Added");
@@ -171,6 +170,4 @@ class NewsController extends Controller
         return redirect()->route('news.index')->with("delete", "Successfully Deleted");
     }
 }
-
-
 
