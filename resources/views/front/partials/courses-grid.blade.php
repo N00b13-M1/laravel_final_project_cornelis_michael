@@ -4,16 +4,15 @@
             <div class="col-md-12">
                 <div class="pre-featured">
                     <div class="info-text">
-                        @if ($courses->currentPage()))
+                        @if ($courses->currentPage())
                         <h4>showing {{ -2+(3*$courses->currentPage()) }}-{{ ($courses->currentPage()*3) }} of {{ $courses->total() }} courses</h4>
                         @endif
                     </div>
-                    {{-- {{ dd($courses->total() ) }} --}}
                     <div class="right-content">
                         <div class="input-select">
                             <select onchange="window.location.href=this.options[this.selectedIndex].value;" name="category" id="category">
                                 <option value="-1">Select Category</option>
-                                <option value="{{ route('courses-free', ) }}">Free</option>
+                                <option value="{{ route('courses-free' ) }}">Free</option>
                                 <option value="{{ route('courses-newest' ) }}">Newest Course</option>
                                 <option value="{{ route('courses-duration') }}">Duration</option>
                                 <option value="{{ route('courses') }}">All</option>

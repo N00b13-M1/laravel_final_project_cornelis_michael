@@ -4,11 +4,10 @@
             <div class="col-md-12">
                 <div class="pre-featured">
                     <div class="info-text">
-                        {{-- @if ($courses->currentPage()))
-                        <h4>showing {{ -2+(3*$courses->currentPage()) }}-{{ ($courses->currentPage()*3) }} of {{ $courses->total() }} courses</h4>
-                        @endif --}}
+                        @if ($sorted_free->currentPage())
+                        <h4>showing {{ -2+(3*$sorted_free->currentPage()) }}-{{ ($sorted_free->currentPage()*3) }} of {{ $sorted_free->total() }} courses</h4>
+                        @endif
                     </div>
-                    {{-- {{ dd($courses->total() ) }} --}}
                     <div class="right-content">
                         <div class="input-select">
                             <select onchange="window.location.href=this.options[this.selectedIndex].value;" name="category" id="category">

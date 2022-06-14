@@ -83,19 +83,6 @@ Route::get('/courses-duration', function () {
     return view('front.pages.courses-duration', compact('banners', 'sorted_duration'));
 })->name('courses-duration');
 
-
-
-
-// Route::get('/courses', function () {
-
-//     return view('front.pages.courses', compact('sorted_free'));
-// });
-
-
-// $sorted_free = Course::where('price','=', 'Free')->get();
-// $sorted_all = Course::all();
-// $sorted_duration = Course::orderBy('weeks', 'ASC')->get();
-
 Route::get('/course/{id}', function ($id) {
     // dd($i);
     $banners = Banner::all();
@@ -126,6 +113,24 @@ Route::get('/events', function () {
     $events =  Event::paginate(3);
     return view('front.pages.events', compact('banners', 'events'));
 })->name('events');
+
+Route::get('/events-likes', function () {
+    $banners = Banner::all();
+    $sorted_likes = Event::orderBy('likes','DESC')->paginate(3);
+    return view('front.pages.events-likes', compact('banners', 'sorted_likes'));
+})->name('events-likes');
+
+Route::get('/events-location', function () {
+    $banners = Banner::all();
+    $sorted_location = Event::orderBy('where','DESC')->paginate(3);
+    return view('front.pages.events-location', compact('banners', 'sorted_location'));
+})->name('events-location');
+
+Route::get('/events-stars', function () {
+    $banners = Banner::all();
+    $sorted_stars = Event::orderBy('stars','DESC')->paginate(3);
+    return view('front.pages.events-stars', compact('banners', 'sorted_stars'));
+})->name('events-stars');
 
 Route::get('/news', function () {
     $banners = Banner::all();

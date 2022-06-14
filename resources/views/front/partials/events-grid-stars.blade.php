@@ -4,8 +4,8 @@
             <div class="col-md-12">
                 <div class="pre-featured">
                     <div class="info-text">
-                        @if ($events->currentPage())
-                        <h4>showing {{ -2+(3*$events->currentPage()) }}-{{ ($events->currentPage()*3) }} of {{ $events->total() }} courses</h4>
+                        @if ($sorted_stars->currentPage())
+                        <h4>showing {{ -2+(3*$sorted_stars->currentPage()) }}-{{ ($sorted_stars->currentPage()*3) }} of {{ $sorted_stars->total() }} courses</h4>
                         @endif
                     </div>
                     <div class="right-content">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach ($events as $item)
+            @foreach ($sorted_stars as $item)
             <div class="col-md-4">
                 <div class="event-item">
                     <div class="thumb-holder">
@@ -55,7 +55,7 @@
                 </div>
             </div>
             @endforeach
-            {{ $events->links() }}
+            {{ $sorted_stars->links() }}
             {{-- <div class="col-md-4">
                 <div class="event-item">
                     <div class="thumb-holder">
