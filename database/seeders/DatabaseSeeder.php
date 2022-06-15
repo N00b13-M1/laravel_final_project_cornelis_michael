@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
             CategorieSeeder::class,
             NewsTagSeeder::class,
             NewsCategorieSeeder::class,
+            CourseCategorieSeeder::class,
+
         ]);
         // \App\Models\User::factory(10)->create();
 
@@ -39,3 +41,4 @@ class DatabaseSeeder extends Seeder
         // ]);
     }
 }
+

@@ -28,5 +28,15 @@ class Course extends Model
         'discipline',
         'favorite',
     ];
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Categorie::class);
+    }
 }
 

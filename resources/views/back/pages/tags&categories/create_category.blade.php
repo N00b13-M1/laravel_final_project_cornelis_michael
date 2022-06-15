@@ -11,6 +11,7 @@
                 @endforeach
             </ul>
         </div>
+
         @endif
         <form action="{{ route("tagsandcategories.store_category") }}" method="post">
             @csrf

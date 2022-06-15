@@ -95,6 +95,17 @@
                 <label for="discipline" class="form-label">Discipline</label>
                 <input type="text" class="form-control" id="discipline" name="discipline" value="{{ old('discipline') }}">
             </div>
+            <div class="mb-3">
+                <label for="tag_desc" class="form-label">Categories</label>
+                @foreach ($categories as $category )
+                <div class="form-check">
+                    <label class="form-check-label" for="category_desc">
+                        {{ $category->category_desc }}
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="category_desc" name="category_desc[]">
+                </div>
+                @endforeach
+            </div>
             <button type="submit" class="btn btn-primary m-2">Submit</button>
         </form>
     </div>

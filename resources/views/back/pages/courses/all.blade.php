@@ -40,6 +40,7 @@
                     @foreach ($course_titles as $item)
                         <th scope="col">{{ $item }}</th>
                     @endforeach
+                    <th scope="col">Categories</th>
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
                     <th scope="col">Action</i>
@@ -67,6 +68,15 @@
                         <td>{{ $item->study_level }}</td>
                         <td>{{ $item->discipline }}</td>
                         <td>{{ $item->favorite }}</td>
+                        <td>
+                            <div>
+                            @foreach ($item->categories as $category )
+                                <div class="bg-danger m-1 p-1 rounded text-center">
+                                    {{ $category->category_desc }}
+                                </div>
+                            @endforeach
+                            </div>
+                        </td>
                         <td>
                             <a href="{{ route('courses.show', $item) }}"><button class="btn btn-primary">Show</button>
                             </a>

@@ -54,15 +54,16 @@
                         <div class="bg-info m-1 p-1 rounded rounded text-white text-center">{{ $tag->tag_desc }}
                         </div>
                         @endforeach
-                            <div>
+                            </div>
                         </td>
                         <td>
                             <div>
-                        @foreach ($item->categories as $category )
-                        <div class="bg-danger m-1 p-1 rounded text-center">{{ $category->category_desc }}
-                        </div>
-                        @endforeach
-                            <div>
+                            @foreach ($item->categories as $category )
+                                <div class="bg-danger m-1 p-1 rounded text-center">
+                                    {{ $category->category_desc }}
+                                </div>
+                            @endforeach
+                            </div>
                         </td>
                         <td>
                             <a href="{{ route('news.show', $item) }}">

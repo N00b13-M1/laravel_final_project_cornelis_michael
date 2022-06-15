@@ -18,6 +18,11 @@ class Tag extends Model
         return $this->belongsToMany(News::class);
     }
 
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
+
 }
 
 

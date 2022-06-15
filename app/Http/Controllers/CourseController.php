@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
@@ -31,7 +32,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('back.pages.courses.create');
+        $categories = Categorie::all();
+        return view('back.pages.courses.create', compact('categories'));
     }
 
 
@@ -63,13 +65,6 @@ class CourseController extends Controller
         $course->bg_3 = $request->file('bg_3')->hashName();
         $course->bg_4 = $request->file('bg_4')->hashName();
 
-        // $pictures = array(['bg', 'teacher_pic', 'bg_2', 'bg_3', 'bg_4']);
-        // // dd($pictures->count());
-
-        // for ($i=0; $i < count($pictures); $i++) {
-        //     dd($request->$pictures[2]);
-        // }
-
         $course->teacher_name = $request->teacher_name;
         $course->price_class = $request->price_class;
         $course->price = $request->price;
@@ -94,6 +89,8 @@ class CourseController extends Controller
         }
         else {
         $course->save();
+
+        $course->categories()->sync($request->category_desc);
         $request->file("bg")->storePublicly('/assets/images/','public');
         $request->file("teacher_pic")->storePublicly('/assets/images/','public');
         $request->file("bg_2")->storePublicly('/assets/images/','public');
@@ -122,7 +119,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view('back.pages.courses.edit', compact('course'));
+        $categories = Categorie::all();
+        return view('back.pages.courses.edit', compact('course', 'categories'));
     }
 
     /**
@@ -216,6 +214,7 @@ class CourseController extends Controller
         $course->study_level = $course->study_level;
         $course->discipline = $course->discipline;
         $course->updated_at = now();
+        $course->categories()->sync($request->category_desc);
 
         $favorites = Course::where('favorite', '=', "Yes")->count();
         // dd($favorites);
