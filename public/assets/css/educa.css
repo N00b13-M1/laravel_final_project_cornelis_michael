@@ -4324,6 +4324,19 @@ section.testimonials-page #owl-testimonials .owl-buttons .owl-prev:hover:after {
   letter-spacing: 2px;
   display: inline-block;
 }
+
+.accent-button-request a {
+    background-color: #f5a425;
+    padding: 15px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #222222;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin: 5px
+  }
+
 .text-button a {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;

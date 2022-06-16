@@ -96,12 +96,15 @@
                         <h4>Categories</h4>
                     </div>
                     <ul>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>Design</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>International</a></li>
+                        @foreach ( $courses[0]->categories as $item)
+                        <li><a href="#"><i class="fa fa-angle-right"></i>{{ $item->category_desc }}</a></li>
+                    @endforeach
+                        {{-- <li><a href="#"><i class="fa fa-angle-right"></i>{{ $item->category_desc }}</a></li> --}}
+                        {{-- <li><a href="#"><i class="fa fa-angle-right"></i>International</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>Learning</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>Read</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>Education</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li> --}}
                     </ul>
                 </div>
             </div>

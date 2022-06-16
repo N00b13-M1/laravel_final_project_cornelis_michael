@@ -12,14 +12,14 @@
                     </div>
                     <div class="row">
                         @foreach ($services as $item)
-                        <div class="col-md-6 col-sm-6">
-                            <div class="service-item">
-                                <i class="{{ $item->logo }}"></i>
-                                <h4>{{ $item->title }}</h4>
-                                <div class="line-dec"></div>
-                                <p>{{ $item->description }}</p>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <i class="{{ $item->logo }}"></i>
+                                    <h4>{{ $item->title }}</h4>
+                                    <div class="line-dec"></div>
+                                    <p>{{ $item->description }}</p>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                         {{-- <div class="col-md-6 col-sm-6">
                             <div class="service-item">
@@ -60,9 +60,40 @@
                         <div class="widget-heading">
                             <h4>Request Information</h4>
                         </div>
+                        @if (Auth::check())
+                            <div class="search-form">
+                                <input type="text" id="name" name="s" placeholder="Full Name"
+                                    value="{{ Auth::user()->name }}">
+                                <input type="text" id="address" name="s" placeholder="E-mail Address"
+                                    value="{{ Auth::user()->email }}">
+                                <div class="select">
+                                    <select name="mark" id="campus">
+                                        <option value="-1">Campus of Interests</option>
+                                        <option>Nearby</option>
+                                        <option>High Classes</option>
+                                        <option>Short Time</option>
+                                        <option>Long Time</option>
+                                    </select>
+                                </div>
+                                <div class="select">
+                                    <select name="mark" id="program">
+                                        <option value="-1">Program of Interests</option>
+                                        <option>Wroking Process</option>
+                                        <option>Archivements</option>
+                                        <option>Social</option>
+                                        <option>Profits</option>
+                                    </select>
+                                </div>
+                                <div class="accent-button">
+                                    <a href="#">Submit Request</a>
+                                </div>
+                            </div>
+                        @else
                         <div class="search-form">
-                            <input type="text" id="name" name="s" placeholder="Full Name" value="">
-                            <input type="text" id="address" name="s" placeholder="E-mail Address" value="">
+                            {{-- <input type="text" id="name" name="s" placeholder="Full Name"
+                                value="">
+                            <input type="text" id="address" name="s" placeholder="E-mail Address"
+                                value="">
                             <div class="select">
                                 <select name="mark" id="campus">
                                     <option value="-1">Campus of Interests</option>
@@ -80,11 +111,17 @@
                                     <option>Social</option>
                                     <option>Profits</option>
                                 </select>
-                            </div>
-                            <div class="accent-button">
-                                <a href="#">Submit Request</a>
+                            </div> --}}
+                            <div class="mt-3">
+                                <div class="accent-button-request">
+                                    <a href="{{ route('login') }}">Login</a>
+                                </div>
+                                <div  class="accent-button-request">
+                                    <a href="{{ route('register') }}">Register</a>
+                                </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

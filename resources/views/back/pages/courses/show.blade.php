@@ -65,4 +65,3 @@
         </td>
     </div>
 @endsection
-

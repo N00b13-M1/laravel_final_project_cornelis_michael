@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailSubscriptionController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\TagsandcategoryController;
@@ -201,20 +202,19 @@ Route::post('back/update/{id}/category', [TagsandcategoryController::class, 'upd
 Route::post('back/delete/{id}/tag', [TagsandcategoryController::class, 'destroy_tag'])->name('tagsandcategories.destroy_tag');
 Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'destroy_category'])->name('tagsandcategories.destroy_category');
 
-Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
-Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
+// Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
+// Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
+
+Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter');
+Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.send');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-
 Route::get('/back', function () {
     return view('back.backend');
 })->name('backend');
 
-
 require __DIR__.'/auth.php';
-
-
 

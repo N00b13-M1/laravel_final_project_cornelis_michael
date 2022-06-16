@@ -70,9 +70,9 @@
         <li>
             <a href="">
                 <i class='bx bx-mail-send'></i>
-                <span class="links_name">Mailing list</span>
+                <span class="links_name">Message Center</span>
             </a>
-            <span class="tooltip">Mailing list</span>
+            <span class="tooltip">Message Center</span>
         </li>
         <li>
             <a href="{{ route('tagsandcategories.index') }}">

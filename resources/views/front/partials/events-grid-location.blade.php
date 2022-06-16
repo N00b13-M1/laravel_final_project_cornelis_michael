@@ -5,7 +5,7 @@
                 <div class="pre-featured">
                     <div class="info-text">
                         @if ($sorted_location->currentPage())
-                        <h4>showing {{ -2+(3*$sorted_location->currentPage()) }}-{{ ($sorted_location->currentPage()*3) }} of {{ $sorted_location->total() }} courses</h4>
+                        <h4>showing {{ -2+(3*$sorted_location->currentPage()) }}-{{ ($sorted_location->currentPage()*3) }} of {{ $sorted_location->total() }} events</h4>
                         @endif
                     </div>
                     <div class="right-content">
