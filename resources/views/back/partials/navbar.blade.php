@@ -68,7 +68,7 @@
             <span class="tooltip">Contact</span>
         </li>
         <li>
-            <a href="">
+            <a href="{{ route('message-center') }}">
                 <i class='bx bx-mail-send'></i>
                 <span class="links_name">Message Center</span>
             </a>

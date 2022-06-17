@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
             $table->string('email');
-            // $table->string('title');
-            // $table->string('subject');
-            // $table->string('action');
-            // $table->text('body');
+            // $table->string('title')->nullable;
+            // $table->string('subject')->nullable;
+            // $table->string('action')->nullable;;
+            // $table->text('body')->nullable;
             $table->timestamps();
         });
     }

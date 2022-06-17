@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Newsletter;
 use App\Models\Newspost;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
             NewsTagSeeder::class,
             NewsCategorieSeeder::class,
             CourseCategorieSeeder::class,
-
+            NewsletterSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

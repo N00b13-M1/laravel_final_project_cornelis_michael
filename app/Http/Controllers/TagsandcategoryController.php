@@ -55,7 +55,7 @@ class TagsandcategoryController extends Controller
         $tag->tag_desc = $request->tag_desc;
         $tag->Save();
 
-        return redirect()->route('tagsandcategories.index');
+        return redirect()->route('tagsandcategories.index')->with("success", "Successfully Added");
     }
 
     public function store_category(Request $request)
@@ -64,7 +64,7 @@ class TagsandcategoryController extends Controller
         $category->category_desc = $request->category_desc;
         $category->Save();
 
-        return redirect()->route('tagsandcategories.index');
+        return redirect()->route('tagsandcategories.index')->with("success", "Successfully Added");
     }
 
     /**
@@ -118,7 +118,7 @@ class TagsandcategoryController extends Controller
         $tag->tag_desc = $request->tag_desc;
 
         $tag->save();
-        return redirect()->route('tagsandcategories.index');
+        return redirect()->route('tagsandcategories.index')->with("update", "Successfully Updated");
     }
 
     public function update_category (Request $request, $id)
@@ -127,7 +127,7 @@ class TagsandcategoryController extends Controller
         $category->category_desc = $request->category_desc;
 
         $category->save();
-        return redirect()->route('tagsandcategories.index');
+        return redirect()->route('tagsandcategories.index')->with("update", "Successfully Updated");;
     }
 
     /**
@@ -140,15 +140,14 @@ class TagsandcategoryController extends Controller
     {
         $tag = Tag::find($id);
         $tag->delete();
-        return redirect()->route('tagsandcategories.index');
+        return redirect()->route('tagsandcategories.index')->with("delete", "Successfully Deleted");
     }
 
     public function destroy_category ($id)
     {
-
         $category = Categorie::find($id);
         $category->delete();
-        return redirect()->route('tagsandcategories.index');
+        return redirect()->route('tagsandcategories.index')->with("delete", "Successfully Deleted");
     }
 }
 

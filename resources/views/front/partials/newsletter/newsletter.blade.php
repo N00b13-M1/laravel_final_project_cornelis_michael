@@ -5,13 +5,12 @@
             <div class="line-dec"></div>
             <p>Subsrcibe to our newsletter for latest updates about our site for universe.</p>
 
-
-            <form action="/newsletter/subscribe" method="post">
+            <form action="/subscribe" method="post">
                 @csrf
-                <input type="text" class="email" name="emailsubscription" placeholder="Email Address..." value="">
+                <input type="text" class="email" name="email" placeholder="Email Address..." value="">
                 <div class="accent-button">
-                    {{-- <a href=""><button type="submit" class="accent-button">Subscribe</button></a> --}}
-                    <button type="submit" class="accent-button">Subscribe</button>
+                    <a href=""><button type="submit" class="accent-button">Subscribe</button></a>
+                    {{-- <button type="submit" class="accent-button">Subscribe</button> --}}
                 </div>
             </form>
         </div>

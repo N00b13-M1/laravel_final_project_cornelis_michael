@@ -31,3 +31,5 @@ class UserSubscribedMessage extends Mailable
         return $this->view('email.email_template');
     }
 }
+
+

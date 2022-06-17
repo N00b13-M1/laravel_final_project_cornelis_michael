@@ -5,8 +5,10 @@ namespace App\Listeners;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Events\UserSubscribed;
-use App\Mail\
+use App\Mail\MailSubscription;
+use App\Mail\UserSubscribedMessage;
 Use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class EmailOwnerAboutSubscription
 {
@@ -32,6 +34,8 @@ class EmailOwnerAboutSubscription
             'email' => $event->email
         ]);
 
-        Mail::to($event->email)->send(new );
+        Mail::to($event->email)->send(new UserSubscribedMessage());
     }
 }
+
+

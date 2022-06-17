@@ -205,8 +205,17 @@ Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'des
 // Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
 // Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
 
-Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter');
-Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.send');
+Route::get('/back/message-center', [NewsletterController::class, 'index'])->name('message-center');
+Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+
+Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subscriber'])->name('message-center.create_subscriber');
+Route::post('/back/subscriber/store', [NewsletterController::class, 'store_subscriber'])->name('message_center.store_subscriber');
+
+Route::get('/back/subscriber/edit/{id}', [NewsletterController::class, 'edit_subscriber'])->name('message_center.edit_subscriber');
+Route::post('/back/subscriber/update/{id}', [NewsletterController::class, 'update_subscriber'])->name('message_center.update_subscriber');
+
+Route::post('/back/subscriber/destroy/{id}', [NewsletterController::class, 'destroy_subscriber'])->name('message_center.destroy_subscriber');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

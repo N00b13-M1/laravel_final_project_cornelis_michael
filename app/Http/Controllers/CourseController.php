@@ -56,6 +56,8 @@ class CourseController extends Controller
             'text' => 'required',
 		]);
 
+
+        
         $course = New Course;
         $course->title = $request->title;
         $course->desc = $request->desc ?? '';
@@ -132,7 +134,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        $validated = $request->validate([
+        $request->validate([
 			'title' => 'required',
 			'desc' => 'required',
 			// 'bg' => 'required',

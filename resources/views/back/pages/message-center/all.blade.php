@@ -24,32 +24,38 @@
         <table class="table table-dark ms-5">
             <thead>
                 <tr>
-
+                    @foreach ($subscriber_titles as $item)
+                    <th scope="col">{{ $item }}</th>
+                    @endforeach
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
                 </tr>
-
             </thead>
             <tbody>
-                {{-- @foreach ($tags as $tag)
+                @foreach ($subscribers as $item)
                     <tr>
-                        <th scope="row">{{ $tag->id }}</th>
-                        <td>{{ $tag->tag_desc }}</td>
+                        <th scope="row">{{ $item->id }}</th>
+                        <td>{{ $item->email }}</td>
                         <td>
-                            <a href="{{ route('tagsandcategories.show_tag', $tag->id) }}"><button class="btn btn-primary">Show</button>
+                            <a href="{{ route('message_center.edit_subscriber', $item->id) }}"><button class="btn btn-primary">Edit</button>
                             </a>
+                        {{-- </td>
+                        <td> --}}
+                            <form action="{{ route('message_center.destroy_subscriber', $item->id) }}" method="post" class="d-inline">
+                                @csrf
+                                <button class="btn btn-danger bg-danger m-2" type="submit">Delete</button>
+                            </form>
+                            </div>
                         </td>
                     </tr>
-                @endforeach --}}
+                @endforeach
             </tbody>
-            {{-- <div class='text-center'>
-                <a href="{{ route("tagsandcategories.create_tag") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
-            </div> --}}
+            <div class='text-center'>
+                <a href="{{ route("message-center.create_subscriber") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
+            </div>
         </table>
 
     </div>
 @endsection
 
 
-dfbbfd
-fdfgdfg
