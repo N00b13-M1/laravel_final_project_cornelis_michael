@@ -66,7 +66,7 @@ class NewsletterController extends Controller
         if ($validator->fails()) {
             return redirect('/')->with("error", "You're already part of the mailinglist, you won't be added again");
         }
-        
+
         $newsletter = New Newsletter();
         $newsletter->email = $request->email;
 
@@ -77,6 +77,8 @@ class NewsletterController extends Controller
         return redirect()->back()->with('success', 'Successfully added to the mailing list');
 
     }
+
+    
 
     public function create_subscriber ()
     {

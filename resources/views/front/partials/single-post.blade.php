@@ -4,7 +4,6 @@
             <div class="col-md-8">
                 <div class="classic-posts">
                     <div class="single-item">
-
                         <img src="{{ asset('assets/images/' . $news_post[0]->img) }}" alt="">
                         <ul>
                             <li>Posted: <em>{{ $news_post[0]->created_when }}</em></li>
@@ -104,9 +103,12 @@
             </div>
             <div class="col-md-4">
                 <div class="side-bar">
+                    <form action="">
                     <div class="search-box">
                         <input type="text" class="search" name="s" placeholder="Search..." value="">
                     </div>
+                    <button type="submit">Search</button>
+                    </form>
                     <div class="categories">
                         <div class="widget-heading">
                             <h4>Categories</h4>
@@ -204,5 +206,3 @@
         </div>
     </div>
 </section>
-
-

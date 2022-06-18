@@ -150,9 +150,14 @@
             </div>
             <div class="col-md-4">
                 <div class="side-bar">
-                    <div class="search-box">
-                        <input type="text" class="search" name="s" placeholder="Search..." value="">
-                    </div>
+                    <form action="route('news.search')" method="get">
+                        <div class="search-box">
+                            <input type="text" class="search" name="s" placeholder="Search..." value="">
+                        </div>
+                        <div>
+                            <button class="brn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
                     <div class="categories">
                         <div class="widget-heading">
                             <h4>Categories</h4>

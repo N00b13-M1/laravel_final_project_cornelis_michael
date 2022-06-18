@@ -24,6 +24,7 @@
                             </ul>
                         </form>
                     </div>
+
                     </li>
                     @if (Auth::check())
                         <a href="{{ route('backend') }}"><button class="logged">{{ Auth::user()->name }} logged in</button></a>
