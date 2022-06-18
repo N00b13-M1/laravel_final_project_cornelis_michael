@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\UserSubscribed;
 use App\Models\Email;
 use App\Models\Newsletter;
 use App\Models\NewsTag;
@@ -12,6 +11,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Schema;
 use League\CommonMark\Renderer\Inline\NewlineRenderer;
 use Symfony\Component\Mailer\Messenger\SendEmailMessage;
+use App\Mail\UserSubscribedMessage;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
+
 
 class NewsletterController extends Controller
 {
@@ -34,6 +37,11 @@ class NewsletterController extends Controller
         }
     }
 
+    // public function mail(){
+    //     Mail::to('michael.cornelis@gmail.com')->send(new UserSubscribedMessage());
+	// return back();
+    // }
+
     public function index ()
     {
         $subscribers = Newsletter::all();
@@ -46,16 +54,28 @@ class NewsletterController extends Controller
     public function subscribe(Request $request)
     {
 
-        $request->validate([
-            'email' => 'required'
+
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|unique:newsletters'
         ]);
 
+        // $request->validate([
+        //     'email' => 'required|unique:newsletters'
+        // ]);
+
+        if ($validator->fails()) {
+            return redirect('/')->with("error", "You're already part of the mailinglist, you won't be added again");
+        }
+        
         $newsletter = New Newsletter();
         $newsletter->email = $request->email;
 
         $newsletter->save();
 
-        return back();
+        Mail::to($request->email)->send(new UserSubscribedMessage());
+
+        return redirect()->back()->with('success', 'Successfully added to the mailing list');
+
     }
 
     public function create_subscriber ()
@@ -66,13 +86,16 @@ class NewsletterController extends Controller
     public function store_subscriber (Request $request)
     {
         $request->validate([
-            'email' => 'required'
+            'email' => 'required|unique:newsletters'
         ]);
 
         $newsletter = New Newsletter();
         $newsletter->email = $request->email;
 
+
         $newsletter->save();
+
+        // dd('hi');
 
         return redirect()->route('message-center')->with("success", "Successfully Added");
     }
@@ -87,7 +110,7 @@ class NewsletterController extends Controller
     public function update_subscriber (Request $request, $id)
     {
         $request->validate([
-            'email' => 'required'
+            'email' => 'required|unique:newsletters'
         ]);
 
         $newsletter = Newsletter::find($id);

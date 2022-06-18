@@ -54,8 +54,9 @@
                 <a href="{{ route("message-center.create_subscriber") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
             </div>
         </table>
-
     </div>
 @endsection
+
+
 
 

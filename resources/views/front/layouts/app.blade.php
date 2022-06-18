@@ -30,6 +30,18 @@
 
 </head>
 <body>
+    {{-- Subscription successful --}}
+     @if (session()->has('success'))
+        <div class="alert alert-success w-50 mx-auto m-3">
+            <p class="text-success">{{ session()->get('success') }}</p>
+        </div>
+    @endif
+    {{-- Subscription failed --}}
+    @if (session()->has('error'))
+        <div class="alert alert-danger w-50 mx-auto m-3">
+            <p class="text-danger">{{ session()->get('error') }}</p>
+        </div>
+    @endif
     @yield('content')
     <script src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('assets/js/jquery-1.11.1.min.js') }}"></script>

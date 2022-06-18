@@ -2,7 +2,7 @@
 @section('content')
     @include('back.partials.navbar')
     <div class="container py-5 my-5">
-        <h1 class="text-center fs-1 py-5">Edit Event</h1>
+        <h1 class="text-center fs-1 py-5">Edit Subscriber</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

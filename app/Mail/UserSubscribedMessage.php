@@ -28,7 +28,9 @@ class UserSubscribedMessage extends Mailable
      */
     public function build()
     {
-        return $this->view('email.email_template');
+        return $this->from('info@alerto@gmail.com')
+            ->subject("Welcome")
+            ->view('emails.subscribed');
     }
 }
 
