@@ -103,9 +103,9 @@
             </div>
             <div class="col-md-4">
                 <div class="side-bar">
-                    <form action="">
+                    <form action="{{ route('news.search') }}" method="get">
                     <div class="search-box">
-                        <input type="text" class="search" name="s" placeholder="Search..." value="">
+                        <input type="text" class="search" name="query" placeholder="Search..." value="">
                     </div>
                     <button type="submit">Search</button>
                     </form>

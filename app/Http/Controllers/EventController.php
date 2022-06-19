@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EventMail;
 
 class EventController extends Controller
 {
@@ -64,6 +67,18 @@ class EventController extends Controller
         $event->event_desc = $request->event_desc;
 
         $event->save();
+
+        $subscribers = Newsletter::all();
+        // dd($subscribers[2]->email);
+        if($event->save()){
+            for ($i=0; $i < count($subscribers); $i++)
+            {
+                Mail::to($subscribers[$i]->email)->send(new EventMail ($event));
+            }
+
+
+        }
+
         $request->file("img")->storePublicly('/assets/images/','public');
         return redirect()->route('events.index')->with("success", "Successfully Added");
     }

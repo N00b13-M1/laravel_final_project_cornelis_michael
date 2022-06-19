@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Newsletter Subscription</title>
+    <title>Laravel Newsletter Tutorial With Example</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   </head>
@@ -17,7 +17,8 @@
         <p>{{ \Session::get('failure') }}</p>
       </div><br />
      @endif --}}
-      <h2>Dear You are now subscribed to our newsletter </h2><br/>
+      <p>Dear subscriber,</p><br/>
+      <p>We're happy to inform you about our new event:{{ $eventName }}</p>
       {{-- <form method="post" action="{{url('newsletter')}}">
         @csrf
         </div>

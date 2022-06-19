@@ -12,6 +12,7 @@ use App\Http\Controllers\MailSubscriptionController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TagsandcategoryController;
 use App\Models\Banner;
 use App\Models\Categorie;
@@ -142,6 +143,8 @@ Route::get('/news', function () {
     // dd($number = $news);
     return view('front.pages.news', compact('banners', 'news', 'tags', 'categories' ));
 })->name('news');
+
+Route::get('/search', [SearchController::class, 'search'])->name('news.search');
 
 Route::get('/news/{id}', function ($id) {
     // dd($id);
