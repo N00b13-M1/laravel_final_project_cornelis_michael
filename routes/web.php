@@ -16,6 +16,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TagsandcategoryController;
 use App\Models\Banner;
 use App\Models\Categorie;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Event;
@@ -146,14 +147,21 @@ Route::get('/news', function () {
 
 Route::get('/search', [SearchController::class, 'search'])->name('news.search');
 
+
+// Route::get('/search', [SearchController::class, 'search'])->name('news.search');
+
+
 Route::get('/news/{id}', function ($id) {
     // dd($id);
     $banners = Banner::all();
     $news_post = News::where('id', $id)->get();
     $tags = Tag::all();
     $categories = Categorie::all();
+    // $comments = Comment::where('newsid', $id)->get();
+
     return view('front.pages.single-post', compact('banners', 'news_post', 'id', 'tags', 'categories'));
 })->name('news.single');
+
 
 Route::get('/professors', function () {
     $banners = Banner::all();
@@ -208,8 +216,12 @@ Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'des
 // Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
 // Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
 
+
 Route::get('/back/message-center', [NewsletterController::class, 'index'])->name('message-center');
 Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+
+Route::post('/inform-submit', [NewsletterController::class, 'interest']);
+
 
 Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subscriber'])->name('message-center.create_subscriber');
 Route::post('/back/subscriber/store', [NewsletterController::class, 'store_subscriber'])->name('message_center.store_subscriber');

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Email;
 use App\Models\Newsletter;
-use App\Models\NewsTag;
 use App\Models\User;
+use App\Models\Informationrequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Schema;
@@ -51,6 +51,31 @@ class NewsletterController extends Controller
         return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles'));
     }
 
+
+    public function interest (Request $request) {
+
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|unique:informationrequests',
+            'email' => 'required|unique:informationrequests',
+            'campus' => 'required|unique:informationrequests',
+            'program' => 'required|unique:informationrequests',
+        ]);
+
+        $newinterest = new Informationrequest;
+
+        $newinterest->name = $request->name;
+        $newinterest->email = $request->email;
+
+        $newinterest->campus = $request->campus;
+        $newinterest->program = $request->program;
+
+        dd($request);
+
+        $newinterest->save();
+
+    }
+
+
     public function subscribe(Request $request)
     {
 
@@ -77,8 +102,6 @@ class NewsletterController extends Controller
         return redirect()->back()->with('success', 'Successfully added to the mailing list');
 
     }
-
-    
 
     public function create_subscriber ()
     {
@@ -134,3 +157,4 @@ class NewsletterController extends Controller
 
     }
 }
+

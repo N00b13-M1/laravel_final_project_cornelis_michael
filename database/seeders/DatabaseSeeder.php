@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             NewsCategorieSeeder::class,
             CourseCategorieSeeder::class,
             NewsletterSeeder::class,
+            CommentSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 
@@ -42,4 +43,3 @@ class DatabaseSeeder extends Seeder
         // ]);
     }
 }
-

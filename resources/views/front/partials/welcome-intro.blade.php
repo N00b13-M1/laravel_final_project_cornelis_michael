@@ -60,33 +60,38 @@
                         <div class="widget-heading">
                             <h4>Request Information</h4>
                         </div>
+
                         @if (Auth::check())
                             <div class="search-form">
-                                <input type="text" id="name" name="s" placeholder="Full Name"
-                                    value="{{ Auth::user()->name }}">
-                                <input type="text" id="address" name="s" placeholder="E-mail Address"
-                                    value="{{ Auth::user()->email }}">
-                                <div class="select">
-                                    <select name="mark" id="campus">
-                                        <option value="-1">Campus of Interests</option>
-                                        <option>Nearby</option>
-                                        <option>High Classes</option>
-                                        <option>Short Time</option>
-                                        <option>Long Time</option>
-                                    </select>
-                                </div>
-                                <div class="select">
-                                    <select name="mark" id="program">
-                                        <option value="-1">Program of Interests</option>
-                                        <option>Wroking Process</option>
-                                        <option>Archivements</option>
-                                        <option>Social</option>
-                                        <option>Profits</option>
-                                    </select>
-                                </div>
-                                <div class="accent-button">
-                                    <a href="#">Submit Request</a>
-                                </div>
+                                <form action="/inform-submit" method="post">
+                                    @csrf
+                                    <input type="text" id="name" name="name" placeholder="Full Name"
+                                        value="{{ Auth::user()->name }}">
+                                    <input type="text" id="address" name="email" placeholder="E-mail Address"
+                                        value="{{ Auth::user()->email }}">
+                                    <div class="select">
+                                        <select name="campus" id="campus">
+                                            <option value="-1">Campus of Interests</option>
+                                            <option value="0">Nearby</option>
+                                            <option value="1">High Classes</option>
+                                            <option value="2">Short Time</option>
+                                            <option value="3">Long Time</option>
+                                        </select>
+                                    </div>
+                                    <div class="select">
+                                        <select name="program" id="program">
+                                            <option value="-1">Program of Interests</option>
+                                            <option value="0">Wroking Process</option>
+                                            <option value="1">Archivements</option>
+                                            <option value="2">Social</option>
+                                            <option value="3">Profits</option>
+                                        </select>
+                                    </div>
+                                    <div class="accent-button">
+                                        {{-- <a href="#">Submit Request</a> --}}
+                                        <a href=""><button type="submit" >Submit Request</button></a>
+                                    </div>
+                                </form>
                             </div>
                         @else
                         <div class="search-form">

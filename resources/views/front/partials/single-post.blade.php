@@ -38,6 +38,8 @@
                         </div>
                     </div>
                 </div>
+                {{-- {{ dd(post) }} --}}
+
                 <div class="comments">
                     <div class="heading">
                         <h2>Comments</h2>
