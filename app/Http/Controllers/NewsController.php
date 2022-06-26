@@ -36,7 +36,7 @@ class NewsController extends Controller
         return view ('back.pages.news.create', compact('tags', 'categories'));
     }
 
-    /**
+    /*l*
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

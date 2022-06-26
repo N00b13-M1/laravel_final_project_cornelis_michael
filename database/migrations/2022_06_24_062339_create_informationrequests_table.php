@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('informationrequests', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->email('email');
+            $table->string('email');
             $table->string('campus');
             $table->string('program');
             $table->timestamps();

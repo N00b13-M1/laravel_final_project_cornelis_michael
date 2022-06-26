@@ -52,7 +52,7 @@
                                 <div class="line-dec"></div>
                                 <p>Photo booth Banksy YOLO mixtape post-ironic they sold out all.</p>
                             </div>
-                        </div> --}}
+                        </div> --}}dfwfwsfsfsfd
                     </div>
                 </div>
                 <div class="col-md-4">

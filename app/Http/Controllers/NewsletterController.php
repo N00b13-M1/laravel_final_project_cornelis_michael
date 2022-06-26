@@ -47,12 +47,19 @@ class NewsletterController extends Controller
         $subscribers = Newsletter::all();
         $subscriber_titles = Schema::getColumnListing('newsletters');
         $subscriber_titles = array_slice($subscriber_titles, 0, 2);
+
+        $interests = Informationrequest::all();
+        $interest_titles = Schema::getColumnListing('informationrequests');
+        $interest_titles = array_slice($interest_titles, 0, 5);
+        // dd($interest_subtitles);
+
+
         // dd($subscriber_titles);
-        return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles'));
+        return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles', 'interests', 'interest_titles'));
     }
 
 
-    public function interest (Request $request) {
+    public function interest_submit (Request $request) {
 
         $validator = Validator::make($request->all(),[
             'name' => 'required|unique:informationrequests',
@@ -69,16 +76,12 @@ class NewsletterController extends Controller
         $newinterest->campus = $request->campus;
         $newinterest->program = $request->program;
 
-        dd($request);
-
         $newinterest->save();
 
     }
 
-
     public function subscribe(Request $request)
     {
-
 
         $validator = Validator::make($request->all(),[
             'email' => 'required|unique:newsletters'
@@ -91,6 +94,8 @@ class NewsletterController extends Controller
         if ($validator->fails()) {
             return redirect('/')->with("error", "You're already part of the mailinglist, you won't be added again");
         }
+
+
 
         $newsletter = New Newsletter();
         $newsletter->email = $request->email;
@@ -108,10 +113,35 @@ class NewsletterController extends Controller
         return view ('back.pages.message-center.create_subscriber');
     }
 
+    public function create_interest ()
+    {
+        return view ('back.pages.message-center.create_interest');
+    }
+
     public function store_subscriber (Request $request)
     {
         $request->validate([
             'email' => 'required|unique:newsletters'
+        ]);
+
+        $newsletter = New Newsletter();
+        $newsletter->email = $request->email;
+
+
+        $newsletter->save();
+
+        // dd('hi');
+
+        return redirect()->route('message-center')->with("success", "Successfully Added");
+    }
+
+    public function store_interest (Request $request)
+    {
+        $request->validate([
+            'name' => 'required|unique:informationrequests',
+            'email' => 'required|unique:informationrequests',
+            'campus' => 'required|unique:informationrequests',
+            'program' => 'required|unique:informationrequests',
         ]);
 
         $newsletter = New Newsletter();

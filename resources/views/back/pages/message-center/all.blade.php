@@ -45,7 +45,7 @@
                                 @csrf
                                 <button class="btn btn-danger bg-danger m-2" type="submit">Delete</button>
                             </form>
-                            </div>
+                            {{-- </div> --}}
                         </td>
                     </tr>
                 @endforeach
@@ -54,9 +54,45 @@
                 <a href="{{ route("message-center.create_subscriber") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
             </div>
         </table>
+        <br>
+        <br>
+        <h2 class="text-center fs-1 py-5">Information Request Submissions</h2>
+        <table class="table table-dark ms-5">
+            <thead>
+                <tr>
+                    @foreach ($interest_titles as $item)
+                    <th scope="col">{{ $item }}</th>
+                    @endforeach
+                    <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($interests as $item)
+                    <tr>
+                        <th scope="row">{{ $item->id }}</th>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->email }}</td>
+                        <td>{{ $item->campus }}</td>
+                        <td>{{ $item->program }}</td>
+                        <td>
+                            <a href="{{ route('message_center.edit_interest', $item->id) }}"><button class="btn btn-primary">Edit</button>
+                            </a>
+                        {{-- </td>
+                        <td> --}}
+                            <form action="{{ route('message_center.destroy_interest', $item->id) }}" method="post" class="d-inline">
+                                @csrf
+                                <button class="btn btn-danger bg-danger m-2" type="submit">Delete</button>
+                            </form>
+                            {{-- </div> --}}
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+            <div class='text-center'>
+                <a href="{{ route("message-center.create_interest") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
+            </div>
+        </table>
     </div>
 @endsection
-
-
-
 

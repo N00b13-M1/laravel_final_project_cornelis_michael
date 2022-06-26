@@ -136,6 +136,9 @@ Route::get('/events-stars', function () {
 })->name('events-stars');
 
 Route::get('/news', function () {
+    $banners_carousel = Banner::where('primary', '=', "Yes")->orWhere('primary', '=', "No")->get();
+    // dd($banners_carousel);
+
     $banners = Banner::all();
     $news = News::all();
     $news =  News::paginate(4);
@@ -220,17 +223,29 @@ Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'des
 Route::get('/back/message-center', [NewsletterController::class, 'index'])->name('message-center');
 Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
-Route::post('/inform-submit', [NewsletterController::class, 'interest']);
-
+Route::post('/inform-submit', [NewsletterController::class, 'interest_submit']);
 
 Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subscriber'])->name('message-center.create_subscriber');
+
+Route::get('/back/interest/create', [NewsletterController::class, 'create_interest'])->name('message-center.create_interest');
+
 Route::post('/back/subscriber/store', [NewsletterController::class, 'store_subscriber'])->name('message_center.store_subscriber');
 
+Route::post('/back/interest/store', [NewsletterController::class, 'store_interest'])->name('message_center.store_interest');
+
+
 Route::get('/back/subscriber/edit/{id}', [NewsletterController::class, 'edit_subscriber'])->name('message_center.edit_subscriber');
+
+Route::get('/back/interest/edit/{id}', [NewsletterController::class, 'edit_interest'])->name('message_center.edit_interest');
+
+
 Route::post('/back/subscriber/update/{id}', [NewsletterController::class, 'update_subscriber'])->name('message_center.update_subscriber');
+
+Route::post('/back/interest/update/{id}', [NewsletterController::class, 'update_interest'])->name('message_center.update_interest');
 
 Route::post('/back/subscriber/destroy/{id}', [NewsletterController::class, 'destroy_subscriber'])->name('message_center.destroy_subscriber');
 
+Route::post('/back/interest/destroy/{id}', [NewsletterController::class, 'destroy_interest'])->name('message_center.destroy_interest');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -241,6 +256,7 @@ Route::get('/back', function () {
 })->name('backend');
 
 require __DIR__.'/auth.php';
+
 
 
 

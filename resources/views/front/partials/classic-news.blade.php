@@ -5,6 +5,7 @@
                 <div class="classic-posts">
                     @foreach ($news as $item )
                     <div class="classic-item">
+
                         <a href="{{ route("news.single", $item->id) }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>
                         <ul>
                             <li>Posted: <em>{{ $item->created_when }}</em></li>
@@ -150,9 +151,10 @@
             </div>
             <div class="col-md-4">
                 <div class="side-bar">
-                    <form action="route('news.search')" method="get">
+                    <form action="{{ route('news.search') }}" method="get">
+                        @csrf
                         <div class="search-box">
-                            <input type="text" class="search" name="s" placeholder="Search..." value="">
+                            <input type="text" class="search" name="query" placeholder="Search..." value="">
                         </div>
                         <div>
                             <button class="brn btn-primary" type="submit">Search</button>
