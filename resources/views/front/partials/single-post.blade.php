@@ -83,24 +83,41 @@
                 </div>
                 <div class="leave-comment">
                     <div class="heading">
-                        <h2>Leave a comment</h2>
+                        <h2>Leave a comment <small>(Log in or register to Comment)</small></h2>
                     </div>
+                    @if (Auth::check())
                     <div class="comment-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" id="name" name="s" placeholder="Full Name" value="">
+                        <form action="" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" id="name" name="name" placeholder="Full Name"
+                                    value="{{ Auth::user()->name }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="address" name="email" placeholder="E-mail Address"
+                                    value="{{ Auth::user()->email }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea id="message" class="message" name="message" placeholder="Write comment"></textarea>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <input type="text" id="address" name="s" placeholder="E-mail Address" value="">
+                            <div class="accent-button">
+                                <a href="#">Submit Comment</a>
                             </div>
-                            <div class="col-md-12">
-                                <textarea id="message" class="message" name="message" placeholder="Write comment"></textarea>
+                        </form>
+                    </div>
+                    @else
+                    <div class="comment-form">
+                        <div class="mt-3">
+                            <div class="accent-button-request">
+                                <a href="{{ route('login') }}">Login</a>
                             </div>
-                        </div>
-                        <div class="accent-button">
-                            <a href="#">Submit Comment</a>
+                            <div  class="accent-button-request">
+                                <a href="{{ route('register') }}">Register</a>
+                            </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="col-md-4">

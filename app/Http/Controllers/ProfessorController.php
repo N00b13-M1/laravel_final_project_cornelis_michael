@@ -187,4 +187,3 @@ class ProfessorController extends Controller
         return redirect()->route('professors.index')->with("delete", "Successfully Deleted");
     }
 }
-

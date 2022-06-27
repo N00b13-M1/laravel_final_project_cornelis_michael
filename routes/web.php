@@ -258,5 +258,3 @@ Route::get('/back', function () {
 require __DIR__.'/auth.php';
 
 
-
-

@@ -8,7 +8,6 @@
                             <img src="{{ asset('assets/images/' . $professors[0]->professor_photo) }}" alt="">
                             <div class="contact-form">
                                 <h4>Contact me</h4>
-                                <input type="text" id="name" name="s" placeholder="Full Name" value="">
                                 <input type="text" id="address" name="s" placeholder="E-mail Address" value="">
                                 <textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
                                 <div class="accent-button">
@@ -32,7 +31,7 @@
                                     </ul>
                                 </div>
                                 <div class="description">
-                                    <p>{{ $professors[0]->text1 }} }}</p>
+                                    <p>{{ $professors[0]->text1 }}</p>
                                     <h4>Biography</h4>
                                     <p><em>{{ $professors[0]->textstrong }}</em><br><br>{{ $professors[0]->text2 }}</p>
                                     <ul>

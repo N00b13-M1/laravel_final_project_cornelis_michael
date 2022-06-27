@@ -17,7 +17,7 @@ class SearchController extends Controller
             $categories = Categorie::all();
             $tags = Tag::all();
             $search_text = $_GET['query'];
-            $selections = DB::table('news')->where('title', 'like', '%'.$search_text.'%' )->paginate(4);
+            $selections = DB::table('news')->where('title', 'like', '%'.$search_text.'%')->paginate(4);
             return view('front.pages.news',[
                 'news' => $selections,
                 'banners' => $banners,
@@ -30,5 +30,4 @@ class SearchController extends Controller
     }
 }
 
-sfwefwfwef
-sfsfsdf
+

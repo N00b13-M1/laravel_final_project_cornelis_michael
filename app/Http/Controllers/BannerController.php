@@ -22,7 +22,6 @@ class BannerController extends Controller
         $banner_titles = array_slice($banner_titles, 0, 7);
         $banners = Banner::orderBy('primary', 'asc')->get();
 
-
         return view('back.pages.banners.all', compact('banners','banner_titles'));
     }
 

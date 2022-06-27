@@ -37,10 +37,14 @@ class NewsletterController extends Controller
         }
     }
 
+
+
     // public function mail(){
     //     Mail::to('michael.cornelis@gmail.com')->send(new UserSubscribedMessage());
 	// return back();
     // }
+
+
 
     public function index ()
     {
@@ -51,13 +55,9 @@ class NewsletterController extends Controller
         $interests = Informationrequest::all();
         $interest_titles = Schema::getColumnListing('informationrequests');
         $interest_titles = array_slice($interest_titles, 0, 5);
-        // dd($interest_subtitles);
 
-
-        // dd($subscriber_titles);
         return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles', 'interests', 'interest_titles'));
     }
-
 
     public function interest_submit (Request $request) {
 
