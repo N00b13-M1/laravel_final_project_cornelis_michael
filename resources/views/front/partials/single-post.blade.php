@@ -87,7 +87,8 @@
                     </div>
                     @if (Auth::check())
                     <div class="comment-form">
-                        <form action="" method="post">
+                        <form action="/inform-submit" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" id="name" name="name" placeholder="Full Name"
@@ -102,7 +103,7 @@
                                 </div>
                             </div>
                             <div class="accent-button">
-                                <a href="#">Submit Comment</a>
+                                <a href=""><button type="submit" class="accent-button">Submit Comment</button></a>
                             </div>
                         </form>
                     </div>

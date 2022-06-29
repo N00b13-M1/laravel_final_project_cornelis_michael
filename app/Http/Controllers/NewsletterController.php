@@ -59,14 +59,21 @@ class NewsletterController extends Controller
         return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles', 'interests', 'interest_titles'));
     }
 
+
     public function interest_submit (Request $request) {
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required|unique:informationrequests',
-            'email' => 'required|unique:informationrequests',
-            'campus' => 'required|unique:informationrequests',
-            'program' => 'required|unique:informationrequests',
+            // 'name' => 'required',
+            // 'email' => 'required',
+            'campus' => 'required|integer|between:0,3',
+            'program' => 'required|integer|between:0,3',
         ]);
+
+        if ($validator->fails()) {
+            return redirect('/')->with("error", "You didn't define a correct campus or program");
+        };
+
+
 
         $newinterest = new Informationrequest;
 
@@ -77,6 +84,8 @@ class NewsletterController extends Controller
         $newinterest->program = $request->program;
 
         $newinterest->save();
+
+        return redirect()->back()->with('success', 'Successfully sent Info request');
 
     }
 

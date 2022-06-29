@@ -81,7 +81,7 @@
                                     <div class="select">
                                         <select name="program" id="program">
                                             <option value="-1">Program of Interests</option>
-                                            <option value="0">Wroking Process</option>
+                                            <option value="0">Working Process</option>
                                             <option value="1">Archivements</option>
                                             <option value="2">Social</option>
                                             <option value="3">Profits</option>

@@ -221,9 +221,10 @@ Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'des
 
 
 Route::get('/back/message-center', [NewsletterController::class, 'index'])->name('message-center');
+
 Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
-Route::post('/inform-submit', [NewsletterController::class, 'interest_submit']);
+Route::post('/inform-submit', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
 
 Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subscriber'])->name('message-center.create_subscriber');
 
