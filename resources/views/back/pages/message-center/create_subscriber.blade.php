@@ -20,7 +20,6 @@
             </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
-
     </div>
 @endsection
 

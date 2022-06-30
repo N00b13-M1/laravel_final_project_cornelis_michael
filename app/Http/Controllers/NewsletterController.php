@@ -124,8 +124,13 @@ class NewsletterController extends Controller
     public function create_interest ()
     {
         $users = User::all();
-        // dd($users);
         return view ('back.pages.message-center.create_interest', compact('users'));
+    }
+
+    public function getDetails($id = 0)
+    {
+        $data = User::find($id);
+        return response()->json($data);
     }
 
     public function store_subscriber (Request $request)
@@ -137,32 +142,37 @@ class NewsletterController extends Controller
         $newsletter = New Newsletter();
         $newsletter->email = $request->email;
 
-
         $newsletter->save();
-
-        // dd('hi');
 
         return redirect()->route('message-center')->with("success", "Successfully Added");
     }
 
     public function store_interest (Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:informationrequests',
-            'email' => 'required|unique:informationrequests',
-            'campus' => 'required|unique:informationrequests',
-            'program' => 'required|unique:informationrequests',
+        $validator = Validator::make($request->all(),[
+            // 'name' => 'required',
+            // 'email' => 'required',
+            'campus' => 'required|integer|between:0,3',
+            'program' => 'required|integer|between:0,3',
         ]);
 
-        $newsletter = New Newsletter();
-        $newsletter->email = $request->email;
+        if ($validator->fails()) {
+            return redirect('/')->with("error", "You didn't define a correct campus or program");
+        };
 
 
-        $newsletter->save();
 
-        // dd('hi');
+        $newinterest = new Informationrequest();
 
-        return redirect()->route('message-center')->with("success", "Successfully Added");
+        $newinterest->name = $request->name;
+        $newinterest->email = $request->email;
+
+        $newinterest->campus = $request->campus;
+        $newinterest->program = $request->program;
+
+        $newinterest->save();
+
+        return redirect()->route('message-center')->with('success', 'Successfully sent Info request');
     }
 
     public function edit_subscriber ($id, Request $request)

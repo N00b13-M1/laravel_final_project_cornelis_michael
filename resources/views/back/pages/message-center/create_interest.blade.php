@@ -22,20 +22,20 @@
                     @endforeach
                 </select>
             </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
             <script>
                 $('#name').change(function() {
+                    console.log("hello");
                     var id = $(this).val();
+                    console.log(id);
 
-                    // //Empty the dropdown
-
-                    var url = '{{ route("getDetails", ":id") }}';
-                    url = url.replace(':id', id);
-
+                    
                     $.ajax({
-                        url: url,
+                        url: '/back/interest/create/details/'+id,
                         type: 'get',
                         dataType: 'json',
                         success: function(response) {
+                            console.log(response);
                             if (response != null) {
                                 $('#email').val(response.email);
                             }
@@ -59,7 +59,7 @@
             <div class="select mb-3">
                 <select name="program" id="program">
                     <option value="-1">Program of Interests</option>
-                    <option value="0">Wroking Process</option>
+                    <option value="0">Working Process</option>
                     <option value="1">Archivements</option>
                     <option value="2">Social</option>
                     <option value="3">Profits</option>
@@ -67,7 +67,7 @@
             </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
-
     </div>
 @endsection
+
 

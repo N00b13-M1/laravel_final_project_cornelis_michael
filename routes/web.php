@@ -230,6 +230,9 @@ Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subs
 
 Route::get('/back/interest/create', [NewsletterController::class, 'create_interest'])->name('message-center.create_interest');
 
+Route::get('/back/interest/create/details/{id}', [NewsletterController::class, 'getDetails'])->name('getDetails');
+
+
 Route::post('/back/subscriber/store', [NewsletterController::class, 'store_subscriber'])->name('message_center.store_subscriber');
 
 Route::post('/back/interest/store', [NewsletterController::class, 'store_interest'])->name('message_center.store_interest');
