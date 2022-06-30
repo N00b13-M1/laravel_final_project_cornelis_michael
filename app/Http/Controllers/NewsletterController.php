@@ -104,8 +104,6 @@ class NewsletterController extends Controller
             return redirect('/')->with("error", "You're already part of the mailinglist, you won't be added again");
         }
 
-
-
         $newsletter = New Newsletter();
         $newsletter->email = $request->email;
 
@@ -114,8 +112,9 @@ class NewsletterController extends Controller
         Mail::to($request->email)->send(new UserSubscribedMessage());
 
         return redirect()->back()->with('success', 'Successfully added to the mailing list');
-
     }
+
+
 
     public function create_subscriber ()
     {
@@ -124,7 +123,9 @@ class NewsletterController extends Controller
 
     public function create_interest ()
     {
-        return view ('back.pages.message-center.create_interest');
+        $users = User::all();
+        // dd($users);
+        return view ('back.pages.message-center.create_interest', compact('users'));
     }
 
     public function store_subscriber (Request $request)
