@@ -57,7 +57,7 @@ class NewsletterController extends Controller
         $interests = Informationrequest::all();
         $interest_titles = Schema::getColumnListing('informationrequests');
         // dd($interest_titles);
-        $interest_titles = array_slice($interest_titles, 0, 6);
+        $interest_titles = array_slice($interest_titles, 0, 7);
 
         return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles', 'interests', 'interest_titles'));
     }
@@ -158,6 +158,8 @@ class NewsletterController extends Controller
             // 'email' => 'required',
             'campus' => 'required',
             'program' => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -174,6 +176,10 @@ class NewsletterController extends Controller
 
         $newinterest->campus = $request->campus;
         $newinterest->program = $request->program;
+        $newinterest->date = $request->date;
+        $newinterest->time = $request->time;
+
+
 
         $newinterest->save();
 
@@ -200,7 +206,11 @@ class NewsletterController extends Controller
     public function update_interest (Request $request, $id)
     {
         $request->validate([
-            'email' => 'required|unique:newsletters'
+            'email' => 'required|unique:newsletters',
+            'campus' => 'required',
+            'program' => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
 
 
@@ -214,6 +224,7 @@ class NewsletterController extends Controller
         $newinterest->campus = $request->campus;
         $newinterest->program = $request->program;
         $newinterest->date = $request->date;
+        $newinterest->time = $request->time;
 
         $newinterest->update();
 

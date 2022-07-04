@@ -76,6 +76,7 @@
                         <td>{{ $item->campus }}</td>
                         <td>{{ $item->program }}</td>
                         <td>{{ $item->date }}</td>
+                        <td>{{ $item->time }}</td>
                         <td>
                             <a href="{{ route('message_center.edit_interest', $item->id) }}"><button class="btn btn-primary">Edit</button>
                             </a>

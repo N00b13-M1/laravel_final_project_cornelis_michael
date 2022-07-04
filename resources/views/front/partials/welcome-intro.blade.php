@@ -82,7 +82,7 @@
                                         <select name="program" id="program">
                                             <option value="-1">Program of Interests</option>
                                             <option value="Working Process">Working Process</option>
-                                            <option value="Archivements<">Archivements</option>
+                                            <option value="Archivements">Archivements</option>
                                             <option value="Social">Social</option>
                                             <option value="Profits">Profits</option>
                                         </select>

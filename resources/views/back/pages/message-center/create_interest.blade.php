@@ -67,6 +67,14 @@
                     <option value="Profits">Profits</option>
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" name="date">
+            </div>
+            <div class="mb-3">
+                <label for="time" class="form-label">Time</label>
+                <input type="time" class="form-control" id="time" name="time">
+            </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
     </div>
