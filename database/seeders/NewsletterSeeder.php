@@ -17,6 +17,7 @@ class NewsletterSeeder extends Seeder
     {
         DB::table('newsletters')->insert([
             'email' => 'michael.cornelis@gmail.com',
+            'created_at' => now(),
         ]);
     }
 }

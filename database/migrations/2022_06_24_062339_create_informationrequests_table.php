@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('program');
             $table->date('date')->nullable();
             $table->time('time')->nullable();
+            $table->string('professor_email')->nullable();
             $table->foreignId("user_id")->constrained("users", "id")->OnDelete('cascade');
             $table->timestamps();
         });

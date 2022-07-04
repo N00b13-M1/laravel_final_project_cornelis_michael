@@ -34,3 +34,4 @@ class MailSubscription extends Mailable
             ->view('emails.email_template');
     }
 }
+

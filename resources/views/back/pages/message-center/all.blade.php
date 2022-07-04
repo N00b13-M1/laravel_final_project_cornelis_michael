@@ -39,13 +39,11 @@
                         <td>
                             <a href="{{ route('message_center.edit_subscriber', $item->id) }}"><button class="btn btn-primary">Edit</button>
                             </a>
-                        {{-- </td>
-                        <td> --}}
+
                             <form action="{{ route('message_center.destroy_subscriber', $item->id) }}" method="post" class="d-inline">
                                 @csrf
                                 <button class="btn btn-danger bg-danger m-2" type="submit">Delete</button>
                             </form>
-                            {{-- </div> --}}
                         </td>
                     </tr>
                 @endforeach
@@ -71,22 +69,20 @@
                 @foreach ($interests as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <td>{{ $item->user->name }}</td>\
+                        <td>{{ $item->user->name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->campus }}</td>
                         <td>{{ $item->program }}</td>
                         <td>{{ $item->date }}</td>
                         <td>{{ $item->time }}</td>
+                        <td>{{ $item->professor_email }}</td>
                         <td>
                             <a href="{{ route('message_center.edit_interest', $item->id) }}"><button class="btn btn-primary">Edit</button>
                             </a>
-                        {{-- </td>
-                        <td> --}}
                             <form action="{{ route('message_center.destroy_interest', $item->id) }}" method="post" class="d-inline">
                                 @csrf
                                 <button class="btn btn-danger bg-danger m-2" type="submit">Delete</button>
                             </form>
-                            {{-- </div> --}}
                         </td>
                     </tr>
                 @endforeach

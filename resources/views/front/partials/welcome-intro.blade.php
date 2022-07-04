@@ -67,9 +67,9 @@
                                     @csrf
                                     <input type="text" id="name" name="name" placeholder="Full Name"
                                         value="{{ Auth::user()->name }}">
-                                    <input type="text" id="address" name="email" placeholder="E-mail Address"
+                                    <input type="email" id="email" name="email" placeholder="E-mail Address"
                                         value="{{ Auth::user()->email }}">
-                                    <div class="select">
+                                    <div class="select mt-4">
                                         <select name="campus" id="campus">
                                             <option value="-1">Campus of Interests</option>
                                             <option value="Nearby">Nearby</option>

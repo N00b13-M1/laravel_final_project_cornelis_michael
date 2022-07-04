@@ -57,7 +57,7 @@ class NewsletterController extends Controller
         $interests = Informationrequest::all();
         $interest_titles = Schema::getColumnListing('informationrequests');
         // dd($interest_titles);
-        $interest_titles = array_slice($interest_titles, 0, 7);
+        $interest_titles = array_slice($interest_titles, 0, 8);
 
         return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles', 'interests', 'interest_titles'));
     }
@@ -178,7 +178,7 @@ class NewsletterController extends Controller
         $newinterest->program = $request->program;
         $newinterest->date = $request->date;
         $newinterest->time = $request->time;
-
+        $newinterest->professor_email = $request->professor_email;
 
 
         $newinterest->save();
@@ -211,6 +211,7 @@ class NewsletterController extends Controller
             'program' => 'required',
             'date' => 'required',
             'time' => 'required',
+            'professor_email' => 'required',
         ]);
 
 
@@ -225,6 +226,7 @@ class NewsletterController extends Controller
         $newinterest->program = $request->program;
         $newinterest->date = $request->date;
         $newinterest->time = $request->time;
+        $newinterest->professor_email = $request->professor_email;
 
         $newinterest->update();
 

@@ -76,7 +76,6 @@ class EventController extends Controller
                 Mail::to($subscribers[$i]->email)->send(new EventMail ($event));
             }
 
-
         }
 
         $request->file("img")->storePublicly('/assets/images/','public');

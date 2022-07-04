@@ -16,7 +16,7 @@
             @csrf
             <div class="select mb-3">
                 <select name="name" id="name">
-                    <option value="-1">User Name</option>
+                    <option value="-1">Submitter Name</option>
                     @foreach ($users as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
@@ -46,7 +46,7 @@
                 });
             </script>
             <div class="mb-3">
-                <label for="name" class="form-label">Email</label>
+                <label for="name" class="form-label">Submitter Email</label>
                 <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="select mb-3">
@@ -75,9 +75,17 @@
                 <label for="time" class="form-label">Time</label>
                 <input type="time" class="form-control" id="time" name="time">
             </div>
+            <div class="select mb-3">
+                {{-- {{  dd($users) }} --}}
+                <select name="professor_email" id="professor_email">
+                    <option value="-1">Professor Email</option>
+                    @foreach ($users as $item)
+                    <option value="{{ $item->email }}">{{ $item->email }}</option>
+                    @endforeach
+                </select>
+            </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
     </div>
 @endsection
-
 
