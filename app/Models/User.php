@@ -47,4 +47,14 @@ class User extends Authenticatable
     public function role(){
         $this->belongsTo(Role::class);
     }
+
+    public function requests(){
+        $this->hasMany(Informationrequest::class);
+    }
+
+    public function conments(){
+        $this->hasMany(Comment::class);
+    }
+
+
 }

@@ -72,19 +72,19 @@
                                     <div class="select">
                                         <select name="campus" id="campus">
                                             <option value="-1">Campus of Interests</option>
-                                            <option value="0">Nearby</option>
-                                            <option value="1">High Classes</option>
-                                            <option value="2">Short Time</option>
-                                            <option value="3">Long Time</option>
+                                            <option value="Nearby">Nearby</option>
+                                            <option value="High Classes">High Classes</option>
+                                            <option value="Short Time">Short Time</option>
+                                            <option value="Long Time">Long Time</option>
                                         </select>
                                     </div>
                                     <div class="select">
                                         <select name="program" id="program">
                                             <option value="-1">Program of Interests</option>
-                                            <option value="0">Working Process</option>
-                                            <option value="1">Archivements</option>
-                                            <option value="2">Social</option>
-                                            <option value="3">Profits</option>
+                                            <option value="Working Process">Working Process</option>
+                                            <option value="Archivements<">Archivements</option>
+                                            <option value="Social">Social</option>
+                                            <option value="Profits">Profits</option>
                                         </select>
                                     </div>
                                     <div class="accent-button">

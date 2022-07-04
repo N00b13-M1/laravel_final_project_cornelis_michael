@@ -226,6 +226,9 @@ Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('new
 
 Route::post('/inform-submit', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
 
+Route::post('/comment-submit/{id}', [CommentController::class, 'store'])->name('comment_submit');
+
+
 Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subscriber'])->name('message-center.create_subscriber');
 
 Route::get('/back/interest/create', [NewsletterController::class, 'create_interest'])->name('message-center.create_interest');

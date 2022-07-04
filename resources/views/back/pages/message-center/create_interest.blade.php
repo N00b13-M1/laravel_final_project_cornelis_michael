@@ -18,10 +18,12 @@
                 <select name="name" id="name">
                     <option value="-1">User Name</option>
                     @foreach ($users as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
+                {{-- {{  dd($users[0]->name) }} --}}
             </div>
+            {{-- {{ dd($users) }} --}}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
             <script>
                 $('#name').change(function() {
@@ -29,7 +31,7 @@
                     var id = $(this).val();
                     console.log(id);
 
-                    
+
                     $.ajax({
                         url: '/back/interest/create/details/'+id,
                         type: 'get',
@@ -50,19 +52,19 @@
             <div class="select mb-3">
                 <select name="campus" id="campus">
                     <option value="-1">Campus of Interests</option>
-                    <option value="0">Nearby</option>
-                    <option value="1">High Classes</option>
-                    <option value="2">Short Time</option>
-                    <option value="3">Long Time</option>
+                    <option value="Nearby">Nearby</option>
+                    <option value="High Classes">High Classes</option>
+                    <option value="Short Time">Short Time</option>
+                    <option value="Long Time">Long Time</option>
                 </select>
             </div>
             <div class="select mb-3">
                 <select name="program" id="program">
                     <option value="-1">Program of Interests</option>
-                    <option value="0">Working Process</option>
-                    <option value="1">Archivements</option>
-                    <option value="2">Social</option>
-                    <option value="3">Profits</option>
+                    <option value="Working Process">Working Process</option>
+                    <option value="Archivements">Archivements</option>
+                    <option value="Social">Social</option>
+                    <option value="Profits">Profits</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-success m-2">Save</button>

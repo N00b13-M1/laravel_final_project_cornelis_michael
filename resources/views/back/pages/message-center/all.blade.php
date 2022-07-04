@@ -71,10 +71,11 @@
                 @foreach ($interests as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->user->name }}</td>\
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->campus }}</td>
                         <td>{{ $item->program }}</td>
+                        <td>{{ $item->date }}</td>
                         <td>
                             <a href="{{ route('message_center.edit_interest', $item->id) }}"><button class="btn btn-primary">Edit</button>
                             </a>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Message;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -24,7 +26,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -33,9 +35,20 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $batou)
     {
-        //
+        // dd($batou);
+        $newmessage = New Comment;
+        $newmessage->post_id = $batou;
+
+
+        $newmessage->user_id = User::where('email', $request->email)->first()->id;
+
+        $newmessage->comment = $request->comment;
+
+        $newmessage->save();
+
+        return redirect()->back()->with('success', 'Successfully added comment');
     }
 
     /**

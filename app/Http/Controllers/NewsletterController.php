@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Schema;
 use League\CommonMark\Renderer\Inline\NewlineRenderer;
 use Symfony\Component\Mailer\Messenger\SendEmailMessage;
 use App\Mail\UserSubscribedMessage;
+use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
 
@@ -54,7 +56,8 @@ class NewsletterController extends Controller
 
         $interests = Informationrequest::all();
         $interest_titles = Schema::getColumnListing('informationrequests');
-        $interest_titles = array_slice($interest_titles, 0, 5);
+        // dd($interest_titles);
+        $interest_titles = array_slice($interest_titles, 0, 6);
 
         return view ('back.pages.message-center.all', compact('subscribers', 'subscriber_titles', 'interests', 'interest_titles'));
     }
@@ -65,18 +68,17 @@ class NewsletterController extends Controller
         $validator = Validator::make($request->all(),[
             // 'name' => 'required',
             // 'email' => 'required',
-            'campus' => 'required|integer|between:0,3',
-            'program' => 'required|integer|between:0,3',
+            'campus' => 'required|',
+            'program' => 'required',
         ]);
 
         if ($validator->fails()) {
             return redirect('/')->with("error", "You didn't define a correct campus or program");
         };
 
-
-
         $newinterest = new Informationrequest;
 
+        $newinterest->user_id = Auth::user()->id;
         $newinterest->name = $request->name;
         $newinterest->email = $request->email;
 
@@ -104,6 +106,7 @@ class NewsletterController extends Controller
             return redirect('/')->with("error", "You're already part of the mailinglist, you won't be added again");
         }
 
+        // dd($request);
         $newsletter = New Newsletter();
         $newsletter->email = $request->email;
 
@@ -127,9 +130,10 @@ class NewsletterController extends Controller
         return view ('back.pages.message-center.create_interest', compact('users'));
     }
 
-    public function getDetails($id = 0)
+    public function getDetails($id= 0)
     {
         $data = User::find($id);
+        // dd($data);
         return response()->json($data);
     }
 
@@ -152,17 +156,18 @@ class NewsletterController extends Controller
         $validator = Validator::make($request->all(),[
             // 'name' => 'required',
             // 'email' => 'required',
-            'campus' => 'required|integer|between:0,3',
-            'program' => 'required|integer|between:0,3',
+            'campus' => 'required',
+            'program' => 'required',
         ]);
 
         if ($validator->fails()) {
             return redirect('/')->with("error", "You didn't define a correct campus or program");
         };
 
+        $newinterest = new Informationrequest;
 
+        $newinterest->user_id = User::where('email', $request->email)->first()->id;
 
-        $newinterest = new Informationrequest();
 
         $newinterest->name = $request->name;
         $newinterest->email = $request->email;
@@ -175,7 +180,48 @@ class NewsletterController extends Controller
         return redirect()->route('message-center')->with('success', 'Successfully sent Info request');
     }
 
-    public function edit_subscriber ($id, Request $request)
+    public function edit_interest ($id)
+    {
+        $newinterest = Informationrequest::find($id);
+        $newinterests = Informationrequest::all();
+        // dd($newsletters);
+        $users = User::all();
+
+        $newinterest = Informationrequest::find($id);
+        // dd($newinterest->id);
+        $user = $newinterest->user;
+        // dd($user);
+
+        return view ('back.pages.message-center.edit_interest', compact('newinterest', 'newinterests', 'users', 'user'));
+    }
+
+
+
+    public function update_interest (Request $request, $id)
+    {
+        $request->validate([
+            'email' => 'required|unique:newsletters'
+        ]);
+
+
+        $newinterest = Informationrequest::find($id);
+        // dd($id);
+
+        $newinterest->user_id = User::where('email', $request->email)->first()->id;
+        $newinterest->name = $request->name;
+        $newinterest->email = $request->email;
+
+        $newinterest->campus = $request->campus;
+        $newinterest->program = $request->program;
+        $newinterest->date = $request->date;
+
+        $newinterest->update();
+
+        return redirect()->route('message-center')->with("update", "Successfully Updated");
+    }
+
+
+    public function edit_subscriber ($id)
     {
         $newsletter = Newsletter::find($id);
         // dd($newsletter);
@@ -202,6 +248,15 @@ class NewsletterController extends Controller
         $newsletter = Newsletter::find($id);
         // dd($id);
         $newsletter->delete();
+
+        return redirect()->back()->with("delete", "Successfully Deleted");
+
+    }
+
+    public function destroy_interest ($id)
+    {
+        $newinterest =  Informationrequest::find($id);
+        $newinterest->delete();
 
         return redirect()->back()->with("delete", "Successfully Deleted");
 

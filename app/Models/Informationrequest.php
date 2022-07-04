@@ -12,5 +12,10 @@ class Informationrequest extends Model
     protected $fillable= [
         'name', 'email', 'campus', 'program'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
 

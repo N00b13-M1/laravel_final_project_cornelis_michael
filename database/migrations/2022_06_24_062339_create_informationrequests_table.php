@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('campus');
             $table->string('program');
+            $table->date('date')->nullable();
+            $table->foreignId("user_id")->constrained("users", "id")->OnDelete('cascade');
             $table->timestamps();
         });
     }

@@ -87,7 +87,7 @@
                     </div>
                     @if (Auth::check())
                     <div class="comment-form">
-                        <form action="/inform-submit" method="post">
+                        <form action="{{  route('comment_submit', $news_post[0]->id) }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -99,7 +99,7 @@
                                     value="{{ Auth::user()->email }}">
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea id="message" class="message" name="message" placeholder="Write comment"></textarea>
+                                    <textarea id="message" class="message" name="comment" placeholder="Write comment"></textarea>
                                 </div>
                             </div>
                             <div class="accent-button">
