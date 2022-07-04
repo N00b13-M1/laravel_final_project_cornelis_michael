@@ -10,7 +10,13 @@ class Informationrequest extends Model
     use HasFactory;
 
     protected $fillable= [
-        'name', 'email', 'campus', 'program', 'date', 'time'
+        'name',
+        'email',
+        'campus',
+        'program',
+        'date',
+        'time',
+        'professor_email'
     ];
 
     public function user()

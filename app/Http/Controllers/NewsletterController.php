@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RequestInfoProfessor;
+use App\Mail\RequestInfoSubmitter;
 use App\Models\Email;
 use App\Models\Newsletter;
 use App\Models\User;
@@ -229,6 +231,14 @@ class NewsletterController extends Controller
         $newinterest->professor_email = $request->professor_email;
 
         $newinterest->update();
+
+        if($newinterest->save()){
+            Mail::to($newinterest->email)->send(new RequestInfoSubmitter ($newinterest));
+
+            Mail::to($newinterest->professor_email)->send(new RequestInfoProfessor ($newinterest));
+        }
+
+
 
         return redirect()->route('message-center')->with("update", "Successfully Updated");
     }

@@ -17,7 +17,9 @@
         <p>{{ \Session::get('failure') }}</p>
       </div><br />
      @endif --}}
-      <h2>Dear You are now subscribed to our newsletter </h2><br/>
+      <p>Hello {{ $newinterest->user->name }}, <br>
+        you have an appointnent with {{ $newinterest->professor_email }} <br>
+        on  {{ $newinterest->date }} at  {{ $newinterest->time }} </p><br/>
       {{-- <form method="post" action="{{url('newsletter')}}">
         @csrf
         </div>

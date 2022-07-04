@@ -2,12 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\Informationrequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RequestInfoMailer extends Mailable
+class RequestInfoProfessor extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +17,9 @@ class RequestInfoMailer extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Informationrequest $newinterest)
     {
-        //
+        $this->newinterest = $newinterest;
     }
 
     /**
@@ -28,10 +29,10 @@ class RequestInfoMailer extends Mailable
      */
     public function build()
     {
-        $details = $this->crententials;
-        return $this->from('professor@gmail.com')
-            ->subject($details['Interest'])
-            ->view('emails.email_template');
+        return $this->from('appointment@gmail.com')
+        ->subject("Appointment")
+        ->view('emails.requestinfo_professor')
+        ->with([
+            'newinterest' => $this->newinterest]);
     }
 }
-
