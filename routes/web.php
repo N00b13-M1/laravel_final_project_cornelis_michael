@@ -180,6 +180,13 @@ Route::get('/professor/{id}', function ($id) {
 })->name('professor.single');
 
 
+
+// Route::post('/teacher-message', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
+
+Route::post('/back/professor/teacher-message', [MessageController::class, 'message_submit'])->middleware(['auth'])->name('messages_submit');
+
+Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
+
 Route::resource('back/banners', BannerController::class);
 Route::resource('back/services', ServiceController::class);
 Route::resource('back/courses', CourseController::class);
@@ -256,6 +263,7 @@ Route::post('/back/interest/destroy/{id}', [NewsletterController::class, 'destro
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
 
 Route::get('/back', function () {
     return view('back.backend');

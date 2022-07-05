@@ -52,9 +52,12 @@ class User extends Authenticatable
         $this->hasMany(Informationrequest::class);
     }
 
-    public function conments(){
+    public function comments(){
         $this->hasMany(Comment::class);
     }
 
+    public function messages(){
+        $this->hasMany(Message::class);
+    }
 
 }

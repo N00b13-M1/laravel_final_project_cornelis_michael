@@ -38,4 +38,3 @@ class RequestInfoSubmitter extends Mailable
 }
 
 
-

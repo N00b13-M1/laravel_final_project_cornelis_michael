@@ -6,14 +6,33 @@
                     <div class="row">
                         <div class="col-md-5">
                             <img src="{{ asset('assets/images/' . $professors[0]->professor_photo) }}" alt="">
+
+                            @if (Auth::check())
+                                <div class="contact-form">
+                                    <form action="/back/professor/teacher-message" method="post">
+                                        @csrf
+                                        <h4>Contact me</h4>
+                                        <input type="text" id="name" name="name" placeholder="Full Name"
+                                        value="{{ Auth::user()->name }}">
+                                        <input type="email" id="email" name="email" placeholder="E-mail Address"
+                                        value="{{ Auth::user()->email }}">
+                                        <textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
+                                        <div class="accent-button">
+                                            <a href="#"><button type="submit">SEND MESSAGE</button></a>
+                                        </div>
+                                    </form>
+                                </div>
+                            @else
                             <div class="contact-form">
                                 <h4>Contact me</h4>
-                                <input type="text" id="address" name="s" placeholder="E-mail Address" value="">
-                                <textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
-                                <div class="accent-button">
-                                    <a href="#">Send Message</a>
+                                <div class="accent-button-request">
+                                    <a href="{{ route('login') }}">Login</a>
+                                </div>
+                                <div  class="accent-button-request">
+                                    <a href="{{ route('register') }}">Register</a>
                                 </div>
                             </div>
+                            @endif
                         </div>
                         <div class="col-md-7">
                             <div class="right-info">

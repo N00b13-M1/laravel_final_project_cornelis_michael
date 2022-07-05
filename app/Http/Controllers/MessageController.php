@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Validator;
 
 class MessageController extends Controller
 {
@@ -14,7 +17,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+        $message_titles = Schema::getColumnListing('messages');
+        $message_titles = array_slice($message_titles, 0, 4);
+        // dd($message_titles);
+        return view ('messages', compact('messages', 'message_titles'));
     }
 
     /**
@@ -22,6 +29,38 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function message_submit(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            // 'name' => 'required',
+            // 'email' => 'required',
+            'message' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/')->with("error", "You didn't add a comment");
+        };
+
+        $newmessage = new Message;
+
+        $newmessage->user_id = Auth::user()->id;
+        $newmessage->name = $request->name;
+        $newmessage->email = $request->email;
+        $newmessage->message = $request->message;
+
+        $newmessage->save();
+
+        return redirect()->back()->with('success', 'Successfully sent Message');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+
     public function create()
     {
         //
