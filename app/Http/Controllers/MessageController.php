@@ -54,6 +54,30 @@ class MessageController extends Controller
         return redirect()->back()->with('success', 'Successfully sent Message');
     }
 
+    public function contact_submit (Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            // 'name' => 'required',
+            // 'email' => 'required',
+            'message' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/')->with("error", "You didn't add a comment");
+        };
+
+        $newmessage = new Message;
+
+        $newmessage->user_id = Auth::user()->id;
+        $newmessage->name = $request->name;
+        $newmessage->email = $request->email;
+        $newmessage->message = $request->message;
+
+        $newmessage->save();
+
+        return redirect()->back()->with('success', 'Successfully sent Message');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -188,6 +188,8 @@ Route::get('/professor/{id}', function ($id) {
 
 Route::post('/back/professor/teacher-message', [MessageController::class, 'message_submit'])->middleware(['auth'])->name('messages_submit');
 
+Route::post('/back/admin/admin-message', [MessageController::class, 'contact_submit'])->middleware(['auth'])->name('contact_submit');
+
 Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
 
 Route::resource('back/banners', BannerController::class);
