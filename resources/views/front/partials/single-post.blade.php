@@ -48,7 +48,7 @@
                     <div class="comment-item">
                         <img src="http://placehold.it/54x54" alt="">
                         <h4>{{ $comment->user->name }}</h4>
-                        <span>{{ $comment->created_at }}</span>
+                        <span>{{ $comment->created_at->diffForHumans() }}</span>
                         <div class="reply-button">
                             <a href="#">Reply</a>
                         </div>
@@ -238,3 +238,6 @@
         </div>
     </div>
 </section>
+
+
+
