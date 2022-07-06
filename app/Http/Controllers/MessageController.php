@@ -30,7 +30,7 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function message_submit(Request $request)
+    public function message_submit (Request $request)
     {
         $validator = Validator::make($request->all(),[
             // 'name' => 'required',

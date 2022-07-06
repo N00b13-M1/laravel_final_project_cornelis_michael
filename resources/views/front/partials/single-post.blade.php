@@ -44,7 +44,18 @@
                     <div class="heading">
                         <h2>Comments</h2>
                     </div>
+                    @foreach ($comments as $comment )
                     <div class="comment-item">
+                        <img src="http://placehold.it/54x54" alt="">
+                        <h4>{{ $comment->user->name }}</h4>
+                        <span>{{ $comment->created_at }}</span>
+                        <div class="reply-button">
+                            <a href="#">Reply</a>
+                        </div>
+                        <p>{{ $comment->comment }}</p>
+                    </div>
+                    @endforeach
+                    {{-- <div class="comment-item">
                         <img src="http://placehold.it/54x54" alt="">
                         <h4>John Smith</h4>
                         <span>1 hour ago</span>
@@ -79,7 +90,7 @@
                             <a href="#">Reply</a>
                         </div>
                         <p>Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast.Tofu dreamcatcher 90's letterpress vinyl megging</p>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="leave-comment">
                     <div class="heading">
@@ -87,6 +98,7 @@
                     </div>
                     @if (Auth::check())
                     <div class="comment-form">
+                        {{-- {{ dd($news_post[0]->id) }} --}}
                         <form action="{{  route('comment_submit', $news_post[0]->id) }}" method="post">
                             @csrf
                             <div class="row">

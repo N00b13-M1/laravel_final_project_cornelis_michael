@@ -48,5 +48,65 @@ class UserSeeder extends Seeder
             'role_id'=> 4,
             'created_at' => now(),
         ]);
+        DB::table('users')->insert([
+            'name' => 'NICK SMITH',
+            'email' => 'nick@smith.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'JOHN ROSADO',
+            'email' => 'john@rosado.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'SAMUEL DELOSSANTOS',
+            'email' => 'samuel@delossantos.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'JOHN SMITH            ',
+            'email' => 'john@smith.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ENDRIS FLENDERNO',
+            'email' => 'endris@flenderno.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'MARCOS MARRISON',
+            'email' => 'marcos@marrison.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ROBERT LANDERSON',
+            'email' => 'robert@landerson.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
     }
 }
+
+
+
+

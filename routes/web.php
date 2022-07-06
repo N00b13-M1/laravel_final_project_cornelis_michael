@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EmailController;
@@ -160,9 +161,11 @@ Route::get('/news/{id}', function ($id) {
     $news_post = News::where('id', $id)->get();
     $tags = Tag::all();
     $categories = Categorie::all();
-    // $comments = Comment::where('newsid', $id)->get();
+    // $comments = Comment::all();
+    $comments = Comment::where('post_id', $id)->get();
+    // dd($comments);
 
-    return view('front.pages.single-post', compact('banners', 'news_post', 'id', 'tags', 'categories'));
+    return view('front.pages.single-post', compact('banners', 'news_post', 'id', 'tags', 'categories', 'comments'));
 })->name('news.single');
 
 
@@ -231,7 +234,7 @@ Route::get('/back/message-center', [NewsletterController::class, 'index'])->name
 
 Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
-Route::post('/inform-submit', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
+Route::post('/inform-submit/{id}', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
 
 Route::post('/comment-submit/{id}', [CommentController::class, 'store'])->name('comment_submit');
 
