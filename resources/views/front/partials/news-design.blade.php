@@ -3,9 +3,8 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="classic-posts">
-                    @foreach ($news as $item )
+                    @foreach ($news_design as $item )
                     <div class="classic-item">
-
                         <a href="{{ route("news.single", $item->id) }}"><img src="{{ asset('assets/images/' . $item->img) }}" alt=""></a>
                         <ul>
                             <li>Posted: <em>{{ $item->created_when }}</em></li>
@@ -26,7 +25,7 @@
                         </div>
                     </div>
                     @endforeach
-                    {{ $news->links() }}
+                    {{-- {{ $news_designs->links() }} --}}
                     {{-- <div class="classic-item">
                         <a href="single-post.html"><img src="{{ asset('assets/images/news-classic-6.jpg') }}" alt=""></a>
                         <ul>

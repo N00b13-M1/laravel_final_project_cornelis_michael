@@ -22,6 +22,7 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Event;
 use App\Models\News;
+use App\Models\NewsCategorie;
 use App\Models\Professor;
 use App\Models\Service;
 use App\Models\Tag;
@@ -152,7 +153,75 @@ Route::get('/news', function () {
 Route::get('/search', [SearchController::class, 'search'])->name('news.search');
 
 
-// Route::get('/search', [SearchController::class, 'search'])->name('news.search');
+Route::get('/news/news-design', function () {
+    $banners = Banner::all();
+    $news_design = News::whereHas('categories', function($q)
+    {
+        $q->where('category_desc', 'like', 'Design');
+    })->get();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('front.pages.news-design', compact('banners', 'news_design', 'tags', 'categories'));
+})->name('news-design');
+
+
+
+Route::get('/news/news-international', function () {
+    $banners = Banner::all();
+    $news_international = News::whereHas('categories', function($q)
+    {
+        $q->where('category_desc', 'like', 'International');
+    })->get();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('front.pages.news-international', compact('banners', 'news_international', 'tags', 'categories'));
+})->name('news-international');
+
+
+Route::get('/news/news-learning', function () {
+    $banners = Banner::all();
+    $news_learning = News::whereHas('categories', function($q)
+    {
+        $q->where('category_desc', 'like', 'Learning');
+    })->get();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('front.pages.news-learning', compact('banners', 'news_learning', 'tags', 'categories'));
+})->name('news-learning');
+
+
+Route::get('/news/news-read', function () {
+    $banners = Banner::all();
+    $news_read = News::whereHas('categories', function($q)
+    {
+        $q->where('category_desc', 'like', 'Read');
+    })->get();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('front.pages.news-read', compact('banners', 'news_read', 'tags', 'categories'));
+})->name('news-read');
+
+Route::get('/news/news-education', function () {
+    $banners = Banner::all();
+    $news_education = News::whereHas('categories', function($q)
+    {
+        $q->where('category_desc', 'like', 'Education');
+    })->get();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('front.pages.news-education', compact('banners', 'news_education', 'tags', 'categories'));
+})->name('news-education');
+
+Route::get('/news/news-finance', function () {
+    $banners = Banner::all();
+    $news_finance = News::whereHas('categories', function($q)
+    {
+        $q->where('category_desc', 'like', 'Finance');
+    })->get();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+    return view('front.pages.news-finance', compact('banners', 'news_finance', 'tags', 'categories'));
+})->name('news-finance');
 
 
 Route::get('/news/{id}', function ($id) {
@@ -275,5 +344,4 @@ Route::get('/back', function () {
 })->name('backend');
 
 require __DIR__.'/auth.php';
-
 

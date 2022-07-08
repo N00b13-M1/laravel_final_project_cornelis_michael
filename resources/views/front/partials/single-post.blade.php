@@ -147,7 +147,7 @@
                         </div>
                         <ul>
                             @foreach ($categories as $category)
-                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ $category->category_desc }}</a></li>
+                            <li><a href=""><i class="fa fa-angle-right"></i>{{ $category->category_desc }}</a></li>
                             @endforeach
                             {{-- <li><a href="#"><i class="fa fa-angle-right"></i>Design</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>International</a></li>
