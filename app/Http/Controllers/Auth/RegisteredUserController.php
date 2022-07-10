@@ -33,24 +33,33 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
+
     {
+        // dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'profile_pic' => ['required' ,'file'],
+            // 'profile_pic' => ['required' ,'file'],
         ]);
 
-
+        // dd($request);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'profile_pic' => $request->profile_pic,
             'role_id' => 4
         ]);
 
-        // dd($user);
+        if ($request->profile_pic != \null) {
+            $user->profile_pic = "./assets/images/". $request->profile_pic->hashName();
+
+            $request->file("profile_pic")->storePublicly('/assets/images/','public');
+
+            $user->save();
+        }
+
+
 
         event(new Registered($user));
 
@@ -59,3 +68,4 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 }
+

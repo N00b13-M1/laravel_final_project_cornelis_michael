@@ -58,7 +58,8 @@
                         <td><img src="{{ asset('assets/images/' . $item->bg_3 ) }}"></td>
                         <td><img src="{{ asset('assets/images/' . $item->bg_4) }}"></td>
                         <td><img src="{{ asset('assets/images/' . $item->teacher_pic ) }}"></td>
-                        <td>{{ $item->teacher_name }}</td>
+                        {{-- <td>{{ $item->teacher_name }}</td> --}}
+                        <td>{{ $item->user->name }}</td>
                         <td>{{ $item->price_class }}</td>
                         <td>{{ $item->price }}</td>
                         <td>{!! (Str::words($item->text, '5')) !!}</td>

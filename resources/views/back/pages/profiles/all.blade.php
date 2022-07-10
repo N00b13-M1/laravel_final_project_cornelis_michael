@@ -44,7 +44,7 @@
                         <th scope="row">{{ $item->name }}</th>
                         <th scope="row">{{ $item->email}}</th>
                         <th scope="row">{{ $item->password }}</th>
-                        <th scope="row">{{ $item->profile_pic }}</th>
+                        <th scope="row"><img src="{{asset($item->profile_pic) }}" alt="" class="w-50"></th>
                         <td>
                             <a href="{{ route('profiles.show', $item) }}"><button class="btn btn-primary">Show</button>
                             </a>

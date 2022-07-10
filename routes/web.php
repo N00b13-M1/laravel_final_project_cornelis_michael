@@ -40,6 +40,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//FRONT
+
+
 Route::get('/', function () {
     $banners = Banner::all();
     $services = Service::all();
@@ -251,97 +254,112 @@ Route::get('/professor/{id}', function ($id) {
     return view('front.pages.single-teacher', compact('banners','professors', 'id'));
 })->name('professor.single');
 
-
-
-// Route::post('/teacher-message', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
-
-Route::post('/back/professor/teacher-message', [MessageController::class, 'message_submit'])->middleware(['auth'])->name('messages_submit');
-
-Route::post('/back/admin/admin-message', [MessageController::class, 'contact_submit'])->middleware(['auth'])->name('contact_submit');
-
-Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
-
-Route::resource('back/banners', BannerController::class);
-Route::resource('back/services', ServiceController::class);
-Route::resource('back/courses', CourseController::class);
-Route::resource('back/profiles', UserController::class);
-Route::resource('back/professors', ProfessorController::class);
-Route::resource('back/events', EventController::class);
-Route::resource('back/contacts', ContactController::class);
-Route::resource('back/news', NewsController::class);
-// Route::resource('back/tagsandcategories', TagsandcategoryController::class);
-
-Route::get('back/tagsandcategories', [TagsandcategoryController::class, 'index'])->name('tagsandcategories.index');
-
-Route::get('back/tag/create', [TagsandcategoryController::class, 'create_tag'])->name('tagsandcategories.create_tag');
-
-Route::post('back/tag/store', [TagsandcategoryController::class, 'store_tag'])->name('tagsandcategories.store_tag');
-
-
-Route::get('back/category/create', [TagsandcategoryController::class, 'create_category'])->name('tagsandcategories.create_category');
-
-Route::post('back/category/store', [TagsandcategoryController::class, 'store_category'])->name('tagsandcategories.store_category');
-
-
-Route::get('back/show/{id}/tag', [TagsandcategoryController::class, 'show_tag'])->name('tagsandcategories.show_tag');
-Route::get('back/show/{id}/category', [TagsandcategoryController::class, 'show_category'])->name('tagsandcategories.show_category');
-
-Route::get('back/edit/{id}/tag', [TagsandcategoryController::class, 'edit_tag'])->name('tagsandcategories.edit_tag');
-
-Route::post('back/update/{id}/tag', [TagsandcategoryController::class, 'update_tag'])->name('tagsandcategories.update_tag');
-
-Route::get('back/edit/{id}/category', [TagsandcategoryController::class, 'edit_category'])->name('tagsandcategories.edit_category');
-
-Route::post('back/update/{id}/category', [TagsandcategoryController::class, 'update_category'])->name('tagsandcategories.update_category');
-
-Route::post('back/delete/{id}/tag', [TagsandcategoryController::class, 'destroy_tag'])->name('tagsandcategories.destroy_tag');
-Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'destroy_category'])->name('tagsandcategories.destroy_category');
-
-// Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
-// Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
-
-
-Route::get('/back/message-center', [NewsletterController::class, 'index'])->name('message-center');
-
 Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 Route::post('/inform-submit/{id}', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
 
 Route::post('/comment-submit/{id}', [CommentController::class, 'store'])->name('comment_submit');
 
-Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subscriber'])->name('message-center.create_subscriber');
 
-Route::get('/back/interest/create', [NewsletterController::class, 'create_interest'])->name('message-center.create_interest');
-
-Route::get('/back/interest/create/details/{id}', [NewsletterController::class, 'getDetails'])->name('getDetails');
+// Route::post('/teacher-message', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
 
 
-Route::post('/back/subscriber/store', [NewsletterController::class, 'store_subscriber'])->name('message_center.store_subscriber');
+//BACKEND ROUTES
 
-Route::post('/back/interest/store', [NewsletterController::class, 'store_interest'])->name('message_center.store_interest');
+Route::middleware(['auth'])->group(function(){
 
+    Route::post('/back/professor/teacher-message', [MessageController::class, 'message_submit'])->middleware(['auth'])->name('messages_submit');
 
-Route::get('/back/subscriber/edit/{id}', [NewsletterController::class, 'edit_subscriber'])->name('message_center.edit_subscriber');
+    Route::post('/back/admin/admin-message', [MessageController::class, 'contact_submit'])->middleware(['auth'])->name('contact_submit');
 
-Route::get('/back/interest/edit/{id}', [NewsletterController::class, 'edit_interest'])->name('message_center.edit_interest');
-
-
-Route::post('/back/subscriber/update/{id}', [NewsletterController::class, 'update_subscriber'])->name('message_center.update_subscriber');
-
-Route::post('/back/interest/update/{id}', [NewsletterController::class, 'update_interest'])->name('message_center.update_interest');
-
-Route::post('/back/subscriber/destroy/{id}', [NewsletterController::class, 'destroy_subscriber'])->name('message_center.destroy_subscriber');
-
-Route::post('/back/interest/destroy/{id}', [NewsletterController::class, 'destroy_interest'])->name('message_center.destroy_interest');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    Route::resource('back/courses', CourseController::class);
+    Route::resource('back/events', EventController::class);
+    Route::resource('back/news', NewsController::class);
 
 
-Route::get('/back', function () {
-    return view('back.backend');
-})->name('backend');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+
+
+    Route::get('/back', function () {
+        return view('back.backend');
+    })->name('backend');
+
+    Route::get('/back/interest/create', [NewsletterController::class, 'create_interest'])->name('message-center.create_interest');
+
+    Route::post('/back/interest/store', [NewsletterController::class, 'store_interest'])->name('message_center.store_interest');
+
+    Route::post('/back/subscriber/destroy/{id}', [NewsletterController::class, 'destroy_subscriber'])->name('message_center.destroy_subscriber');
+
+    Route::post('/back/interest/destroy/{id}', [NewsletterController::class, 'destroy_interest'])->name('message_center.destroy_interest');
+
+    Route::middleware(['is_admin'])->group(function(){
+
+
+        Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
+
+        Route::resource('back/banners', BannerController::class);
+
+        Route::resource('back/profiles', UserController::class);
+        Route::resource('back/services', ServiceController::class);
+        Route::resource('back/professors', ProfessorController::class);
+        Route::resource('back/contacts', ContactController::class);
+
+        // Route::resource('back/tagsandcategories', TagsandcategoryController::class);
+
+        Route::get('back/tagsandcategories', [TagsandcategoryController::class, 'index'])->name('tagsandcategories.index');
+
+        Route::get('back/tag/create', [TagsandcategoryController::class, 'create_tag'])->name('tagsandcategories.create_tag');
+
+        Route::post('back/tag/store', [TagsandcategoryController::class, 'store_tag'])->name('tagsandcategories.store_tag');
+
+
+        Route::get('back/category/create', [TagsandcategoryController::class, 'create_category'])->name('tagsandcategories.create_category');
+
+        Route::post('back/category/store', [TagsandcategoryController::class, 'store_category'])->name('tagsandcategories.store_category');
+
+
+        Route::get('back/show/{id}/tag', [TagsandcategoryController::class, 'show_tag'])->name('tagsandcategories.show_tag');
+        Route::get('back/show/{id}/category', [TagsandcategoryController::class, 'show_category'])->name('tagsandcategories.show_category');
+
+        Route::get('back/edit/{id}/tag', [TagsandcategoryController::class, 'edit_tag'])->name('tagsandcategories.edit_tag');
+
+        Route::post('back/update/{id}/tag', [TagsandcategoryController::class, 'update_tag'])->name('tagsandcategories.update_tag');
+
+        Route::get('back/edit/{id}/category', [TagsandcategoryController::class, 'edit_category'])->name('tagsandcategories.edit_category');
+
+        Route::post('back/update/{id}/category', [TagsandcategoryController::class, 'update_category'])->name('tagsandcategories.update_category');
+
+        Route::post('back/delete/{id}/tag', [TagsandcategoryController::class, 'destroy_tag'])->name('tagsandcategories.destroy_tag');
+        Route::post('back/delete/{id}/category', [TagsandcategoryController::class, 'destroy_category'])->name('tagsandcategories.destroy_category');
+
+        // Route::post('back/mailsubscriptions', [NewsletterController::class, 'storeEmail']);
+        // Route::get('back/mailsubscriptions', [EmailController::class, 'sendEmail']);
+
+
+        Route::get('/back/message-center', [NewsletterController::class, 'index'])->name('message-center');
+
+        Route::get('/back/subscriber/create', [NewsletterController::class, 'create_subscriber'])->name('message-center.create_subscriber');
+
+
+        Route::get('/back/interest/create/details/{id}', [NewsletterController::class, 'getDetails'])->name('getDetails');
+
+
+        Route::post('/back/subscriber/store', [NewsletterController::class, 'store_subscriber'])->name('message_center.store_subscriber');
+
+
+        Route::get('/back/subscriber/edit/{id}', [NewsletterController::class, 'edit_subscriber'])->name('message_center.edit_subscriber');
+
+        Route::get('/back/interest/edit/{id}', [NewsletterController::class, 'edit_interest'])->name('message_center.edit_interest');
+
+
+        Route::post('/back/subscriber/update/{id}', [NewsletterController::class, 'update_subscriber'])->name('message_center.update_subscriber');
+
+        Route::post('/back/interest/update/{id}', [NewsletterController::class, 'update_interest'])->name('message_center.update_interest');
+
+    });
+
+});
 
 require __DIR__.'/auth.php';
-

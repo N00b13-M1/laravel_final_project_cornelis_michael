@@ -51,7 +51,7 @@
 
                 <x-input id="profile_pic" class="block mt-1 w-full"
                                 type="file"
-                                name="profile_pic" required />
+                                name="profile_pic" />
             </div>
 
             <div class="flex items-center justify-end mt-4">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,6 +18,8 @@ class CourseController extends Controller
      */
     public function index()
     {
+        $this -> authorize('view-course');
+
         $courses = Course::all();
         $course_titles = Schema::getColumnListing('courses');
         $course_titles = array_slice($course_titles, 0, 18);
@@ -32,6 +35,8 @@ class CourseController extends Controller
      */
     public function create()
     {
+        $this -> authorize('create-course');
+
         $categories = Categorie::all();
         return view('back.pages.courses.create', compact('categories'));
     }
@@ -45,19 +50,21 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Course::class);
+
         $validated = $request->validate([
 			'title' => 'required',
 			'desc' => 'required',
 			'bg' => 'required',
 			'teacher_pic' => 'required',
-            'teacher_name' => 'required',
+            // 'teacher_name' => 'required',
             'price_class' => 'required',
             'price' => 'required',
             'text' => 'required',
 		]);
 
 
-        
+
         $course = New Course;
         $course->title = $request->title;
         $course->desc = $request->desc ?? '';
@@ -67,7 +74,8 @@ class CourseController extends Controller
         $course->bg_3 = $request->file('bg_3')->hashName();
         $course->bg_4 = $request->file('bg_4')->hashName();
 
-        $course->teacher_name = $request->teacher_name;
+        // $course->teacher_name = $request->teacher_name;
+        $course->user_id = Auth::user()->id;
         $course->price_class = $request->price_class;
         $course->price = $request->price;
         $course->text = $request->text ?? '';
@@ -100,6 +108,7 @@ class CourseController extends Controller
         $request->file("bg_4")->storePublicly('/assets/images/','public');
         return redirect()->route('courses.index')->with("success", "Successfully Added");
         }
+
     }
 
     /**
@@ -134,12 +143,14 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        $this->authorize('update', $course);
+
         $request->validate([
 			'title' => 'required',
 			'desc' => 'required',
 			// 'bg' => 'required',
 			// 'teacher_pic' => 'required',
-            'teacher_name' => 'required',
+            // 'teacher_name' => 'required',
             'price_class' => 'required',
             'price' => 'required',
             // 'favorite' => 'required',
@@ -206,7 +217,8 @@ class CourseController extends Controller
             $course->bg_4 = $course->bg_4;
         }
 
-        $course->teacher_name = $request->teacher_name;
+        // $course->teacher_name = $request->teacher_name;
+        // $course->user_id = Auth::user()->id;
         $course->price_class = $request->price_class;
         $course->price = $request->price;
         $course->text = $request->text;
@@ -253,6 +265,8 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         // dd($course->favorite);
+
+        $this->authorize('delete', $course);
 
         $favorites = Course::where('favorite', '=', "Yes")->count();        // $normals = Course::where('favorite', '=', "No")->count();
         if($course->favorite == "Yes"){

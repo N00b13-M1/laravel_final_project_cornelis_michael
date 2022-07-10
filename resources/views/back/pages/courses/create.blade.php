@@ -59,10 +59,10 @@
                 <label for="teacher_pic" class="form-label">Teacher Picture</label>
                 <input type="file" class="form-control" id="teacher_pic" name="teacher_pic" value="{{ old('teacher_pic') }}">
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="teacher_name" class="form-label">Teacher Name</label>
                 <input type="text" class="form-control" id="teacher_name" name="teacher_name" value="{{ old('teacher_name')}}">
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <label for="price_class" class="form-label">Price Class</label>
                 <input type="text" class="form-control" id="price_class" name="price_class" value="{{ old('price_class') }}">

@@ -32,6 +32,7 @@
             </a>
             <span class="tooltip">Services</span>
         </li>
+        @can('view-course')
         <li>
             <a href="{{ route('courses.index') }}">
                 <i class='bx bx-folder'></i>
@@ -39,6 +40,7 @@
             </a>
             <span class="tooltip">Courses</span>
         </li>
+        @endcan
         <li>
             <a href="{{ route('professors.index') }}">
                 <i class='bx bxs-server'></i>

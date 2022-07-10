@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Policies\CoursePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -24,7 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
+        Gate::define('edit-course', [CoursePolicy::class, 'update',]);
+        Gate::define('create-course', [CoursePolicy::class, 'create',]);
+        Gate::define('view-course', [CoursePolicy::class, 'view',]);
     }
 }

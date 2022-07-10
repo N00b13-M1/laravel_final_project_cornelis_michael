@@ -22,10 +22,10 @@
                 <img src="{{ asset('/assets/images/' . $course->teacher_pic ) }}"
                             style="width: 200px" alt="" class="m-2 d-block">
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="teacher_name" class="form-label">Teacher Name</label>
                 <input type="text" class="form-control" id="teacher_name" name="teacher_name" value="{{ $course->teacher_name }}" readonly>
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <label for="price_class" class="form-label">Price Class</label>
                 <input type="text" class="form-control" id="price_class" name="price_class" value="{{ $course->price_class }}" readonly>

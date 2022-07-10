@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('bg_2');
             $table->string('bg_3');
             $table->string('bg_4');
-            $table->string('teacher_name');
+            // $table->string('teacher_name');
+            $table->foreignId('user_id')->constrained('users', "id");
             $table->string('price_class');
             $table->string('price');
             $table->text('text');
