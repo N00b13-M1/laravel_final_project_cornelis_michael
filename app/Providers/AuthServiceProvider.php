@@ -30,3 +30,4 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('view-course', [CoursePolicy::class, 'view',]);
     }
 }
+

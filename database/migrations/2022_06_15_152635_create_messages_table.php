@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('message');
             $table->foreignId("user_id")->constrained("users", "id")->OnDelete('cascade');
+            $table->foreignId("professor_id")->constrained("users", "id")->OnDelete('cascade');
             $table->timestamps();
         });
     }

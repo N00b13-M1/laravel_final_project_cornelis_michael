@@ -9,7 +9,8 @@
 
                             @if (Auth::check())
                                 <div class="contact-form">
-                                    <form action="/back/professor/teacher-message" method="post">
+                                    {{-- {{ dd($professors[0]->id) }} --}}
+                                    <form action="/back/professor/{{ $professors[0]->id }}/teacher-message/" method="post">
                                         @csrf
                                         <h4>Contact me</h4>
                                         <input type="text" id="name" name="name" placeholder="Full Name"

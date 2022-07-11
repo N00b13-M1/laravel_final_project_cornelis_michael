@@ -25,4 +25,8 @@ class Professor extends Model
         'linkedin_id',
         'fixed',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

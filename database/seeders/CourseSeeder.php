@@ -38,6 +38,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Post Graduate",
             'discipline' => "Public Speaking",
             'favorite' => "Yes",
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -61,6 +62,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Undergrad",
             'discipline' => "Engineering",
             'favorite' => "Yes",
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -84,6 +86,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Post Graduate",
             'discipline' => "Public Speaking",
             'favorite' => "Yes",
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -107,6 +110,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Graduate",
             'discipline' => "Management & Business",
             'favorite' => "Yes",
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -130,6 +134,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Professional Certification",
             'discipline' => "Marketing",
             // 'favorite' => 1,
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -153,6 +158,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Professional Certification",
             'discipline' => "Marketing",
             // 'favorite' => 1,
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -176,6 +182,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Post Graduate",
             'discipline' => "Public Speaking",
             // 'favorite' => 1,
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -198,6 +205,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Graduate",
             'discipline' => "Management & Business",
             // 'favorite' => 1,
+            'status' => true,
             'created_at' => now(),
         ]);
         DB::table('courses')->insert([
@@ -221,6 +229,7 @@ class CourseSeeder extends Seeder
             'study_level' => "Professional Certification",
             'discipline' => "Marketing",
             // 'favorite' => 1,
+            'status' => true,
             'created_at' => now(),
         ]);
     }

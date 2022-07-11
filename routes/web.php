@@ -256,7 +256,7 @@ Route::get('/professor/{id}', function ($id) {
 
 Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
-Route::post('/inform-submit/{id}', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
+Route::post('/inform-submit/', [NewsletterController::class, 'interest_submit'])->name('interest_submit');
 
 Route::post('/comment-submit/{id}', [CommentController::class, 'store'])->name('comment_submit');
 
@@ -268,7 +268,7 @@ Route::post('/comment-submit/{id}', [CommentController::class, 'store'])->name('
 
 Route::middleware(['auth'])->group(function(){
 
-    Route::post('/back/professor/teacher-message', [MessageController::class, 'message_submit'])->middleware(['auth'])->name('messages_submit');
+    Route::post('/back/professor/{id}/teacher-message', [MessageController::class, 'message_submit'])->middleware(['auth'])->name('messages_submit');
 
     Route::post('/back/admin/admin-message', [MessageController::class, 'contact_submit'])->middleware(['auth'])->name('contact_submit');
 
@@ -294,10 +294,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::post('/back/interest/destroy/{id}', [NewsletterController::class, 'destroy_interest'])->name('message_center.destroy_interest');
 
+    Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
+
     Route::middleware(['is_admin'])->group(function(){
-
-
-        Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
 
         Route::resource('back/banners', BannerController::class);
 

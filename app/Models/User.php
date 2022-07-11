@@ -46,23 +46,28 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class);
     }
 
     public function requests(){
-        $this->hasMany(Informationrequest::class);
+        return $this->hasMany(Informationrequest::class);
     }
 
     public function comments(){
-        $this->hasMany(Comment::class);
+       return $this->hasMany(Comment::class);
     }
 
     public function messages(){
-        $this->hasMany(Message::class);
+        return $this->hasMany(Message::class);
     }
 
     public function courses(){
-        $this->hasMany(Course::class);
+        return $this->hasMany(Course::class);
     }
 
+    public function professor(){
+        return $this->hasOne(Professor::class);
+    }
 }
+
+

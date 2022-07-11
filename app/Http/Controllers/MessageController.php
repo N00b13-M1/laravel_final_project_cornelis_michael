@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\Professor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::all();
+        $messages = Message::where('professor_id', Auth::user()->id)->orWhere('user_id', Auth::user()->id)->get();
         $message_titles = Schema::getColumnListing('messages');
         $message_titles = array_slice($message_titles, 0, 4);
         // dd($message_titles);
@@ -30,8 +31,9 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function message_submit (Request $request)
+    public function message_submit (Request $request, $id)
     {
+        // dd($id);
         $validator = Validator::make($request->all(),[
             // 'name' => 'required',
             // 'email' => 'required',
@@ -48,8 +50,11 @@ class MessageController extends Controller
         $newmessage->name = $request->name;
         $newmessage->email = $request->email;
         $newmessage->message = $request->message;
+        $newmessage->professor_id = Professor::find($id)->user->id;
 
         $newmessage->save();
+
+        // dd($newmessage);
 
         return redirect()->back()->with('success', 'Successfully sent Message');
     }

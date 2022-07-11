@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('study_level');
             $table->string('discipline');
             $table->string('favorite')->default("No");
+            $table->boolean('status')->default(false);
             $table->timestamps();
 
 

@@ -104,6 +104,46 @@ class UserSeeder extends Seeder
             'role_id'=> 2,
             'created_at' => now(),
         ]);
+        DB::table('users')->insert([
+            'name' => 'ROBERT LANDERSON',
+            'email' => 'robert2@landerson.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ROBERT LANDERSON',
+            'email' => 'robert3@landerson.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ROBERT LANDERSON',
+            'email' => 'robert4@landerson.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ROBERT LANDERSON',
+            'email' => 'robert5@landerson.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ROBERT LANDERSON',
+            'email' => 'robert6@landerson.com',
+            'password' => Hash::make('molengeek'),
+            'profile_pic' => '',
+            'role_id'=> 2,
+            'created_at' => now(),
+        ]);
     }
 }
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('professor_photo');
             $table->string('professor_name');
+            $table->foreignId("user_id")->constrained("users", "id")->OnDelete('cascade');
             $table->string('professor_title');
             $table->text('text1')->nullable();
             $table->string('textstrong');

@@ -19,6 +19,7 @@ class ProfessorSeeder extends Seeder
             [
             'professor_photo' => 'teacher-12.jpg',
             'professor_name' => 'Nick Smith',
+            'user_id' => 5,
             'professor_title' => 'Physic Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -39,6 +40,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-2.jpg',
             'professor_name' => 'John Rosado',
+            'user_id' => 6,
             'professor_title' => 'English Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -59,6 +61,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-4.jpg',
             'professor_name' => 'Maria Lehmann',
+            'user_id' => 7,
             'professor_title' => 'Design Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -79,6 +82,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-7.jpg',
             'professor_name' => 'Samuelles Delossantos',
+            'user_id' => 8,
             'professor_title' => 'Design Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -101,6 +105,7 @@ class ProfessorSeeder extends Seeder
             [
             'professor_photo' => 'teacher-12.jpg',
             'professor_name' => 'Nick Smith',
+            'user_id' => 9,
             'professor_title' => 'Physic Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -120,6 +125,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-2.jpg',
             'professor_name' => 'John Rosado',
+            'user_id' => 10,
             'professor_title' => 'English Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -139,6 +145,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-4.jpg',
             'professor_name' => 'Maria Lehmann',
+            'user_id' => 11,
             'professor_title' => 'Design Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -158,6 +165,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-7.jpg',
             'professor_name' => 'Samuelles Delossantos',
+            'user_id' => 12,
             'professor_title' => 'Design Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -178,6 +186,7 @@ class ProfessorSeeder extends Seeder
             [
             'professor_photo' => 'teacher-12.jpg',
             'professor_name' => 'Nick Smith',
+            'user_id' => 13,
             'professor_title' => 'Physic Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -197,6 +206,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-2.jpg',
             'professor_name' => 'John Rosado',
+            'user_id' => 14,
             'professor_title' => 'English Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -216,6 +226,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-4.jpg',
             'professor_name' => 'Maria Lehmann',
+            'user_id' => 15,
             'professor_title' => 'Design Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
@@ -235,6 +246,7 @@ class ProfessorSeeder extends Seeder
         DB::table('professors')->insert([
             'professor_photo' => 'teacher-7.jpg',
             'professor_name' => 'Samuelles Delossantos',
+            'user_id' => 16,
             'professor_title' => 'Design Teacher',
             'text1' => 'Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90\'s farm-to-table locavore seitan McSweeney\'s.',
             'textstrong' => 'Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.
