@@ -40,7 +40,7 @@
                         <td>{{ $item->professor_name }}</td>
                         <td>{{ $item->professor_title }}</td>
                         <td>{!! (Str::words($item->text1, '5')) !!}</td>
-                        <td>{!! (Str::words($item->strong, '5')) !!}</td>
+                        <td>{!! (Str::words($item->textstrong, '5')) !!}</td>
                         <td>{!! (Str::words($item->text1, '5')) !!}</td>
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->email }}</td>

@@ -168,7 +168,6 @@ Route::get('/news/news-design', function () {
 })->name('news-design');
 
 
-
 Route::get('/news/news-international', function () {
     $banners = Banner::all();
     $news_international = News::whereHas('categories', function($q)
@@ -296,11 +295,13 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
 
+    Route::resource('back/profiles', UserController::class);
+
     Route::middleware(['is_admin'])->group(function(){
 
         Route::resource('back/banners', BannerController::class);
 
-        Route::resource('back/profiles', UserController::class);
+
         Route::resource('back/services', ServiceController::class);
         Route::resource('back/professors', ProfessorController::class);
         Route::resource('back/contacts', ContactController::class);

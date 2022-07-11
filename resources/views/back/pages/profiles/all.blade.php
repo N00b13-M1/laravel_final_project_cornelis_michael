@@ -34,11 +34,11 @@
                     <th scope="col">{{ $user_profiles[6]}}</th>
                     <th scope="col"><i class="text-center fa fa-search" aria-hidden="true"></i>
                     </th>
-
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @if (Auth::user()->role_id == 1)
+                    @foreach ($users as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <th scope="row">{{ $item->name }}</th>
@@ -46,11 +46,25 @@
                         <th scope="row">{{ $item->password }}</th>
                         <th scope="row"><img src="{{asset($item->profile_pic) }}" alt="" class="w-50"></th>
                         <td>
-                            <a href="{{ route('profiles.show', $item) }}"><button class="btn btn-primary">Show</button>
+                            <a href="{{ route('profiles.show', $item->id) }}"><button class="btn btn-primary">Show</button>
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
+                @else
+                    <tr>
+                        <th scope="row">{{ $user->id }}</th>
+                        <th scope="row">{{ $user->name }}</th>
+                        <th scope="row">{{ $user->email}}</th>
+                        <th scope="row">{{ $user->password }}</th>
+                        <th scope="row"><img src="{{asset($user->profile_pic) }}" alt="" class="w-50"></th>
+                        <td>
+                            <a href="{{ route('profiles.show', $user->id) }}"><button class="btn btn-primary">Show</button>
+                            </a>
+                        </td>
+                    </tr>
+                @endif
+
             </tbody>
             <div class='text-center'>
                 <a href="{{ route("profiles.create") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>
@@ -58,3 +72,4 @@
         </table>
     </div>
 @endsection
+
