@@ -95,6 +95,8 @@ class UserController extends Controller
             // 'profile_pic' => 'required',
 		]);
 
+        
+
         $user = User::find($id);
 
         $user->name = $request->name;
@@ -104,7 +106,7 @@ class UserController extends Controller
 
 
         if($request->file('profile_pic')){
-            Storage::disk('public')->delete('/assets/images/' . $user->profile_pic);
+            // Storage::disk('public')->delete('/assets/images/' . $user->profile_pic);
 
             $user->profile_pic = $request->file('profile_pic')->hashName();
             $request->file('profile_pic')->storePublicly('/assets/images', 'public');

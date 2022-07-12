@@ -120,7 +120,6 @@ class NewsletterController extends Controller
     }
 
 
-
     public function create_subscriber ()
     {
         return view ('back.pages.message-center.create_subscriber');
@@ -129,7 +128,8 @@ class NewsletterController extends Controller
     public function create_interest ()
     {
         $users = User::all();
-        return view ('back.pages.message-center.create_interest', compact('users'));
+        $professors = User::where('role_id', "2")->get();
+        return view ('back.pages.message-center.create_interest', compact('users', 'professors'));
     }
 
     public function getDetails($id= 0)
@@ -194,13 +194,14 @@ class NewsletterController extends Controller
         $newinterests = Informationrequest::all();
         // dd($newsletters);
         $users = User::all();
+        $professors = User::where('role_id', "2")->get();
 
         $newinterest = Informationrequest::find($id);
         // dd($newinterest->id);
         $user = $newinterest->user;
         // dd($user);
 
-        return view ('back.pages.message-center.edit_interest', compact('newinterest', 'newinterests', 'users', 'user'));
+        return view ('back.pages.message-center.edit_interest', compact('newinterest', 'newinterests', 'users', 'professors', 'user'));
     }
 
 

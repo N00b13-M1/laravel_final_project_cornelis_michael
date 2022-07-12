@@ -117,7 +117,7 @@
             <div class="select mb-3">
                 <select name="professor_email" id="professor_email">
                     <option value="-1">Professor Email</option>
-                    @foreach ($users as $item)
+                    @foreach ($professors as $item)
                     <option value="{{ $item->email }}">{{ $item->email }}</option>
                     @endforeach
                 </select>
