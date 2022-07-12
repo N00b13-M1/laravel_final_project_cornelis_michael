@@ -13,3 +13,4 @@ class Address extends Model
         "address"
     ];
 }
+

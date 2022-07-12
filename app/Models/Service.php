@@ -15,4 +15,6 @@ class Service extends Model
         'description'
     ];
 
+    protected $guarded = ['id'];
+
 }

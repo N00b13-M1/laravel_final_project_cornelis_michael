@@ -13,6 +13,8 @@ class Tag extends Model
         'tag_desc',
     ];
 
+    protected $guarded = ['id'];
+
     public function news()
     {
         return $this->belongsToMany(News::class);

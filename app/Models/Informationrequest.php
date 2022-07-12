@@ -19,6 +19,8 @@ class Informationrequest extends Model
         'professor_email'
     ];
 
+    protected $guarded = ['id'];
+
     public function user()
     {
         return $this->belongsTo(User::class);

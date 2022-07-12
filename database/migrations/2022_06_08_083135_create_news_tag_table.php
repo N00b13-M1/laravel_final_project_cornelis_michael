@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('news_tag', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('news_id')->constrained()->onDelete('cascade');
-            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            $table->foreignId('news_id')->constrained("news", "id")->onDelete('cascade');
+            $table->foreignId('tag_id')->constrained("tags", "id")->onDelete('cascade');
             // $table->integer('news_id')->unsigned();
             // $table->foreignId('news_id')->references("id")->on('news');
             // $table->integer('tag_id')->unsigned();

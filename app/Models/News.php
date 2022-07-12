@@ -20,6 +20,8 @@ class News extends Model
         'text2',
     ];
 
+    protected $guarded = ['id'];
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
@@ -34,5 +36,10 @@ class News extends Model
 
         return $this->hasMany(Comment::class);
     }
+
+    public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 }
 

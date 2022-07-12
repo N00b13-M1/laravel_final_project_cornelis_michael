@@ -12,4 +12,6 @@ class Contact extends Model
     protected $fillable = [
         'address',
     ];
+
+    protected $guarded = ['id'];
 }

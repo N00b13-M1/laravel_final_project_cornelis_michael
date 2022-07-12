@@ -22,7 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'profile_pic',
-        'role_id'
+
     ];
 
 
@@ -53,8 +53,12 @@ class User extends Authenticatable
         return $this->hasMany(Informationrequest::class);
     }
 
+    public function news(){
+        return $this->hasMany(News::class);
+    }
+
     public function comments(){
-       return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function messages(){
@@ -68,6 +72,11 @@ class User extends Authenticatable
     public function professor(){
         return $this->hasOne(Professor::class);
     }
-}
 
+    public function events()
+	{
+		return $this->hasMany(Event::class);
+	}
+
+}
 

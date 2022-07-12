@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('profile_pic')->default('avatar.png');
-            $table->foreignId('role_id')->constrained('roles', "id");
+            $table->foreignId('role_id')->constrained("roles", "id")->onDelete('cascade');
             $table->timestamps();
         });
     }

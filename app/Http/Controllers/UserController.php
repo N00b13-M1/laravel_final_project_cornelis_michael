@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -125,8 +126,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id, User $user)
     {
+        Comment::where('comments.user_id', $id)->delete();
+        $user = User::find($id);
         $user->delete();
         return redirect()->route('profiles.index')->with("delete", "Successfully Deleted");
     }

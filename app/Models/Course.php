@@ -29,6 +29,8 @@ class Course extends Model
         'favorite',
     ];
 
+    protected $guarded = ['id'];
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
