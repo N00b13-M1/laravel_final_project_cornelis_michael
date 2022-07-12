@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class UserController extends Controller
@@ -29,8 +30,6 @@ class UserController extends Controller
             $user_profiles = Schema::getColumnListing('users');
             return view('back.pages.profiles.all', compact('users', 'user_profiles'));
         }
-
-
 
     }
 
@@ -61,8 +60,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id, User $user)
     {
+        $user = User::find($id);
         return view('back.pages.profiles.show', compact('user'));
     }
 
@@ -74,7 +74,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('back.pages.profiles.edit', compact('user'));
     }
 
     /**
@@ -86,7 +87,36 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+			'name' => 'required',
+			'email' => 'required',
+            'password' => 'required',
+            // 'profile_pic' => 'required',
+		]);
+
+        $user = User::find($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+
+
+        if($request->file('profile_pic')){
+            Storage::disk('public')->delete('/assets/images/' . $user->profile_pic);
+
+            $user->profile_pic = $request->file('profile_pic')->hashName();
+            $request->file('profile_pic')->storePublicly('/assets/images', 'public');
+        }
+        else{
+            $user->profile_pic = $user->profile_pic;
+        }
+
+        $user->updated_at = now();
+
+        $user->save();
+
+        return redirect()->route('profiles.index')->with("update", "Successfully Updated");
     }
 
     /**
@@ -97,7 +127,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        return view('back.pages.profiles.index', compact('user'));
+        $user->delete();
+        return redirect()->route('profiles.index')->with("delete", "Successfully Deleted");
     }
 }
 

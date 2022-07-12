@@ -44,7 +44,7 @@
                         <th scope="row">{{ $item->name }}</th>
                         <th scope="row">{{ $item->email}}</th>
                         <th scope="row">{{ $item->password }}</th>
-                        <th scope="row"><img src="{{asset($item->profile_pic) }}" alt="" class="w-50"></th>
+                        <th scope="row"><img src="{{ asset('/assets/images/' . $item->profile_pic) }}" alt="" class="w-50"></th>
                         <td>
                             <a href="{{ route('profiles.show', $item->id) }}"><button class="btn btn-primary">Show</button>
                             </a>
@@ -57,14 +57,13 @@
                         <th scope="row">{{ $user->name }}</th>
                         <th scope="row">{{ $user->email}}</th>
                         <th scope="row">{{ $user->password }}</th>
-                        <th scope="row"><img src="{{asset($user->profile_pic) }}" alt="" class="w-50"></th>
+                        <th scope="row"><img src="{{ asset('/assets/images/' . $user->profile_pic) }}" alt="" class="w-50"></th>
                         <td>
                             <a href="{{ route('profiles.show', $user->id) }}"><button class="btn btn-primary">Show</button>
                             </a>
                         </td>
                     </tr>
                 @endif
-
             </tbody>
             <div class='text-center'>
                 <a href="{{ route("profiles.create") }}"><button class="btn btn-success bg-success w-50 m-2">Create</button></a>

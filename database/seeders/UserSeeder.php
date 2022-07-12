@@ -20,7 +20,6 @@ class UserSeeder extends Seeder
             'name' => 'PersonA',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 1,
             'created_at' => now(),
         ]);
@@ -28,7 +27,6 @@ class UserSeeder extends Seeder
             'name' => 'PersonB',
             'email' => 'professor@gmail.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -36,7 +34,6 @@ class UserSeeder extends Seeder
             'name' => 'PersonC',
             'email' => 'editor@gmail.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 3,
             'created_at' => now(),
         ]);
@@ -44,7 +41,6 @@ class UserSeeder extends Seeder
             'name' => 'PersonD',
             'email' => 'member@gmail.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 4,
             'created_at' => now(),
         ]);
@@ -52,7 +48,6 @@ class UserSeeder extends Seeder
             'name' => 'NICK SMITH',
             'email' => 'nick@smith.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -60,7 +55,6 @@ class UserSeeder extends Seeder
             'name' => 'JOHN ROSADO',
             'email' => 'john@rosado.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -68,7 +62,6 @@ class UserSeeder extends Seeder
             'name' => 'SAMUEL DELOSSANTOS',
             'email' => 'samuel@delossantos.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -76,7 +69,6 @@ class UserSeeder extends Seeder
             'name' => 'JOHN SMITH            ',
             'email' => 'john@smith.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -84,7 +76,6 @@ class UserSeeder extends Seeder
             'name' => 'ENDRIS FLENDERNO',
             'email' => 'endris@flenderno.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -92,7 +83,6 @@ class UserSeeder extends Seeder
             'name' => 'MARCOS MARRISON',
             'email' => 'marcos@marrison.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -100,7 +90,6 @@ class UserSeeder extends Seeder
             'name' => 'ROBERT LANDERSON',
             'email' => 'robert@landerson.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -108,7 +97,6 @@ class UserSeeder extends Seeder
             'name' => 'ROBERT LANDERSON',
             'email' => 'robert2@landerson.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -116,7 +104,6 @@ class UserSeeder extends Seeder
             'name' => 'ROBERT LANDERSON',
             'email' => 'robert3@landerson.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -124,7 +111,6 @@ class UserSeeder extends Seeder
             'name' => 'ROBERT LANDERSON',
             'email' => 'robert4@landerson.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -132,7 +118,6 @@ class UserSeeder extends Seeder
             'name' => 'ROBERT LANDERSON',
             'email' => 'robert5@landerson.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
@@ -140,7 +125,6 @@ class UserSeeder extends Seeder
             'name' => 'ROBERT LANDERSON',
             'email' => 'robert6@landerson.com',
             'password' => Hash::make('molengeek'),
-            'profile_pic' => '',
             'role_id'=> 2,
             'created_at' => now(),
         ]);
