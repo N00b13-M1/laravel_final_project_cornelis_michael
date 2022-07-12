@@ -77,6 +77,7 @@ class MessageController extends Controller
         $newmessage->name = $request->name;
         $newmessage->email = $request->email;
         $newmessage->message = $request->message;
+        $newmessage->professor_id = 1;
 
         $newmessage->save();
 

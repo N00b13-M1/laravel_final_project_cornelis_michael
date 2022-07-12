@@ -20,6 +20,8 @@
                             <br>
                             <br>
                             <p class="border border-1">Received {{ $message->created_at->diffForHumans() }}</p>
+                            {{-- <p class="border border-1">To: {{ $message->professor->professor_name }}</p> --}}
+
                         </div>
                         <br>
                         @endforeach
