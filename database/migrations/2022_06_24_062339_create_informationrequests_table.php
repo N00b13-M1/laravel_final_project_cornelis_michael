@@ -23,6 +23,10 @@ return new class extends Migration
             $table->time('time')->nullable();
             $table->string('professor_email')->nullable();
             $table->foreignId("user_id")->constrained("users", "id")->OnDelete('cascade');
+
+            //NEW
+            $table->foreignId("professor_id")->constrained("professors", "id")->OnDelete('cascade');
+
             $table->timestamps();
         });
     }

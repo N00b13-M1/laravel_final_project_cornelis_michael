@@ -37,6 +37,15 @@
                 <label for="event_desc" class="form-label">Event Description</label>
                 <input type="text" class="form-control" id="event_desc" name="event_desc" value="{{ $event->event_desc }}" readonly>
             </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Approved Status</label>
+                <input type="boolean" class="form-control" id="status" name="status"
+                @if ($event->status == true)
+                value="Yes"
+                @else
+                value="No"
+                @endif readonly>
+            </div>
             <button type="submit" class="btn btn-primary m-2"><a href="{{ route('events.index') }}"></a>Return</button>
         </form>
         <td>

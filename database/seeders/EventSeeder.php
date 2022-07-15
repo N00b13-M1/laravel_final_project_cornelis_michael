@@ -25,6 +25,8 @@ class EventSeeder extends Seeder
             'event_name' => "The name of a great<br>band",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 1,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -37,6 +39,8 @@ class EventSeeder extends Seeder
             'event_name' => "Building Blocks – York’s<br>Pension Plan",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 1,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -49,6 +53,8 @@ class EventSeeder extends Seeder
             'event_name' => "Filming Objects And<br>Sculpture",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 1,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -61,6 +67,8 @@ class EventSeeder extends Seeder
             'event_name' => "Filming Objects And<br>Projects",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 2,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -73,6 +81,8 @@ class EventSeeder extends Seeder
             'event_name' => "Public and Patient Involvment<br>Health Research",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 2,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -85,6 +95,8 @@ class EventSeeder extends Seeder
             'event_name' => "Balancing Economic and<br>transformation",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 2,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -97,6 +109,8 @@ class EventSeeder extends Seeder
             'event_name' => "Suad Amiry and Susan Abulhawa<br>in corvesation",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 3,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -108,6 +122,8 @@ class EventSeeder extends Seeder
             'circle_txt' => "18<span>Dec</span>",
             'event_name' => "Flu Shots for Employees:<br>Manhattanville",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap tattooed.",
+            'status' => true,
+            'user_id' => 3,
             'created_at' => now(),
         ]);
         DB::table('events')->insert([
@@ -120,6 +136,8 @@ class EventSeeder extends Seeder
             'event_name' => "The Healthy Dancer Balance<br>On &amp; Off stage",
             'event_desc' => "Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic Wes Anderson fap
             tattooed.",
+            'status' => true,
+            'user_id' => 3,
             'created_at' => now(),
         ]);
 

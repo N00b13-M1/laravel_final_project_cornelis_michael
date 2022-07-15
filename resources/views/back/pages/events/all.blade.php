@@ -43,6 +43,11 @@
                         <td>{{ $item->circle_txt }}</td>
                         <td>{{ $item->event_name }}</td>
                         <td>{{ $item->event_desc }}</td>
+                        @if ( $item->status == true)
+                            <td>True</td>
+                        @else
+                        <td>False</td>
+                        @endif
                         <td>
                             <a href="{{ route('events.show', $item) }}"><button class="btn btn-primary">Show</button>
                             </a>
@@ -56,3 +61,4 @@
         </table>
     </div>
 @endsection
+

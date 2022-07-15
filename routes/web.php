@@ -295,6 +295,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/dashboard/messages', [MessageController::class, 'index'])->middleware(['auth'])->name('messages');
 
+    Route::get('/dashboard/courses', [MessageController::class, 'index'])->middleware(['auth'])->name('courses');
+    Route::get('/dashboard/appointments', [MessageController::class, 'index'])->middleware(['auth'])->name('appointments');
+
     Route::resource('back/profiles', UserController::class);
 
     Route::middleware(['is_admin'])->group(function(){

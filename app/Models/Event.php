@@ -18,7 +18,10 @@ class Event extends Model
         'circle_txt',
         'event_name',
         'event_desc',
+        'status',
     ];
+
+
 
     protected $guarded = ['id'];
 

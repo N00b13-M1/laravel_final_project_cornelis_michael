@@ -183,7 +183,11 @@ class NewsletterController extends Controller
         $newinterest->professor_email = $request->professor_email;
 
 
-        $newinterest->save();
+        if($newinterest->save()){
+            Mail::to($newinterest->email)->send(new RequestInfoSubmitter ($newinterest));
+
+            Mail::to($newinterest->professor_email)->send(new RequestInfoProfessor ($newinterest));
+        }
 
         return redirect()->route('message-center')->with('success', 'Successfully sent Info request');
     }

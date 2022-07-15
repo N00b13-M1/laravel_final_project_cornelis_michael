@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EventMail;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -21,7 +23,7 @@ class EventController extends Controller
     {
         $events = Event::all();
         $event_titles = Schema::getColumnListing('events');
-        $event_titles = array_slice($event_titles, 0, 9);
+        $event_titles = array_slice($event_titles, 0, 10);
         // dd($event_titles);
         return view ('back.pages.events.all', compact('events', 'event_titles'));
     }
@@ -52,7 +54,8 @@ class EventController extends Controller
             'when' => 'required',
             'circle_txt' => 'required',
             'event_name' => 'required',
-            'event_desc' => 'required'
+            'event_desc' => 'required',
+            'status' => 'required',
 		]);
 
         $event = New Event;
@@ -65,6 +68,8 @@ class EventController extends Controller
         $event->circle_txt = $request->circle_txt;
         $event->event_name = $request->event_name;
         $event->event_desc = $request->event_desc;
+        $event->status = $request->status;
+        $event->user_id = Auth::user()->id;
 
         $event->save();
 
@@ -120,7 +125,8 @@ class EventController extends Controller
             'when' => 'required',
             'circle_txt' => 'required',
             'event_name' => 'required',
-            'event_desc' => 'required'
+            'event_desc' => 'required',
+            'status' => 'required',
 		]);
 
         if($request->file('img')){
@@ -140,6 +146,7 @@ class EventController extends Controller
         $event->circle_txt = $request->circle_txt;
         $event->event_name = $request->event_name;
         $event->event_desc = $request->event_desc;
+        $event->status = $request->status;
         $event->updated_at = now();
 
         $event->save();
@@ -161,3 +168,4 @@ class EventController extends Controller
 
     }
 }
+

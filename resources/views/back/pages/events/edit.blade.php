@@ -51,8 +51,19 @@
                 <label for="event_desc" class="form-label">Event Description</label>
                 <input type="text" class="form-control" id="event_desc" name="event_desc" value="{{ old('event_desc') ? old('event_desc') : $event->event_desc }}">
             </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <div class="input-select">
+                    <select name="status" id="status">
+                        <option value="-1">Approved Status</option>
+                        <option value="true" {{ $event->status == true ? "selected" : "" }}>True</option>
+                        <option value="false" {{ $event->status == false ? "selected" : ""}}>False</option>
+                    </select>
+                </div>
+            </div>
             <button type="submit" class="btn btn-success m-2">Save</button>
         </form>
 
     </div>
 @endsection
+

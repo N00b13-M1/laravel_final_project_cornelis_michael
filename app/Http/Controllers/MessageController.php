@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informationrequest;
 use App\Models\Message;
 use App\Models\Professor;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::where('professor_id', Auth::user()->id)->orWhere('user_id', Auth::user()->id)->get();
+        // $appointments = Informationrequest::where
         $message_titles = Schema::getColumnListing('messages');
         $message_titles = array_slice($message_titles, 0, 4);
         // dd($message_titles);

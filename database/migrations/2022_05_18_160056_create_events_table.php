@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('circle_txt');
             $table->string('event_name');
             $table->string('event_desc');
+            $table->boolean('status')->default(false);
+            $table->foreignId('user_id')->constrained("users", "id")->onDelete("cascade");
             $table->timestamps();
         });
     }
